@@ -12,6 +12,23 @@ Flags:
       --version           display version
 ```
 
+## Examples
+
+Search for puppies on google.
+```
+s puppies
+```
+
+Search for a wifi router on amazon
+```
+s -p amazon wifi router
+```
+
+Search for rhinos on wikipedia
+```
+s -p wikipedia rhinos
+```
+
 ## Install
 
 ```
@@ -19,6 +36,14 @@ go get -v github.com/zquestz/s
 cd $GOPATH/src/github.com/zquestz/s
 make
 make install
+```
+
+## Advanced
+
+Setup an alias in your `.profile` for your favorite providers.
+```
+alias sa="s -p amazon"
+alias sw="s -p wikipedia"
 ```
 
 #### Notice
