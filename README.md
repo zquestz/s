@@ -29,6 +29,15 @@ Search for rhinos on wikipedia
 s -p wikipedia rhinos
 ```
 
+## Supported Providers
+
+* amazon
+* bing
+* duckduckgo
+* google
+* wikipedia
+* yahoo
+
 ## Install
 
 ```
