@@ -35,7 +35,7 @@ func Search(p string, q string, verbose bool) {
 		if verbose {
 			fmt.Printf("%s\n", url)
 		}
-		launcher.OpenURI(url, verbose)
+		launcher.OpenURI(url)
 	} else {
 		fmt.Printf("Provider %q not supported!\n", p)
 	}

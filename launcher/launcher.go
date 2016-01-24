@@ -8,7 +8,7 @@ import (
 )
 
 // OpenURI opens a given uri in a web browser.
-func OpenURI(uri string, verbose bool) {
+func OpenURI(uri string) {
 	cmd := exec.Command("exo-open", uri)
 	err := cmd.Start()
 	if err != nil {
