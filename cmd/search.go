@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"fmt"
+	"os"
 	"strings"
 
 	"github.com/spf13/cobra"
@@ -28,6 +29,7 @@ var SearchCmd = &cobra.Command{
 		err := performCommand(args)
 		if err != nil {
 			cmd.Help()
+			os.Exit(1)
 		}
 	},
 }
