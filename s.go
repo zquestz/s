@@ -9,6 +9,7 @@ import (
 	_ "github.com/zquestz/s/providers/bing"
 	_ "github.com/zquestz/s/providers/duckduckgo"
 	_ "github.com/zquestz/s/providers/google"
+	_ "github.com/zquestz/s/providers/reddit"
 	_ "github.com/zquestz/s/providers/wikipedia"
 	_ "github.com/zquestz/s/providers/yahoo"
 
