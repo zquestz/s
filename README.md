@@ -36,6 +36,7 @@ s -p wikipedia rhinos
 * duckduckgo
 * google
 * reddit
+* twitter
 * wikipedia
 * yahoo
 
