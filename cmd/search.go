@@ -11,7 +11,7 @@ import (
 
 const (
 	appName = "s"
-	version = "0.1.3"
+	version = "0.1.4"
 )
 
 // Flag variables
