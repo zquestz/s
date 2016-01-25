@@ -11,7 +11,10 @@ import (
 	_ "github.com/zquestz/s/providers/dockerhub"
 	_ "github.com/zquestz/s/providers/duckduckgo"
 	_ "github.com/zquestz/s/providers/github"
+	_ "github.com/zquestz/s/providers/go"
 	_ "github.com/zquestz/s/providers/google"
+	_ "github.com/zquestz/s/providers/npm"
+	_ "github.com/zquestz/s/providers/npmsearch"
 	_ "github.com/zquestz/s/providers/pinterest"
 	_ "github.com/zquestz/s/providers/reddit"
 	_ "github.com/zquestz/s/providers/soundcloud"
@@ -19,8 +22,6 @@ import (
 	_ "github.com/zquestz/s/providers/twitter"
 	_ "github.com/zquestz/s/providers/wikipedia"
 	_ "github.com/zquestz/s/providers/yahoo"
-	_ "github.com/zquestz/s/providers/npm"
-	_ "github.com/zquestz/s/providers/npmsearch"
 
 	"github.com/zquestz/s/cmd"
 )
