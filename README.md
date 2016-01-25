@@ -37,7 +37,10 @@ s -p wikipedia rhinos
 * dockerhub
 * duckduckgo
 * github
+* go
 * google
+* npm
+* npmsearch
 * pinterest
 * reddit
 * soundcloud
@@ -45,6 +48,7 @@ s -p wikipedia rhinos
 * twitter
 * wikipedia
 * yahoo
+* youtube
 
 ## Install
 
