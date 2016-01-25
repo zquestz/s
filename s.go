@@ -22,6 +22,7 @@ import (
 	_ "github.com/zquestz/s/providers/twitter"
 	_ "github.com/zquestz/s/providers/wikipedia"
 	_ "github.com/zquestz/s/providers/yahoo"
+	_ "github.com/zquestz/s/providers/youtube"
 
 	"github.com/zquestz/s/cmd"
 )
