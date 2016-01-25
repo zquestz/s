@@ -37,6 +37,7 @@ s -p wikipedia rhinos
 * dockerhub
 * duckduckgo
 * github
+* gist
 * go
 * google
 * npm
@@ -70,6 +71,8 @@ alias sw="s -p wikipedia"
 #### Contributors
 
 * Josh Ellithorpe (zquestz)
+* Christian Petersen (fnky)
+* Preet Bhinder (mbhinder)
 
 #### License
 
