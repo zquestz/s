@@ -19,6 +19,8 @@ import (
 	_ "github.com/zquestz/s/providers/twitter"
 	_ "github.com/zquestz/s/providers/wikipedia"
 	_ "github.com/zquestz/s/providers/yahoo"
+	_ "github.com/zquestz/s/providers/npm"
+	_ "github.com/zquestz/s/providers/npmsearch"
 
 	"github.com/zquestz/s/cmd"
 )
