@@ -70,9 +70,9 @@ alias sw="s -p wikipedia"
 
 #### Contributors
 
-* Josh Ellithorpe (zquestz)
-* Christian Petersen (fnky)
-* Preet Bhinder (mbhinder)
+* [Josh Ellithorpe (zquestz)](https://github.com/zquestz/)
+* [Christian Petersen (fnky)](https://github.com/fnky/)
+* [Preet Bhinder (mbhinder)](https://github.com/mbhinder/)
 
 #### License
 
