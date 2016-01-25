@@ -9,7 +9,7 @@ import (
 
 // OpenURI opens a given uri in a web browser.
 func OpenURI(uri string) {
-	cmd := exec.Command("exo-open", uri)
+	cmd := exec.Command("xdg-open", uri)
 	err := cmd.Start()
 	if err != nil {
 		fmt.Errorf("%s\n", err)
