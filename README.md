@@ -67,6 +67,10 @@ alias sa="s -p amazon"
 alias sw="s -p wikipedia"
 ```
 
-#### Notice
+#### Contributors
 
-Copyright 2016 Josh Ellithorpe. All rights reserved.
+* Josh Ellithorpe (zquestz)
+
+#### License
+
+s is released under the MIT license.
