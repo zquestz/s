@@ -33,9 +33,12 @@ s -p wikipedia rhinos
 
 * amazon
 * bing
+* dockerhub
 * duckduckgo
+* github
 * google
 * reddit
+* stackoverflow
 * twitter
 * wikipedia
 * yahoo
