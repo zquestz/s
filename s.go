@@ -22,6 +22,7 @@ import (
 	_ "github.com/zquestz/s/providers/quora"
 	_ "github.com/zquestz/s/providers/reddit"
 	_ "github.com/zquestz/s/providers/soundcloud"
+	_ "github.com/zquestz/s/providers/spotify"
 	_ "github.com/zquestz/s/providers/stackoverflow"
 	_ "github.com/zquestz/s/providers/twitter"
 	_ "github.com/zquestz/s/providers/wikipedia"

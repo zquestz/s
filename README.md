@@ -49,6 +49,7 @@ s -p wikipedia rhinos
 * quora
 * reddit
 * soundcloud
+* spotify
 * stackoverflow
 * twitter
 * wikipedia
