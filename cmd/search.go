@@ -11,7 +11,7 @@ import (
 
 const (
 	appName = "s"
-	version = "0.1.7"
+	version = "0.1.8"
 )
 
 // Flag variables
@@ -19,6 +19,7 @@ var displayVersion bool
 var verbose bool
 var provider string
 var listProviders bool
+var binary string
 
 // Main command for Cobra.
 var SearchCmd = &cobra.Command{
@@ -47,6 +48,8 @@ func prepareFlags() {
 		&provider, "provider", "p", "google", "set search provider")
 	SearchCmd.PersistentFlags().BoolVarP(
 		&listProviders, "list-providers", "l", false, "list supported providers")
+	SearchCmd.PersistentFlags().StringVarP(
+		&binary, "binary", "b", "", "binary to launch search uri")
 }
 
 // Where all the work happens.
@@ -64,7 +67,7 @@ func performCommand(args []string) error {
 	query := strings.Join(args, " ")
 
 	if query != "" {
-		providers.Search(provider, query, verbose)
+		providers.Search(binary, provider, query, verbose)
 		return nil
 	} else {
 		// We don't display this, as the help screen is more useful.

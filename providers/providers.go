@@ -3,6 +3,7 @@ package providers
 import (
 	"fmt"
 	"sort"
+	"strings"
 
 	"github.com/zquestz/s/launcher"
 )
@@ -27,7 +28,7 @@ func AddProvider(name string, provider Provider) {
 }
 
 // Search builds a search URL and opens it in your browser.
-func Search(p string, q string, verbose bool) {
+func Search(binary string, p string, q string, verbose bool) {
 	builder := Providers[p]
 
 	if builder != nil {
@@ -35,7 +36,7 @@ func Search(p string, q string, verbose bool) {
 		if verbose {
 			fmt.Printf("%s\n", url)
 		}
-		launcher.OpenURI(url)
+		launcher.OpenURI(binary, url)
 	} else {
 		fmt.Printf("Provider %q not supported!\n", p)
 	}
@@ -51,11 +52,5 @@ func DisplayProviders() string {
 
 	sort.Strings(names)
 
-	output := ""
-
-	for _, p := range names {
-		output = output + fmt.Sprintf("%s\n", p)
-	}
-
-	return output
+	return fmt.Sprintf("%s\n", strings.Join(names, "\n"))
 }

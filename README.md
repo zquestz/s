@@ -6,6 +6,7 @@ Usage:
   s <query> [flags]
 
 Flags:
+  -b, --binary string     binary to launch search uri
   -l, --list-providers    list supported providers
   -p, --provider string   set search provider (default "google")
   -v, --verbose           display url when opening
