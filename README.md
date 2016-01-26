@@ -45,6 +45,7 @@ s -p wikipedia rhinos
 * google
 * npm
 * npmsearch
+* packagist
 * pinterest
 * quora
 * reddit
