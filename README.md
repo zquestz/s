@@ -43,6 +43,7 @@ s -p wikipedia rhinos
 * gist
 * go
 * google
+* kickasstorrents
 * npm
 * npmsearch
 * packagist
@@ -51,6 +52,7 @@ s -p wikipedia rhinos
 * reddit
 * soundcloud
 * stackoverflow
+* thepiratebay
 * twitter
 * wikipedia
 * yahoo
