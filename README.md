@@ -70,6 +70,11 @@ We can do partial matching of provider names. This searches Facebook for hamster
 s -p f hamsters
 ```
 
+Or toasters on amazon.
+```
+s -p a toasters
+```
+
 ## Advanced
 
 Setup an alias in your `.profile` for your favorite providers.
