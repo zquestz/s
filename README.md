@@ -43,6 +43,7 @@ s -p wikipedia rhinos
 * gist
 * go
 * google
+* hackernews
 * npm
 * npmsearch
 * pinterest
