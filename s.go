@@ -28,6 +28,7 @@ import (
 	_ "github.com/zquestz/s/providers/php"
 	_ "github.com/zquestz/s/providers/quora"
 	_ "github.com/zquestz/s/providers/reddit"
+	_ "github.com/zquestz/s/providers/rubygems"
 	_ "github.com/zquestz/s/providers/soundcloud"
 	_ "github.com/zquestz/s/providers/stackoverflow"
 	_ "github.com/zquestz/s/providers/thepiratebay"
