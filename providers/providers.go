@@ -33,7 +33,7 @@ func AddProvider(name string, provider Provider) {
 func Search(binary string, p string, q string, verbose bool) {
 	prov, err := ExpandProvider(p)
 	if err != nil {
-		fmt.Fprintf(os.Stdout, "%s\n", err)
+		fmt.Fprintln(os.Stderr, err)
 		os.Exit(1)
 	}
 
@@ -46,7 +46,7 @@ func Search(binary string, p string, q string, verbose bool) {
 		}
 		launcher.OpenURI(binary, url)
 	} else {
-		fmt.Printf("Provider %q not supported!\n", prov)
+		fmt.Fprintf(os.Stderr, "Provider %q not supported!\n", prov)
 	}
 }
 
@@ -71,7 +71,7 @@ func ExpandProvider(provider string) (string, error) {
 
 	switch len(validProviders) {
 	case 0:
-		return "", fmt.Errorf("No valid provider found for %q", provider)
+		return "", fmt.Errorf("No provider found for %q", provider)
 	case 1:
 		return validProviders[0], nil
 	default:
