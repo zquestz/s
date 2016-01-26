@@ -44,6 +44,7 @@ s -p wikipedia rhinos
 * npm
 * npmsearch
 * pinterest
+* quora
 * reddit
 * soundcloud
 * stackoverflow
@@ -74,6 +75,7 @@ alias sw="s -p wikipedia"
 * [Josh Ellithorpe (zquestz)](https://github.com/zquestz/)
 * [Christian Petersen (fnky)](https://github.com/fnky/)
 * [Preet Bhinder (mbhinder)](https://github.com/mbhinder/)
+* [Vitor Cortez (vekat)](https://github.com/vekat/)
 
 #### License
 
