@@ -33,6 +33,7 @@ s -p wikipedia rhinos
 ## Supported Providers
 
 * amazon
+* baidu
 * bing
 * digg
 * dockerhub
@@ -50,8 +51,8 @@ s -p wikipedia rhinos
 * npm
 * npmsearch
 * packagist
-* pinterest
 * php
+* pinterest
 * quora
 * reddit
 * soundcloud
@@ -60,6 +61,7 @@ s -p wikipedia rhinos
 * twitter
 * wikipedia
 * yahoo
+* yandex
 * youtube
 
 ## Install
