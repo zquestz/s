@@ -39,8 +39,10 @@ s -p wikipedia rhinos
 * duckduckgo
 * dumpert
 * facebook
+* flickr
 * github
 * gist
+* gmail
 * go
 * godoc
 * google
@@ -101,6 +103,7 @@ s -b w3m cats
 * [Preet Bhinder (mbhinder)](https://github.com/mbhinder/)
 * [Robert-Jan Keizer (KeizerDev)](https://github.com/KeizerDev/)
 * [Vitor Cortez (vekat)](https://github.com/vekat/)
+* [David Liu (tw4dl)](https://github.com/tw4dl/)
 
 #### License
 
