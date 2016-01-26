@@ -55,6 +55,7 @@ s -p wikipedia rhinos
 * pinterest
 * quora
 * reddit
+* rubygems
 * soundcloud
 * stackoverflow
 * thepiratebay
