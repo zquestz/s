@@ -18,7 +18,7 @@ import (
 	_ "github.com/zquestz/s/providers/google"
 	_ "github.com/zquestz/s/providers/npm"
 	_ "github.com/zquestz/s/providers/npmsearch"
-	_ "github.com/zquestz/s/providers/packagistsearch"
+	_ "github.com/zquestz/s/providers/packagist"
 	_ "github.com/zquestz/s/providers/pinterest"
 	_ "github.com/zquestz/s/providers/quora"
 	_ "github.com/zquestz/s/providers/reddit"
