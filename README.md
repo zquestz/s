@@ -42,12 +42,14 @@ s -p wikipedia rhinos
 * github
 * gist
 * go
+* godoc
 * google
 * kickasstorrents
 * npm
 * npmsearch
 * packagist
 * pinterest
+* php
 * quora
 * reddit
 * soundcloud
