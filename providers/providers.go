@@ -28,7 +28,7 @@ func AddProvider(name string, provider Provider) {
 }
 
 // Search builds a search URL and opens it in your browser.
-func Search(binary string, p string, q string, verbose bool) {
+func Search(binary string, p string, q string, verbose bool) error {
 	builder := Providers[p]
 
 	if builder != nil {
@@ -36,10 +36,9 @@ func Search(binary string, p string, q string, verbose bool) {
 		if verbose {
 			fmt.Printf("%s\n", url)
 		}
-		launcher.OpenURI(binary, url)
-	} else {
-		fmt.Printf("Provider %q not supported!\n", p)
+		return launcher.OpenURI(binary, url)
 	}
+	return fmt.Errorf("Provider %q not supported!", p)
 }
 
 // DisplayProviders displays all the loaded providers.
@@ -52,5 +51,5 @@ func DisplayProviders() string {
 
 	sort.Strings(names)
 
-	return fmt.Sprintf("%s\n", strings.Join(names, "\n"))
+	return strings.Join(names, "\n") + "\n"
 }
