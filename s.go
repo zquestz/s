@@ -6,6 +6,7 @@ import (
 
 	// Load necessary providers.
 	_ "github.com/zquestz/s/providers/amazon"
+	_ "github.com/zquestz/s/providers/baidu"
 	_ "github.com/zquestz/s/providers/bing"
 	_ "github.com/zquestz/s/providers/digg"
 	_ "github.com/zquestz/s/providers/dockerhub"
@@ -26,6 +27,7 @@ import (
 	_ "github.com/zquestz/s/providers/twitter"
 	_ "github.com/zquestz/s/providers/wikipedia"
 	_ "github.com/zquestz/s/providers/yahoo"
+	_ "github.com/zquestz/s/providers/yandex"
 	_ "github.com/zquestz/s/providers/youtube"
 
 	"github.com/zquestz/s/cmd"
