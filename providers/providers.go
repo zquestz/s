@@ -64,6 +64,11 @@ func ExpandProvider(provider string) (string, error) {
 
 	validProviders := []string{}
 	for _, n := range names {
+		// Exact match returns immediately.
+		if n == provider {
+			return n, nil
+		}
+
 		if r.Match([]byte(n)) {
 			validProviders = append(validProviders, n)
 		}

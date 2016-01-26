@@ -63,6 +63,13 @@ make
 make install
 ```
 
+## Provider Expansion
+
+We can do partial matching of provider names. This searches Facebook for hamsters.
+```
+s -p f hamsters
+```
+
 ## Advanced
 
 Setup an alias in your `.profile` for your favorite providers.
