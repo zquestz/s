@@ -4,7 +4,6 @@ package launcher
 
 import (
 	"fmt"
-	"os"
 	"os/exec"
 )
 
@@ -15,14 +14,6 @@ func OpenURI(binary string, uri string) error {
 	}
 
 	cmd := exec.Command("rundll32", "url.dll,FileProtocolHandler", uri)
-
-	// Only attach output to custom binaries.
-	if binary != "" {
-		cmd.Stdin = os.Stdin
-		cmd.Stdout = os.Stdout
-		cmd.Stderr = os.Stderr
-	}
-
 	err := cmd.Run()
 	if err != nil {
 		return err
