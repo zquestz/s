@@ -13,6 +13,15 @@ Flags:
       --version           display version
 ```
 
+## Install
+
+```
+go get -v github.com/zquestz/s
+cd $GOPATH/src/github.com/zquestz/s
+make
+make install
+```
+
 ## Examples
 
 Search for puppies on google.
@@ -28,43 +37,6 @@ s -p amazon wifi router
 Search for rhinos on wikipedia
 ```
 s -p wikipedia rhinos
-```
-
-## Supported Providers
-
-* amazon
-* bing
-* digg
-* dockerhub
-* duckduckgo
-* dumpert
-* facebook
-* github
-* gist
-* go
-* google
-* hackernews
-* imgur
-* npm
-* npmsearch
-* pinterest
-* quora
-* reddit
-* soundcloud
-* stackoverflow
-* steam
-* twitter
-* wikipedia
-* yahoo
-* youtube
-
-## Install
-
-```
-go get -v github.com/zquestz/s
-cd $GOPATH/src/github.com/zquestz/s
-make
-make install
 ```
 
 ## Provider Expansion
@@ -92,6 +64,44 @@ Use w3m to find cats instead of just your default browser.
 s -b w3m cats
 ```
 
+## Supported Providers
+
+* amazon
+* baidu
+* bing
+* digg
+* dockerhub
+* duckduckgo
+* dumpert
+* facebook
+* flickr
+* github
+* gist
+* gmail
+* go
+* godoc
+* google
+* hackernews
+* imgur
+* kickasstorrents
+* npm
+* npmsearch
+* packagist
+* php
+* pinterest
+* quora
+* reddit
+* rubygems
+* soundcloud
+* stackoverflow
+* steam
+* thepiratebay
+* twitter
+* wikipedia
+* yahoo
+* yandex
+* youtube
+
 #### Contributors
 
 * [Josh Ellithorpe (zquestz)](https://github.com/zquestz/)
@@ -99,6 +109,7 @@ s -b w3m cats
 * [Preet Bhinder (mbhinder)](https://github.com/mbhinder/)
 * [Robert-Jan Keizer (KeizerDev)](https://github.com/KeizerDev/)
 * [Vitor Cortez (vekat)](https://github.com/vekat/)
+* [David Liu (tw4dl)](https://github.com/tw4dl/)
 
 #### License
 
