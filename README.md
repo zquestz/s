@@ -13,6 +13,15 @@ Flags:
       --version           display version
 ```
 
+## Install
+
+```
+go get -v github.com/zquestz/s
+cd $GOPATH/src/github.com/zquestz/s
+make
+make install
+```
+
 ## Examples
 
 Search for puppies on google.
@@ -28,6 +37,31 @@ s -p amazon wifi router
 Search for rhinos on wikipedia
 ```
 s -p wikipedia rhinos
+```
+
+## Provider Expansion
+
+We can do partial matching of provider names. This searches Facebook for hamsters.
+```
+s -p f hamsters
+```
+
+Or toasters on amazon.
+```
+s -p a toasters
+```
+
+## Advanced
+
+Setup an alias in your `.profile` for your favorite providers.
+```
+alias sa="s -p amazon"
+alias sw="s -p wikipedia"
+```
+
+Use w3m to find cats instead of just your default browser.
+```
+s -b w3m cats
 ```
 
 ## Supported Providers
@@ -64,40 +98,6 @@ s -p wikipedia rhinos
 * yahoo
 * yandex
 * youtube
-
-## Install
-
-```
-go get -v github.com/zquestz/s
-cd $GOPATH/src/github.com/zquestz/s
-make
-make install
-```
-
-## Provider Expansion
-
-We can do partial matching of provider names. This searches Facebook for hamsters.
-```
-s -p f hamsters
-```
-
-Or toasters on amazon.
-```
-s -p a toasters
-```
-
-## Advanced
-
-Setup an alias in your `.profile` for your favorite providers.
-```
-alias sa="s -p amazon"
-alias sw="s -p wikipedia"
-```
-
-Use w3m to find cats instead of just your default browser.
-```
-s -b w3m cats
-```
 
 #### Contributors
 
