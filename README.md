@@ -93,6 +93,7 @@ s -b w3m cats
 * [Josh Ellithorpe (zquestz)](https://github.com/zquestz/)
 * [Christian Petersen (fnky)](https://github.com/fnky/)
 * [Preet Bhinder (mbhinder)](https://github.com/mbhinder/)
+* [Robert-Jan Keizer (KeizerDev)](https://github.com/KeizerDev/)
 * [Vitor Cortez (vekat)](https://github.com/vekat/)
 
 #### License
