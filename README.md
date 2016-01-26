@@ -44,6 +44,7 @@ s -p wikipedia rhinos
 * go
 * google
 * hackernews
+* imgur
 * npm
 * npmsearch
 * pinterest
@@ -51,6 +52,7 @@ s -p wikipedia rhinos
 * reddit
 * soundcloud
 * stackoverflow
+* steam
 * twitter
 * wikipedia
 * yahoo
