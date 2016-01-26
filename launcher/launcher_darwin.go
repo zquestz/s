@@ -30,7 +30,5 @@ func OpenURI(binary string, uri string) {
 	err := cmd.Run()
 	if err != nil {
 		fmt.Fprintln(os.Stderr, err)
-	} else {
-		cmd.Wait()
 	}
 }
