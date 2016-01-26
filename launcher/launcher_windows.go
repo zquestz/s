@@ -9,17 +9,12 @@ import (
 )
 
 // OpenURI opens a given uri in a web browser.
-func OpenURI(binary string, uri string) {
-	selectedBinary := ""
-
-	if binary == "" {
-		selectedBinary = "start"
-	} else {
-		selectedBinary = binary
+func OpenURI(binary string, uri string) error {
+	if binary != "" {
+		return fmt.Errorf("Custom binaries are not supported on Windows.")
 	}
 
-	command := fmt.Sprintf("%s %s", selectedBinary, uri)
-	cmd := exec.Command("cmd", "/k", command)
+	cmd := exec.Command("rundll32", "url.dll,FileProtocolHandler", uri)
 
 	// Only attach output to custom binaries.
 	if binary != "" {

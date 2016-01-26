@@ -8,7 +8,7 @@ import (
 )
 
 // OpenURI opens a given uri in a web browser.
-func OpenURI(binary string, uri string) {
+func OpenURI(binary string, uri string) error {
 	selectedBinary := ""
 
 	if binary == "" {
