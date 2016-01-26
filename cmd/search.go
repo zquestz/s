@@ -71,8 +71,6 @@ func performCommand(cmd *cobra.Command, args []string) error {
 		if err != nil {
 			return err
 		}
-
-		return nil
 	} else {
 		// Don't return an error, help screen is more appropriate.
 		cmd.Help()
