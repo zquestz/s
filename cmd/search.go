@@ -11,7 +11,7 @@ import (
 
 const (
 	appName = "s"
-	version = "0.1.7"
+	version = "0.1.8"
 )
 
 // Flag variables
@@ -19,6 +19,7 @@ var displayVersion bool
 var verbose bool
 var provider string
 var listProviders bool
+var binary string
 
 // Main command for Cobra.
 var SearchCmd = &cobra.Command{
@@ -26,9 +27,9 @@ var SearchCmd = &cobra.Command{
 	Short: "Web search from the terminal",
 	Long:  `Web search from the terminal.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		err := performCommand(args)
+		err := performCommand(cmd, args)
 		if err != nil {
-			cmd.Help()
+			fmt.Fprintf(os.Stderr, "[Error] %s\n", err)
 			os.Exit(1)
 		}
 	},
@@ -47,10 +48,12 @@ func prepareFlags() {
 		&provider, "provider", "p", "google", "set search provider")
 	SearchCmd.PersistentFlags().BoolVarP(
 		&listProviders, "list-providers", "l", false, "list supported providers")
+	SearchCmd.PersistentFlags().StringVarP(
+		&binary, "binary", "b", "", "binary to launch search uri")
 }
 
 // Where all the work happens.
-func performCommand(args []string) error {
+func performCommand(cmd *cobra.Command, args []string) error {
 	if displayVersion {
 		fmt.Printf("%s %s\n", appName, version)
 		return nil
@@ -64,10 +67,14 @@ func performCommand(args []string) error {
 	query := strings.Join(args, " ")
 
 	if query != "" {
-		providers.Search(provider, query, verbose)
-		return nil
+		err := providers.Search(binary, provider, query, verbose)
+		if err != nil {
+			return err
+		}
 	} else {
-		// We don't display this, as the help screen is more useful.
-		return fmt.Errorf("[Error] query is required.")
+		// Don't return an error, help screen is more appropriate.
+		cmd.Help()
 	}
+
+	return nil
 }

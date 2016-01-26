@@ -8,12 +8,16 @@ import (
 )
 
 // OpenURI opens a given uri in a web browser.
-func OpenURI(uri string) {
-	cmd := exec.Command("start", uri)
-	err := cmd.Start()
-	if err != nil {
-		fmt.Errorf("%s\n", err)
-	} else {
-		err = cmd.Wait()
+func OpenURI(binary string, uri string) error {
+	if binary != "" {
+		return fmt.Errorf("Custom binaries are not supported on Windows.")
 	}
+
+	cmd := exec.Command("rundll32", "url.dll,FileProtocolHandler", uri)
+	err := cmd.Run()
+	if err != nil {
+		return err
+	}
+
+	return nil
 }

@@ -11,6 +11,7 @@ import (
 	_ "github.com/zquestz/s/providers/dockerhub"
 	_ "github.com/zquestz/s/providers/duckduckgo"
 	_ "github.com/zquestz/s/providers/dumpert"
+	_ "github.com/zquestz/s/providers/facebook"
 	_ "github.com/zquestz/s/providers/gist"
 	_ "github.com/zquestz/s/providers/github"
 	_ "github.com/zquestz/s/providers/go"
@@ -18,6 +19,7 @@ import (
 	_ "github.com/zquestz/s/providers/npm"
 	_ "github.com/zquestz/s/providers/npmsearch"
 	_ "github.com/zquestz/s/providers/pinterest"
+	_ "github.com/zquestz/s/providers/quora"
 	_ "github.com/zquestz/s/providers/reddit"
 	_ "github.com/zquestz/s/providers/soundcloud"
 	_ "github.com/zquestz/s/providers/stackoverflow"
@@ -33,7 +35,7 @@ func main() {
 	setupSignalHandlers()
 
 	if err := cmd.SearchCmd.Execute(); err != nil {
-		fmt.Println(err)
-		os.Exit(-1)
+		fmt.Fprintln(os.Stderr, err)
+		os.Exit(1)
 	}
 }

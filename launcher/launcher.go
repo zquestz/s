@@ -3,17 +3,33 @@
 package launcher
 
 import (
-	"fmt"
+	"os"
 	"os/exec"
 )
 
 // OpenURI opens a given uri in a web browser.
-func OpenURI(uri string) {
-	cmd := exec.Command("xdg-open", uri)
-	err := cmd.Start()
-	if err != nil {
-		fmt.Errorf("%s\n", err)
+func OpenURI(binary string, uri string) error {
+	selectedBinary := ""
+
+	if binary == "" {
+		selectedBinary = "xdg-open"
 	} else {
-		err = cmd.Wait()
+		selectedBinary = binary
 	}
+
+	cmd := exec.Command(selectedBinary, uri)
+
+	// Only attach output to custom binaries.
+	if binary != "" {
+		cmd.Stdin = os.Stdin
+		cmd.Stdout = os.Stdout
+		cmd.Stderr = os.Stderr
+	}
+
+	err := cmd.Run()
+	if err != nil {
+		return err
+	}
+
+	return nil
 }

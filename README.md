@@ -6,6 +6,7 @@ Usage:
   s <query> [flags]
 
 Flags:
+  -b, --binary string     binary to launch search uri
   -l, --list-providers    list supported providers
   -p, --provider string   set search provider (default "google")
   -v, --verbose           display url when opening
@@ -37,6 +38,7 @@ s -p wikipedia rhinos
 * dockerhub
 * duckduckgo
 * dumpert
+* facebook
 * github
 * gist
 * go
@@ -44,6 +46,7 @@ s -p wikipedia rhinos
 * npm
 * npmsearch
 * pinterest
+* quora
 * reddit
 * soundcloud
 * stackoverflow
@@ -61,6 +64,18 @@ make
 make install
 ```
 
+## Provider Expansion
+
+We can do partial matching of provider names. This searches Facebook for hamsters.
+```
+s -p f hamsters
+```
+
+Or toasters on amazon.
+```
+s -p a toasters
+```
+
 ## Advanced
 
 Setup an alias in your `.profile` for your favorite providers.
@@ -69,11 +84,17 @@ alias sa="s -p amazon"
 alias sw="s -p wikipedia"
 ```
 
+Use w3m to find cats instead of just your default browser.
+```
+s -b w3m cats
+```
+
 #### Contributors
 
-* Josh Ellithorpe (zquestz)
-* Christian Petersen (fnky)
-* Preet Bhinder (mbhinder)
+* [Josh Ellithorpe (zquestz)](https://github.com/zquestz/)
+* [Christian Petersen (fnky)](https://github.com/fnky/)
+* [Preet Bhinder (mbhinder)](https://github.com/mbhinder/)
+* [Vitor Cortez (vekat)](https://github.com/vekat/)
 
 #### License
 
