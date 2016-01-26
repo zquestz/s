@@ -13,6 +13,15 @@ Flags:
       --version           display version
 ```
 
+## Install
+
+```
+go get -v github.com/zquestz/s
+cd $GOPATH/src/github.com/zquestz/s
+make
+make install
+```
+
 ## Examples
 
 Search for puppies on google.
@@ -28,39 +37,6 @@ s -p amazon wifi router
 Search for rhinos on wikipedia
 ```
 s -p wikipedia rhinos
-```
-
-## Supported Providers
-
-* amazon
-* bing
-* digg
-* dockerhub
-* duckduckgo
-* facebook
-* github
-* gist
-* go
-* google
-* npm
-* npmsearch
-* pinterest
-* quora
-* reddit
-* soundcloud
-* stackoverflow
-* twitter
-* wikipedia
-* yahoo
-* youtube
-
-## Install
-
-```
-go get -v github.com/zquestz/s
-cd $GOPATH/src/github.com/zquestz/s
-make
-make install
 ```
 
 ## Provider Expansion
@@ -87,6 +63,30 @@ Use w3m to find cats instead of just your default browser.
 ```
 s -b w3m cats
 ```
+
+## Supported Providers
+
+* amazon
+* bing
+* digg
+* dockerhub
+* duckduckgo
+* facebook
+* github
+* gist
+* go
+* google
+* npm
+* npmsearch
+* pinterest
+* quora
+* reddit
+* soundcloud
+* stackoverflow
+* twitter
+* wikipedia
+* yahoo
+* youtube
 
 #### Contributors
 
