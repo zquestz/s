@@ -51,5 +51,5 @@ func DisplayProviders() string {
 
 	sort.Strings(names)
 
-	return fmt.Sprintf("%s\n", strings.Join(names, "\n"))
+	return strings.Join(names, "\n") + "\n"
 }
