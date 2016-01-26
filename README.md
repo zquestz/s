@@ -41,6 +41,7 @@ s -p wikipedia rhinos
 * github
 * gist
 * go
+* godoc
 * google
 * npm
 * npmsearch

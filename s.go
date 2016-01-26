@@ -14,6 +14,7 @@ import (
 	_ "github.com/zquestz/s/providers/gist"
 	_ "github.com/zquestz/s/providers/github"
 	_ "github.com/zquestz/s/providers/go"
+	_ "github.com/zquestz/s/providers/godoc"
 	_ "github.com/zquestz/s/providers/google"
 	_ "github.com/zquestz/s/providers/npm"
 	_ "github.com/zquestz/s/providers/npmsearch"
