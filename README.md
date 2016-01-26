@@ -71,6 +71,11 @@ alias sa="s -p amazon"
 alias sw="s -p wikipedia"
 ```
 
+Use w3m to find cats instead of just your default browser.
+```
+s -b w3m cats
+```
+
 #### Contributors
 
 * [Josh Ellithorpe (zquestz)](https://github.com/zquestz/)
