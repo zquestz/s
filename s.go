@@ -19,6 +19,7 @@ import (
 	_ "github.com/zquestz/s/providers/npm"
 	_ "github.com/zquestz/s/providers/npmsearch"
 	_ "github.com/zquestz/s/providers/pinterest"
+	_ "github.com/zquestz/s/providers/php"
 	_ "github.com/zquestz/s/providers/quora"
 	_ "github.com/zquestz/s/providers/reddit"
 	_ "github.com/zquestz/s/providers/soundcloud"

@@ -46,6 +46,7 @@ s -p wikipedia rhinos
 * npm
 * npmsearch
 * pinterest
+* php
 * quora
 * reddit
 * soundcloud
