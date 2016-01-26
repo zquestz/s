@@ -15,7 +15,7 @@ func init() {
 type GoDocProvider struct {
 }
 
-// BuildURI generates a search URL for Go.
+// BuildURI generates a search URL for GoDoc.
 func (p *GoDocProvider) BuildURI(q string) string {
 	return fmt.Sprintf("https://godoc.org/?q=%s", url.QueryEscape(q))
 }
