@@ -81,6 +81,8 @@ s -b w3m cats
 * go
 * godoc
 * google
+* hackernews
+* imgur
 * kickasstorrents
 * npm
 * npmsearch
@@ -92,6 +94,7 @@ s -b w3m cats
 * rubygems
 * soundcloud
 * stackoverflow
+* steam
 * thepiratebay
 * twitter
 * wikipedia
