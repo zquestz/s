@@ -1,36 +1,31 @@
-//+build !darwin,!windows
-
 package launcher
 
 import (
-	"fmt"
 	"os"
 	"os/exec"
+	"runtime"
 )
 
 // OpenURI opens a given uri in a web browser.
-func OpenURI(binary string, uri string) {
-	selectedBinary := ""
+func OpenURI(binary string, uri string) error {
+	var cmd *exec.Cmd
 
 	if binary == "" {
-		selectedBinary = "xdg-open"
+		switch runtime.GOOS {
+		case "darwin":
+			cmd = exec.Command("open", uri)
+		case "windows":
+			cmd = exec.Command("rundll32", "url.dll,FileProtocolHandler", uri)
+		default:
+			cmd = exec.Command("xdg-open", uri)
+		}
 	} else {
-		selectedBinary = binary
-	}
-
-	cmd := exec.Command(selectedBinary, uri)
-
-	// Only attach output to custom binaries.
-	if binary != "" {
+		cmd = exec.Command(binary, uri)
+		// Only attach output to custom binaries.
 		cmd.Stdin = os.Stdin
 		cmd.Stdout = os.Stdout
 		cmd.Stderr = os.Stderr
 	}
 
-	err := cmd.Run()
-	if err != nil {
-		fmt.Fprintln(os.Stderr, err)
-	} else {
-		cmd.Wait()
-	}
+	return cmd.Run()
 }

@@ -67,7 +67,10 @@ func performCommand(args []string) error {
 	query := strings.Join(args, " ")
 
 	if query != "" {
-		providers.Search(binary, provider, query, verbose)
+		if err := providers.Search(binary, provider, query, verbose); err != nil {
+			fmt.Fprintln(os.Stderr, err)
+			os.Exit(1)
+		}
 		return nil
 	} else {
 		// We don't display this, as the help screen is more useful.
