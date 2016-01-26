@@ -27,9 +27,9 @@ var SearchCmd = &cobra.Command{
 	Short: "Web search from the terminal",
 	Long:  `Web search from the terminal.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		err := performCommand(args)
+		err := performCommand(cmd, args)
 		if err != nil {
-			cmd.Help()
+			fmt.Fprintf(os.Stderr, "[Error] %s\n", err)
 			os.Exit(1)
 		}
 	},
@@ -53,7 +53,7 @@ func prepareFlags() {
 }
 
 // Where all the work happens.
-func performCommand(args []string) error {
+func performCommand(cmd *cobra.Command, args []string) error {
 	if displayVersion {
 		fmt.Printf("%s %s\n", appName, version)
 		return nil
@@ -67,10 +67,16 @@ func performCommand(args []string) error {
 	query := strings.Join(args, " ")
 
 	if query != "" {
-		providers.Search(binary, provider, query, verbose)
+		err := providers.Search(binary, provider, query, verbose)
+		if err != nil {
+			return err
+		}
+
 		return nil
 	} else {
-		// We don't display this, as the help screen is more useful.
-		return fmt.Errorf("[Error] query is required.")
+		// Don't return an error, help screen is more appropriate.
+		cmd.Help()
 	}
+
+	return nil
 }

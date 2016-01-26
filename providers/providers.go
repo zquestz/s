@@ -2,7 +2,6 @@ package providers
 
 import (
 	"fmt"
-	"os"
 	"regexp"
 	"sort"
 	"strings"
@@ -30,24 +29,25 @@ func AddProvider(name string, provider Provider) {
 }
 
 // Search builds a search URL and opens it in your browser.
-func Search(binary string, p string, q string, verbose bool) {
+func Search(binary string, p string, q string, verbose bool) error {
 	prov, err := ExpandProvider(p)
 	if err != nil {
-		fmt.Fprintln(os.Stderr, err)
-		os.Exit(1)
+		return err
 	}
 
 	builder := Providers[prov]
 
 	if builder != nil {
 		url := builder.BuildURI(q)
+
 		if verbose {
 			fmt.Printf("%s\n", url)
 		}
-		launcher.OpenURI(binary, url)
-	} else {
-		fmt.Fprintf(os.Stderr, "Provider %q not supported!\n", prov)
+
+		return launcher.OpenURI(binary, url)
 	}
+
+	return fmt.Errorf("Provider %q not supported!\n", prov)
 }
 
 // DisplayProviders displays all the loaded providers.

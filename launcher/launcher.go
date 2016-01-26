@@ -3,13 +3,12 @@
 package launcher
 
 import (
-	"fmt"
 	"os"
 	"os/exec"
 )
 
 // OpenURI opens a given uri in a web browser.
-func OpenURI(binary string, uri string) {
+func OpenURI(binary string, uri string) error {
 	selectedBinary := ""
 
 	if binary == "" {
@@ -29,6 +28,8 @@ func OpenURI(binary string, uri string) {
 
 	err := cmd.Run()
 	if err != nil {
-		fmt.Fprintln(os.Stderr, err)
+		return err
 	}
+
+	return nil
 }

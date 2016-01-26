@@ -3,7 +3,6 @@
 package launcher
 
 import (
-	"fmt"
 	"os"
 	"os/exec"
 )
@@ -29,6 +28,8 @@ func OpenURI(binary string, uri string) {
 
 	err := cmd.Run()
 	if err != nil {
-		fmt.Fprintln(os.Stderr, err)
+		return err
 	}
+
+	return nil
 }
