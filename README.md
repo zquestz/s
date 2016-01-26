@@ -33,27 +33,37 @@ s -p wikipedia rhinos
 ## Supported Providers
 
 * amazon
+* baidu
 * bing
 * digg
 * dockerhub
 * duckduckgo
 * dumpert
 * facebook
+* flickr
 * github
 * gist
+* gmail
 * go
+* godoc
 * google
+* kickasstorrents
 * npm
 * npmsearch
+* packagist
+* php
 * pinterest
 * quora
 * reddit
+* rubygems
 * soundcloud
 * spotify
 * stackoverflow
+* thepiratebay
 * twitter
 * wikipedia
 * yahoo
+* yandex
 * youtube
 
 ## Install
@@ -97,6 +107,7 @@ s -b w3m cats
 * [Preet Bhinder (mbhinder)](https://github.com/mbhinder/)
 * [Robert-Jan Keizer (KeizerDev)](https://github.com/KeizerDev/)
 * [Vitor Cortez (vekat)](https://github.com/vekat/)
+* [David Liu (tw4dl)](https://github.com/tw4dl/)
 
 #### License
 
