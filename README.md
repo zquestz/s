@@ -75,8 +75,8 @@ s -b w3m cats
 * dumpert
 * facebook
 * flickr
-* github
 * gist
+* github
 * gmail
 * go
 * godoc
