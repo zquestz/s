@@ -8,7 +8,7 @@ import (
 )
 
 func init() {
-	providers.AddProvider("cpp", &BingProvider{})
+	providers.AddProvider("cpp", &CppProvider{})
 }
 
 // CppProvider adheres to the Provider interface.
