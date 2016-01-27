@@ -8,6 +8,7 @@ import (
 	_ "github.com/zquestz/s/providers/amazon"
 	_ "github.com/zquestz/s/providers/baidu"
 	_ "github.com/zquestz/s/providers/bing"
+	_ "github.com/zquestz/s/providers/coursera"
 	_ "github.com/zquestz/s/providers/digg"
 	_ "github.com/zquestz/s/providers/dockerhub"
 	_ "github.com/zquestz/s/providers/duckduckgo"

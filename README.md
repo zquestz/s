@@ -69,6 +69,7 @@ s -b w3m cats
 * amazon
 * baidu
 * bing
+* coursera
 * digg
 * dockerhub
 * duckduckgo
