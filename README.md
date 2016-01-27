@@ -69,6 +69,7 @@ s -b w3m cats
 * amazon
 * baidu
 * bing
+* coursera
 * digg
 * dockerhub
 * duckduckgo
@@ -84,6 +85,7 @@ s -b w3m cats
 * hackernews
 * imgur
 * kickasstorrents
+* libgen
 * npm
 * npmsearch
 * packagist
@@ -96,6 +98,7 @@ s -b w3m cats
 * stackoverflow
 * steam
 * thepiratebay
+* twitchtv
 * twitter
 * wikipedia
 * yahoo
