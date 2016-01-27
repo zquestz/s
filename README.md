@@ -87,6 +87,7 @@ s -b w3m cats
 * imgur
 * kickasstorrents
 * libgen
+* nhaccuatui
 * npm
 * npmsearch
 * packagist
