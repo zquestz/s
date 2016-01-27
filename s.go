@@ -36,6 +36,7 @@ import (
 	_ "github.com/zquestz/s/providers/soundcloud"
 	_ "github.com/zquestz/s/providers/stackoverflow"
 	_ "github.com/zquestz/s/providers/steam"
+	_ "github.com/zquestz/s/providers/taobao"
 	_ "github.com/zquestz/s/providers/thepiratebay"
 	_ "github.com/zquestz/s/providers/twitchtv"
 	_ "github.com/zquestz/s/providers/twitter"
