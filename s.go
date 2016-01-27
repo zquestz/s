@@ -6,6 +6,7 @@ import (
 
 	// Load necessary providers.
 	_ "github.com/zquestz/s/providers/amazon"
+	_ "github.com/zquestz/s/providers/atmospherejs"
 	_ "github.com/zquestz/s/providers/baidu"
 	_ "github.com/zquestz/s/providers/bing"
 	_ "github.com/zquestz/s/providers/coursera"
@@ -27,7 +28,7 @@ import (
 	_ "github.com/zquestz/s/providers/ietf"
 	_ "github.com/zquestz/s/providers/kickasstorrents"
 	_ "github.com/zquestz/s/providers/libgen"
-	_ "github.com/zquestz/s/providers/nhaccuatui"    
+	_ "github.com/zquestz/s/providers/nhaccuatui"
 	_ "github.com/zquestz/s/providers/npm"
 	_ "github.com/zquestz/s/providers/npmsearch"
 	_ "github.com/zquestz/s/providers/packagist"
