@@ -102,6 +102,7 @@ s -b w3m cats
 * twitchtv
 * twitter
 * wikipedia
+* wolframalpha
 * yahoo
 * yandex
 * youtube
