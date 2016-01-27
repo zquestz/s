@@ -68,6 +68,7 @@ s -b w3m cats
 
 * amazon
 * baidu
+* bandcamp
 * bing
 * coursera
 * crunchyroll
