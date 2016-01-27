@@ -68,10 +68,19 @@ func performCommand(cmd *cobra.Command, args []string) error {
 	query := strings.Join(args, " ")
 
 	st, err := os.Stdin.Stat()
-	if err == nil && st.Mode()&os.ModeNamedPipe != 0 {
-		bytes, _ := ioutil.ReadAll(os.Stdin)
-		query = strings.TrimSpace(query + " " + string(bytes))
+	if err != nil {
+		return fmt.Errorf("Failed to stat Stdin: %s", err)
 	}
+
+	if st.Mode()&os.ModeNamedPipe != 0 {
+		bytes, err := ioutil.ReadAll(os.Stdin)
+		if err != nil {
+			return fmt.Errorf("Failed to read from Stdin: %s", err)
+		}
+
+		query = strings.TrimSpace(fmt.Sprintf("%s %s", query, bytes))
+	}
+
 	if query != "" {
 		err := providers.Search(binary, provider, query, verbose)
 		if err != nil {
