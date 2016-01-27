@@ -84,6 +84,7 @@ s -b w3m cats
 * hackernews
 * imgur
 * kickasstorrents
+* libgen
 * npm
 * npmsearch
 * packagist
