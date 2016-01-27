@@ -1,4 +1,4 @@
-package cpp
+package cplusplus
 
 import (
 	"fmt"
@@ -8,7 +8,7 @@ import (
 )
 
 func init() {
-	providers.AddProvider("cpp", &CppProvider{})
+	providers.AddProvider("cplusplus", &CppProvider{})
 }
 
 // CppProvider adheres to the Provider interface.
