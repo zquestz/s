@@ -97,6 +97,7 @@ s -b w3m cats
 * soundcloud
 * stackoverflow
 * steam
+* taobao
 * thepiratebay
 * twitchtv
 * twitter
