@@ -8,14 +8,14 @@ import (
 )
 
 func init() {
-	providers.AddProvider("atmospherejs", &AtmosphereJS{})
+	providers.AddProvider("atmospherejs", &AtmosphereJSProvider{})
 }
 
 // BaiduProvider adheres to the Provider interface.
-type AtmosphereJS struct {
+type AtmosphereJSProvider struct {
 }
 
 // BuildURI generates a search URL for Google.
-func (p *AtmosphereJS) BuildURI(q string) string {
+func (p *AtmosphereJSProvider) BuildURI(q string) string {
 	return fmt.Sprintf("https://atmospherejs.com/?q=%s", url.QueryEscape(q))
 }
