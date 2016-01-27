@@ -25,6 +25,7 @@ import (
 	_ "github.com/zquestz/s/providers/google"
 	_ "github.com/zquestz/s/providers/hackernews"
 	_ "github.com/zquestz/s/providers/imgur"
+	_ "github.com/zquestz/s/providers/ietf"
 	_ "github.com/zquestz/s/providers/kickasstorrents"
 	_ "github.com/zquestz/s/providers/libgen"
 	_ "github.com/zquestz/s/providers/nhaccuatui"
