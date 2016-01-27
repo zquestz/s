@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"fmt"
+	"io/ioutil"
 	"os"
 	"strings"
 
@@ -66,6 +67,11 @@ func performCommand(cmd *cobra.Command, args []string) error {
 
 	query := strings.Join(args, " ")
 
+	st, err := os.Stdin.Stat()
+	if err == nil && st.Mode()&os.ModeNamedPipe != 0 {
+		bytes, _ := ioutil.ReadAll(os.Stdin)
+		query = strings.TrimSpace(query + " " + string(bytes))
+	}
 	if query != "" {
 		err := providers.Search(binary, provider, query, verbose)
 		if err != nil {
