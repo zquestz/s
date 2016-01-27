@@ -67,6 +67,7 @@ s -b w3m cats
 ## Supported Providers
 
 * amazon
+* atmosphere
 * baidu
 * bing
 * coursera
