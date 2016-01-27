@@ -83,6 +83,7 @@ s -b w3m cats
 * godoc
 * google
 * hackernews
+* ietf
 * imgur
 * kickasstorrents
 * libgen
@@ -114,6 +115,7 @@ s -b w3m cats
 * [Robert-Jan Keizer (KeizerDev)](https://github.com/KeizerDev/)
 * [Vitor Cortez (vekat)](https://github.com/vekat/)
 * [David Liu (tw4dl)](https://github.com/tw4dl/)
+* [Lex Broner (akb)](http://github.com/akb/)
 
 #### License
 
