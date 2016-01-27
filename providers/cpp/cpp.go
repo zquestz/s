@@ -1,4 +1,4 @@
-package bing
+package cpp
 
 import (
 	"fmt"
