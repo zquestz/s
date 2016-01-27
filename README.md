@@ -70,7 +70,7 @@ s -b w3m cats
 * baidu
 * bing
 * coursera
-* cpp
+* cplusplus
 * crunchyroll
 * digg
 * dockerhub
