@@ -1,4 +1,4 @@
-package gopkg
+package php
 
 import (
 	"fmt"
