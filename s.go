@@ -7,6 +7,7 @@ import (
 	// Load necessary providers.
 	_ "github.com/zquestz/s/providers/8tracks"
 	_ "github.com/zquestz/s/providers/amazon"
+	_ "github.com/zquestz/s/providers/amazonuk"
 	_ "github.com/zquestz/s/providers/atmospherejs"
 	_ "github.com/zquestz/s/providers/baidu"
 	_ "github.com/zquestz/s/providers/bandcamp"
