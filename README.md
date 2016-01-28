@@ -98,6 +98,7 @@ s -b w3m cats
 * nhaccuatui
 * npm
 * npmsearch
+* nvd
 * packagist
 * php
 * pinterest

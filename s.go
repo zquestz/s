@@ -37,6 +37,7 @@ import (
 	_ "github.com/zquestz/s/providers/nhaccuatui"
 	_ "github.com/zquestz/s/providers/npm"
 	_ "github.com/zquestz/s/providers/npmsearch"
+	_ "github.com/zquestz/s/providers/nvd"
 	_ "github.com/zquestz/s/providers/packagist"
 	_ "github.com/zquestz/s/providers/php"
 	_ "github.com/zquestz/s/providers/pinterest"
