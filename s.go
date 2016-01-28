@@ -21,6 +21,7 @@ import (
 	_ "github.com/zquestz/s/providers/dumpert"
 	_ "github.com/zquestz/s/providers/facebook"
 	_ "github.com/zquestz/s/providers/flickr"
+	_ "github.com/zquestz/s/providers/flipkart"
 	_ "github.com/zquestz/s/providers/foursquare"
 	_ "github.com/zquestz/s/providers/gist"
 	_ "github.com/zquestz/s/providers/github"
