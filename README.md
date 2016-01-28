@@ -51,6 +51,23 @@ Or toasters on amazon.
 s -p am toasters
 ```
 
+## Provider Autocompletion
+
+Autocompletion for providers is supported. For setting up autocompletion, 
+
+1. Have `s` installed
+2. Add the following lines to `~/.bash_profile`
+```
+if [ -f /path/to/s-completion.bash ]; then
+    . /path/to/s-completion.bash
+fi
+```
+And you are good to go.
+```
+s -p ba<TAB><TAB>
+baidu     bandcamp
+```
+
 ## Advanced
 
 Setup an alias in your `.profile` for your favorite providers.
