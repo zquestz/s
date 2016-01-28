@@ -95,6 +95,7 @@ s -b w3m cats
 * imgur
 * kickasstorrents
 * libgen
+* macports
 * mdn
 * msdn
 * nhaccuatui
