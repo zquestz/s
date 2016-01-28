@@ -71,14 +71,17 @@ s -b w3m cats
 * baidu
 * bandcamp
 * bing
+* codepen
 * coursera
 * crunchyroll
 * digg
+* dribbble
 * dockerhub
 * duckduckgo
 * dumpert
 * facebook
 * flickr
+* foursquare
 * gist
 * github
 * gmail
@@ -91,11 +94,14 @@ s -b w3m cats
 * kickasstorrents
 * libgen
 * nhaccuatui
+* mdn
+* msdn
 * npm
 * npmsearch
 * packagist
 * php
 * pinterest
+* python
 * quora
 * reddit
 * rubygems
@@ -106,6 +112,8 @@ s -b w3m cats
 * thepiratebay
 * twitchtv
 * twitter
+* unity3d
+* vimeo
 * wikipedia
 * wolframalpha
 * yahoo
@@ -121,6 +129,7 @@ s -b w3m cats
 * [Vitor Cortez (vekat)](https://github.com/vekat/)
 * [David Liu (tw4dl)](https://github.com/tw4dl/)
 * [Lex Broner (akb)](http://github.com/akb/)
+* [Diego Jara (djap96)](https://github.com/djap96/)
 
 #### License
 
