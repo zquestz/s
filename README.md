@@ -58,8 +58,8 @@ Autocompletion for providers is supported. For setting up autocompletion:
 1. Have `s` installed
 2. Add the following lines to `~/.bash_profile`
 ```
-if [ -f /path/to/s-completion.bash ]; then
-    . /path/to/s-completion.bash
+if [ -f $GOPATH/src/github.com/zquestz/s/autocomplete/s-completion.bash ]; then
+    . $GOPATH/src/github.com/zquestz/s/autocomplete/s-completion.bash
 fi
 ```
 
