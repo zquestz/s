@@ -17,5 +17,5 @@ type Twitchtv struct {
 
 // BuildURI generates a search URL for Twitchtv.
 func (p *Twitchtv) BuildURI(q string) string {
-	return fmt.Sprintf("http://www.twitch.tv/search?query=%s", url.QueryEscape(q))
+	return fmt.Sprintf("https://www.twitch.tv/search?query=%s", url.QueryEscape(q))
 }

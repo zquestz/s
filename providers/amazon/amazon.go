@@ -17,5 +17,5 @@ type AmazonProvider struct {
 
 // BuildURI generates a search URL for Amazon.
 func (p *AmazonProvider) BuildURI(q string) string {
-	return fmt.Sprintf("http://www.amazon.com/s/?keywords=%s", url.QueryEscape(q))
+	return fmt.Sprintf("https://www.amazon.com/s/?keywords=%s", url.QueryEscape(q))
 }

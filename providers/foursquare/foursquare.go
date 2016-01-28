@@ -3,6 +3,7 @@ package foursquare
 import (
 	"fmt"
 	"net/url"
+
 	"github.com/zquestz/s/providers"
 )
 

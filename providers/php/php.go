@@ -17,5 +17,5 @@ type PhpProvider struct {
 
 // BuildURI generates a search URL for Php.
 func (p *PhpProvider) BuildURI(q string) string {
-	return fmt.Sprintf("http://php.net/%s", url.QueryEscape(q))
+	return fmt.Sprintf("https://php.net/%s", url.QueryEscape(q))
 }

@@ -17,5 +17,5 @@ type Imgur struct {
 
 // BuildURI generates a search URL for Imgur.
 func (p *Imgur) BuildURI(q string) string {
-	return fmt.Sprintf("http://imgur.com/search?q=%s", url.QueryEscape(q))
+	return fmt.Sprintf("https://imgur.com/search?q=%s", url.QueryEscape(q))
 }

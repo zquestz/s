@@ -17,5 +17,5 @@ type SteamProvider struct {
 
 // BuildURI generates a search URL for Steam.
 func (p *SteamProvider) BuildURI(q string) string {
-	return fmt.Sprintf("http://store.steampowered.com/search/?term=%s", url.QueryEscape(q))
+	return fmt.Sprintf("https://store.steampowered.com/search/?term=%s", url.QueryEscape(q))
 }

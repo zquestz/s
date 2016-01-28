@@ -17,5 +17,5 @@ type WolframAlphaProvider struct {
 
 // BuildURI generates a search URL for WolframAlpha.
 func (p *WolframAlphaProvider) BuildURI(q string) string {
-	return fmt.Sprintf("http://www.wolframalpha.com/input/?i=%s", url.QueryEscape(q))
+	return fmt.Sprintf("https://www.wolframalpha.com/input/?i=%s", url.QueryEscape(q))
 }
