@@ -4,8 +4,7 @@ all:
 	go build .
 
 install: all
-	sudo install -d /usr/local/bin
-	sudo install -c ${APPNAME} /usr/local/bin/s
+	go install .
 
 uninstall:
-	sudo rm /usr/local/bin/s
+	rm $(GOPATH)/bin/$(APPNAME)
