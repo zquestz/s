@@ -91,6 +91,7 @@ s -b w3m cats
 * google
 * hackernews
 * ietf
+* imdb
 * imgur
 * kickasstorrents
 * libgen
