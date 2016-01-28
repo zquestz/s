@@ -12,7 +12,8 @@
 # fi
 
 if [[ -n ${ZSH_VERSION-} ]]; then
-	autoload -U +X bashcompinit && bashcompinit
+    autoload -U +X compinit && compinit
+    autoload -U +X bashcompinit && bashcompinit
 fi
 
 _provider_completion()
