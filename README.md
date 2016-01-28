@@ -82,6 +82,7 @@ s -b w3m cats
 * dumpert
 * facebook
 * flickr
+* flipkart
 * foursquare
 * gist
 * github
