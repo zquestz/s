@@ -66,6 +66,7 @@ s -b w3m cats
 
 ## Supported Providers
 
+* 8tracks
 * amazon
 * atmospherejs
 * baidu
