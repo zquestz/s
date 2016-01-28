@@ -75,8 +75,8 @@ s -b w3m cats
 * coursera
 * crunchyroll
 * digg
-* dribbble
 * dockerhub
+* dribbble
 * duckduckgo
 * dumpert
 * facebook
@@ -93,9 +93,9 @@ s -b w3m cats
 * imgur
 * kickasstorrents
 * libgen
-* nhaccuatui
 * mdn
 * msdn
+* nhaccuatui
 * npm
 * npmsearch
 * packagist
@@ -106,6 +106,7 @@ s -b w3m cats
 * reddit
 * rubygems
 * soundcloud
+* spotify
 * stackoverflow
 * steam
 * taobao
