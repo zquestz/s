@@ -43,12 +43,12 @@ s -p wikipedia rhinos
 
 We can do partial matching of provider names. This searches Facebook for hamsters.
 ```
-s -p f hamsters
+s -p fa hamsters
 ```
 
 Or toasters on amazon.
 ```
-s -p a toasters
+s -p am toasters
 ```
 
 ## Advanced
