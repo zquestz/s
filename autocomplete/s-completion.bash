@@ -1,14 +1,19 @@
 #!/bin/bash
 
-# bash provider completion support for s
+# bash/zsh provider completion support for s
 # 
 # Usage:
 #
 # 1. Have s installed
-# 2. Add the following lines to .bash_profile
-#       if [ -f $GOPATH/src/github.com/zquestz/s/autocomplete/s-completion.bash ]; then
-#           . $GOPATH/src/github.com/zquestz/s/autocomplete/s-completion.bash
-#       fi
+# 2. Add the following lines to .bash_profile or .zshrc
+#
+# if [ -f $GOPATH/src/github.com/zquestz/s/autocomplete/s-completion.bash ]; then
+#     . $GOPATH/src/github.com/zquestz/s/autocomplete/s-completion.bash
+# fi
+
+if [[ -n ${ZSH_VERSION-} ]]; then
+	autoload -U +X bashcompinit && bashcompinit
+fi
 
 _provider_completion()
 {
