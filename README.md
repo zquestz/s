@@ -117,6 +117,7 @@ s -b w3m cats
 * imgur
 * kickasstorrents
 * libgen
+* linkedin
 * macports
 * mdn
 * msdn
