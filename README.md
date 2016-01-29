@@ -86,6 +86,7 @@ s -b w3m cats
 
 * 8tracks
 * amazon
+* arxiv
 * atmospherejs
 * baidu
 * bandcamp
