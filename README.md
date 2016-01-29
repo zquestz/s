@@ -147,6 +147,7 @@ s -b "chromium --incognito" conspiracy theories
 * twitchtv
 * twitter
 * unity3d
+* upcloud
 * vimeo
 * wikipedia
 * wolframalpha

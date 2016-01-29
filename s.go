@@ -62,6 +62,7 @@ import (
 	_ "github.com/zquestz/s/providers/twitchtv"
 	_ "github.com/zquestz/s/providers/twitter"
 	_ "github.com/zquestz/s/providers/unity3d"
+	_ "github.com/zquestz/s/providers/upcloud"
 	_ "github.com/zquestz/s/providers/vimeo"
 	_ "github.com/zquestz/s/providers/wikipedia"
 	_ "github.com/zquestz/s/providers/wolframalpha"
