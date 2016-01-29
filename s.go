@@ -37,6 +37,7 @@ import (
 	_ "github.com/zquestz/s/providers/imgur"
 	_ "github.com/zquestz/s/providers/kickasstorrents"
 	_ "github.com/zquestz/s/providers/libgen"
+	_ "github.com/zquestz/s/providers/linkedin"
 	_ "github.com/zquestz/s/providers/macports"
 	_ "github.com/zquestz/s/providers/mdn"
 	_ "github.com/zquestz/s/providers/msdn"
