@@ -86,6 +86,7 @@ s -b w3m cats
 Search for conspiracy theories in incognito mode.
 ```
 s -b "chromium --incognito" conspiracy theories
+s -b "firefox --private-window" conspiracy theories
 ```
 
 ## Supported Providers
