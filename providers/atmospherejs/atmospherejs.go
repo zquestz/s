@@ -11,7 +11,7 @@ func init() {
 	providers.AddProvider("atmospherejs", &Provider{})
 }
 
-type Provider struct {}
+type Provider struct{}
 
 // BuildURI generates a search URL for AtmosphereJS.
 func (p *Provider) BuildURI(q string) string {

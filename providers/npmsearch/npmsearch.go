@@ -11,7 +11,7 @@ func init() {
 	providers.AddProvider("npmsearch", &Provider{})
 }
 
-type Provider struct {}
+type Provider struct{}
 
 // BuildURI generates a search URL for npmsearch.
 func (p *Provider) BuildURI(q string) string {

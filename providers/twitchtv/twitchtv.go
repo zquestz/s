@@ -11,7 +11,7 @@ func init() {
 	providers.AddProvider("twitchtv", &Provider{})
 }
 
-type Provider struct {}
+type Provider struct{}
 
 // BuildURI generates a search URL for Twitchtv.
 func (p *Provider) BuildURI(q string) string {

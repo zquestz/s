@@ -11,7 +11,7 @@ func init() {
 	providers.AddProvider("rubygems", &Provider{})
 }
 
-type Provider struct {}
+type Provider struct{}
 
 // BuildURI generates a search URL for RubyGems.
 func (p *Provider) BuildURI(q string) string {

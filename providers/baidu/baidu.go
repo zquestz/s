@@ -11,7 +11,7 @@ func init() {
 	providers.AddProvider("baidu", &Provider{})
 }
 
-type Provider struct {}
+type Provider struct{}
 
 // BuildURI generates a search URL for Baidu.
 func (p *Provider) BuildURI(q string) string {

@@ -11,7 +11,7 @@ func init() {
 	providers.AddProvider("mdn", &Provider{})
 }
 
-type Provider struct {}
+type Provider struct{}
 
 // BuildURI generates a search URL for MDN.
 func (p *Provider) BuildURI(q string) string {

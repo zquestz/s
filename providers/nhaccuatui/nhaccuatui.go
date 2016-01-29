@@ -11,7 +11,7 @@ func init() {
 	providers.AddProvider("nhaccuatui", &Provider{})
 }
 
-type Provider struct {}
+type Provider struct{}
 
 // BuildURI generates a search URL for Nhaccuatui.
 func (p *Provider) BuildURI(q string) string {

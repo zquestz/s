@@ -11,7 +11,7 @@ func init() {
 	providers.AddProvider("stackoverflow", &Provider{})
 }
 
-type Provider struct {}
+type Provider struct{}
 
 // BuildURI generates a search URL for Stack Overflow.
 func (p *Provider) BuildURI(q string) string {

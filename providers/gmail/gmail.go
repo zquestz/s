@@ -11,7 +11,7 @@ func init() {
 	providers.AddProvider("gmail", &Provider{})
 }
 
-type Provider struct {}
+type Provider struct{}
 
 // BuildURI generates a search URL for gmail.
 func (p *Provider) BuildURI(q string) string {

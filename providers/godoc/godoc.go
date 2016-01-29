@@ -11,7 +11,7 @@ func init() {
 	providers.AddProvider("godoc", &Provider{})
 }
 
-type Provider struct {}
+type Provider struct{}
 
 // BuildURI generates a search URL for GoDoc.
 func (p *Provider) BuildURI(q string) string {

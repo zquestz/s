@@ -11,7 +11,7 @@ func init() {
 	providers.AddProvider("imdb", &Provider{})
 }
 
-type Provider struct {}
+type Provider struct{}
 
 // BuildURI generates a search URL for IMDB.
 func (p *Provider) BuildURI(q string) string {

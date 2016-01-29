@@ -11,7 +11,7 @@ func init() {
 	providers.AddProvider("wolframalpha", &Provider{})
 }
 
-type Provider struct {}
+type Provider struct{}
 
 // BuildURI generates a search URL for WolframAlpha.
 func (p *Provider) BuildURI(q string) string {

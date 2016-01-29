@@ -11,7 +11,7 @@ func init() {
 	providers.AddProvider("dockerhub", &Provider{})
 }
 
-type Provider struct {}
+type Provider struct{}
 
 // BuildURI generates a search URL for Docker Hub.
 func (p *Provider) BuildURI(q string) string {

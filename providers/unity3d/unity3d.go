@@ -11,7 +11,7 @@ func init() {
 	providers.AddProvider("unity3d", &Provider{})
 }
 
-type Provider struct {}
+type Provider struct{}
 
 // BuildURI generates a search URL for Unity3D.
 func (p *Provider) BuildURI(q string) string {
