@@ -176,5 +176,5 @@ s is released under the MIT license.
 [ReportCard-Image]: http://goreportcard.com/badge/zquestz/s
 [Build-Status-Url]: http://travis-ci.org/zquestz/s
 [Build-Status-Image]: https://travis-ci.org/zquestz/s.svg?branch=master
-[Release-Url]: https://github.com/zquestz/s/releases/tag/v0.2.0
-[Release-image]: http://img.shields.io/badge/release-v0.2.0-1eb0fc.svg
+[Release-Url]: https://github.com/zquestz/s/releases/tag/v0.2.1
+[Release-image]: http://img.shields.io/badge/release-v0.2.1-1eb0fc.svg
