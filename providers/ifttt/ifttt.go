@@ -8,14 +8,12 @@ import (
 )
 
 func init() {
-	providers.AddProvider("ifttt", &IFTTTProvider{})
+	providers.AddProvider("ifttt", &Provider{})
 }
 
-// IFTTTProvider adheres to the Provider interface.
-type IFTTTProvider struct {
-}
+type Provider struct {}
 
 // BuildURI generates a search URL for IFTTT.
-func (p *IFTTTProvider) BuildURI(q string) string {
+func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("https://www.ifttt.com/recipes/search?q=%s", url.QueryEscape(q))
 }

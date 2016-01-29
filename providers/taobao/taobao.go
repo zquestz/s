@@ -8,14 +8,12 @@ import (
 )
 
 func init() {
-	providers.AddProvider("taobao", &TaobaoProvider{})
+	providers.AddProvider("taobao", &Provider{})
 }
 
-// TaobaoProvider adheres to the Provider interface.
-type TaobaoProvider struct {
-}
+type Provider struct {}
 
 // BuildURI generates a search URL for Taobao.
-func (p *TaobaoProvider) BuildURI(q string) string {
+func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("https://s.taobao.com/search?q=%s", url.QueryEscape(q))
 }

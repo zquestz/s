@@ -1,4 +1,4 @@
-package gopkg
+package golang
 
 import (
 	"fmt"
@@ -8,14 +8,12 @@ import (
 )
 
 func init() {
-	providers.AddProvider("go", &GoProvider{})
+	providers.AddProvider("go", &Provider{})
 }
 
-// GoProvider adheres to the Provider interface.
-type GoProvider struct {
-}
+type Provider struct {}
 
 // BuildURI generates a search URL for Go.
-func (p *GoProvider) BuildURI(q string) string {
+func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("https://golang.org/search?q=%s", url.QueryEscape(q))
 }

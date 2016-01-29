@@ -8,14 +8,12 @@ import (
 )
 
 func init() {
-	providers.AddProvider("dockerhub", &DockerHubProvider{})
+	providers.AddProvider("dockerhub", &Provider{})
 }
 
-// DockerHubProvider adheres to the Provider interface.
-type DockerHubProvider struct {
-}
+type Provider struct {}
 
 // BuildURI generates a search URL for Docker Hub.
-func (p *DockerHubProvider) BuildURI(q string) string {
+func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("https://hub.docker.com/search/?q=%s", url.QueryEscape(q))
 }

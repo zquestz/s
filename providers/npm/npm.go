@@ -8,14 +8,12 @@ import (
 )
 
 func init() {
-	providers.AddProvider("npm", &NpmProvider{})
+	providers.AddProvider("npm", &Provider{})
 }
 
-// NpmProvider adheres to the Provider interface.
-type NpmProvider struct {
-}
+type Provider struct {}
 
 // BuildURI generates a search URL for npm.
-func (p *NpmProvider) BuildURI(q string) string {
+func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("https://www.npmjs.com/search?q=%s", url.QueryEscape(q))
 }

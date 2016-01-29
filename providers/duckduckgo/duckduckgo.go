@@ -8,14 +8,12 @@ import (
 )
 
 func init() {
-	providers.AddProvider("duckduckgo", &DuckProvider{})
+	providers.AddProvider("duckduckgo", &Provider{})
 }
 
-// DuckProvider adheres to the Provider interface.
-type DuckProvider struct {
-}
+type Provider struct {}
 
 // BuildURI generates a search URL for DuckDuckGo.
-func (p *DuckProvider) BuildURI(q string) string {
+func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("https://duckduckgo.com/?q=%s", url.QueryEscape(q))
 }

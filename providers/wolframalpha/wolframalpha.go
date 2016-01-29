@@ -8,14 +8,12 @@ import (
 )
 
 func init() {
-	providers.AddProvider("wolframalpha", &WolframAlphaProvider{})
+	providers.AddProvider("wolframalpha", &Provider{})
 }
 
-// WolframAlphaProvider adheres to the Provider interface.
-type WolframAlphaProvider struct {
-}
+type Provider struct {}
 
 // BuildURI generates a search URL for WolframAlpha.
-func (p *WolframAlphaProvider) BuildURI(q string) string {
+func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("https://www.wolframalpha.com/input/?i=%s", url.QueryEscape(q))
 }

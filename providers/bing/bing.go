@@ -8,14 +8,12 @@ import (
 )
 
 func init() {
-	providers.AddProvider("bing", &BingProvider{})
+	providers.AddProvider("bing", &Provider{})
 }
 
-// BingProvider adheres to the Provider interface.
-type BingProvider struct {
-}
+type Provider struct {}
 
 // BuildURI generates a search URL for Bing.
-func (p *BingProvider) BuildURI(q string) string {
+func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("https://www.bing.com/search?q=%s", url.QueryEscape(q))
 }

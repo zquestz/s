@@ -9,12 +9,10 @@ import (
 )
 
 func init() {
-	providers.AddProvider("arxiv", &ArxivProvider{})
+	providers.AddProvider("arxiv", &Provider{})
 }
 
-// ArxivProvider adheres to the Provider interface.
-type ArxivProvider struct {
-}
+type Provider struct {}
 
 // If the query contains more than 1 word, the format to binary logical
 // combination as follows:
@@ -37,7 +35,7 @@ func formatWithOp(qs []string, op string) string {
 }
 
 // BuildURI generates a search URL for ArXiv.
-func (p *ArxivProvider) BuildURI(q string) string {
+func (p *Provider) BuildURI(q string) string {
 	// Separate query by "or".
 	queries := strings.Split(q, " or ")
 	results := make([]string, len(queries))

@@ -8,14 +8,12 @@ import (
 )
 
 func init() {
-	providers.AddProvider("crunchyroll", &CrunchyrollProvider{})
+	providers.AddProvider("crunchyroll", &Provider{})
 }
 
-// CrunchyrollProvider adheres to the Provider interface.
-type CrunchyrollProvider struct {
-}
+type Provider struct {}
 
 // BuildURI generates a search URL for Crunchyroll.
-func (p *CrunchyrollProvider) BuildURI(q string) string {
+func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("https://www.crunchyroll.com/search?q=%s", url.QueryEscape(q))
 }

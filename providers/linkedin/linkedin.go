@@ -8,15 +8,13 @@ import (
 )
 
 func init() {
-	providers.AddProvider("linkedin", &LinkedinProvider{})
+	providers.AddProvider("linkedin", &Provider{})
 }
 
-// LinkedinProvider adheres to the Provider interface.
-type LinkedinProvider struct {
-}
+type Provider struct {}
 
-// BuildURI generates a search URL for Linkedin Provider.
-func (p *LinkedinProvider) BuildURI(q string) string {
+// BuildURI generates a search URL for Linkedin.
+func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf(
 		"https://www.linkedin.com/vsearch/f?type=all&keywords=%s&search=Search",
 		url.QueryEscape(q))

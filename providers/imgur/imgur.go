@@ -8,14 +8,12 @@ import (
 )
 
 func init() {
-	providers.AddProvider("imgur", &Imgur{})
+	providers.AddProvider("imgur", &Provider{})
 }
 
-// Imgur adheres to the Provider interface.
-type Imgur struct {
-}
+type Provider struct {}
 
 // BuildURI generates a search URL for Imgur.
-func (p *Imgur) BuildURI(q string) string {
+func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("https://imgur.com/search?q=%s", url.QueryEscape(q))
 }

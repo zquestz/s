@@ -8,15 +8,13 @@ import (
 )
 
 func init() {
-	providers.AddProvider("ietf", &IETFProvider{})
+	providers.AddProvider("ietf", &Provider{})
 }
 
-// IETF adheres to the Provider interface.
-type IETFProvider struct {
-}
+type Provider struct {}
 
 // BuildURI generates a search URL for IETF.
-func (p *IETFProvider) BuildURI(q string) string {
+func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("https://datatracker.ietf.org/doc/search/"+
 		"?name=%s&rfcs=on&activedrafts=on", url.QueryEscape(q))
 }

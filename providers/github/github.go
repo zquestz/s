@@ -8,14 +8,12 @@ import (
 )
 
 func init() {
-	providers.AddProvider("github", &GitHubProvider{})
+	providers.AddProvider("github", &Provider{})
 }
 
-// GitHubProvider adheres to the Provider interface.
-type GitHubProvider struct {
-}
+type Provider struct {}
 
 // BuildURI generates a search URL for GitHub.
-func (p *GitHubProvider) BuildURI(q string) string {
+func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("https://github.com/search?utf8=✓&q=%s", url.QueryEscape(q))
 }

@@ -8,14 +8,12 @@ import (
 )
 
 func init() {
-	providers.AddProvider("twitchtv", &Twitchtv{})
+	providers.AddProvider("twitchtv", &Provider{})
 }
 
-// Twitchtv adheres to the Provider interface.
-type Twitchtv struct {
-}
+type Provider struct {}
 
 // BuildURI generates a search URL for Twitchtv.
-func (p *Twitchtv) BuildURI(q string) string {
+func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("https://www.twitch.tv/search?query=%s", url.QueryEscape(q))
 }

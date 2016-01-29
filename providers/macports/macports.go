@@ -8,14 +8,12 @@ import (
 )
 
 func init() {
-	providers.AddProvider("macports", &MacPortsProvider{})
+	providers.AddProvider("macports", &Provider{})
 }
 
-// MacPortsProvider adheres to the Provider interface.
-type MacPortsProvider struct {
-}
+type Provider struct {}
 
 // BuildURI generates a search URL for macports.
-func (p *MacPortsProvider) BuildURI(q string) string {
+func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("https://www.macports.org/ports.php?by=name&substr=%s", url.QueryEscape(q))
 }

@@ -8,14 +8,12 @@ import (
 )
 
 func init() {
-	providers.AddProvider("digg", &DiggProvider{})
+	providers.AddProvider("digg", &Provider{})
 }
 
-// DiggProvider adheres to the Provider interface.
-type DiggProvider struct {
-}
+type Provider struct {}
 
 // BuildURI generates a search URL for Digg.
-func (p *DiggProvider) BuildURI(q string) string {
+func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("https://digg.com/search?q=%s", url.QueryEscape(q))
 }

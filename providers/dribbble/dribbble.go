@@ -8,14 +8,12 @@ import (
 )
 
 func init() {
-	providers.AddProvider("dribbble", &DribbbleProvider{})
+	providers.AddProvider("dribbble", &Provider{})
 }
 
-//DribbbleProvider adheres to the Provider interface.
-type DribbbleProvider struct {
-}
+type Provider struct {}
 
-//BuildURI generates a search URL for Dribbble.
-func (p *DribbbleProvider) BuildURI(q string) string {
+// BuildURI generates a search URL for Dribbble.
+func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("https://dribbble.com/search?q=%s", url.QueryEscape(q))
 }

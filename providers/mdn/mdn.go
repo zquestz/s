@@ -8,14 +8,12 @@ import (
 )
 
 func init() {
-	providers.AddProvider("mdn", &MDNProvider{})
+	providers.AddProvider("mdn", &Provider{})
 }
 
-//MDNProvider adheres to the Provider interface.
-type MDNProvider struct {
-}
+type Provider struct {}
 
-//BuildURI generates a search URL for MDN.
-func (p *MDNProvider) BuildURI(q string) string {
+// BuildURI generates a search URL for MDN.
+func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("https://developer.mozilla.org/en-US/search?q=%s", url.QueryEscape(q))
 }

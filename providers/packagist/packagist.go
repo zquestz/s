@@ -8,14 +8,12 @@ import (
 )
 
 func init() {
-	providers.AddProvider("packagist", &PackagistProvider{})
+	providers.AddProvider("packagist", &Provider{})
 }
 
-// PackagistProvider adheres to the Provider interface.
-type PackagistProvider struct {
-}
+type Provider struct {}
 
 // BuildURI generates a search URL for packagist.
-func (p *PackagistProvider) BuildURI(q string) string {
+func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("https://packagist.org/search/?q=%s", url.QueryEscape(q))
 }

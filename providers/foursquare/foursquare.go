@@ -8,14 +8,12 @@ import (
 )
 
 func init() {
-	providers.AddProvider("foursquare", &FoursquareProvider{})
+	providers.AddProvider("foursquare", &Provider{})
 }
 
-//FoursquareProvider adheres to the Provider interface.
-type FoursquareProvider struct {
-}
+type Provider struct {}
 
 //BuildURI generates a search URL for Foursquare.
-func (p *FoursquareProvider) BuildURI(q string) string {
+func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("https://foursquare.com/explore?&q=%s", url.QueryEscape(q))
 }

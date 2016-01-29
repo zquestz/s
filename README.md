@@ -158,6 +158,7 @@ s -b w3m cats
 * [David Liu (tw4dl)](https://github.com/tw4dl/)
 * [Lex Broner (akb)](http://github.com/akb/)
 * [Diego Jara (djap96)](https://github.com/djap96/)
+* [Luvsandondov Lkhamsuren (lkhamsurenl)](https://github.com/lkhamsurenl/)
 
 #### License
 

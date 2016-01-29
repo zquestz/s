@@ -8,14 +8,12 @@ import (
 )
 
 func init() {
-	providers.AddProvider("pinterest", &PinterestProvider{})
+	providers.AddProvider("pinterest", &Provider{})
 }
 
-// PinterestProvider adheres to the Provider interface.
-type PinterestProvider struct {
-}
+type Provider struct {}
 
 // BuildURI generates a search URL for Pinterest.
-func (p *PinterestProvider) BuildURI(q string) string {
+func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("https://www.pinterest.com/search/pins/?q=%s", url.QueryEscape(q))
 }

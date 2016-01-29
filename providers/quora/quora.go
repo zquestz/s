@@ -8,14 +8,12 @@ import (
 )
 
 func init() {
-	providers.AddProvider("quora", &QuoraProvider{})
+	providers.AddProvider("quora", &Provider{})
 }
 
-// QuoraProvider adheres to the Provider interface.
-type QuoraProvider struct {
-}
+type Provider struct {}
 
 // BuildURI generates a search URL for Quora.
-func (p *QuoraProvider) BuildURI(q string) string {
+func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("https://www.quora.com/search?q=%s", url.QueryEscape(q))
 }

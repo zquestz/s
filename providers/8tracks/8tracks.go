@@ -8,14 +8,12 @@ import (
 )
 
 func init() {
-	providers.AddProvider("8tracks", &EightTracksProvider{})
+	providers.AddProvider("8tracks", &Provider{})
 }
 
-// EightTracksProvider adheres to the Provider interface.
-type EightTracksProvider struct {
-}
+type Provider struct {}
 
 // BuildURI generates a search URL for 8tracks.
-func (p *EightTracksProvider) BuildURI(q string) string {
+func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("https://8tracks.com/explore/%s", url.QueryEscape(q))
 }
