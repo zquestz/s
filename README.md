@@ -123,6 +123,7 @@ s -b "chromium --incognito" conspiracy theories
 * kickasstorrents
 * libgen
 * linkedin
+* lmgtfy
 * macports
 * mdn
 * msdn
