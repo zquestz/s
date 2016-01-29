@@ -12,6 +12,7 @@ func init() {
 	providers.AddProvider("arxiv", &Provider{})
 }
 
+// Provider merely implements the Provider interface.
 type Provider struct{}
 
 // If the query contains more than 1 word, the format to binary logical

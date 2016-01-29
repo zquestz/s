@@ -5,6 +5,7 @@ import (
 	"testing"
 )
 
+// TestBuildURI makes sure the BuildURI method builds valid URIs.
 func TestBuildURI(t *testing.T) {
 	p := Provider{}
 	cases := []struct {

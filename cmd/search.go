@@ -22,7 +22,7 @@ var provider string
 var listProviders bool
 var binary string
 
-// Main command for Cobra.
+// SearchCmd is the main command for Cobra.
 var SearchCmd = &cobra.Command{
 	Use:   "s <query>",
 	Short: "Web search from the terminal",
