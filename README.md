@@ -1,4 +1,5 @@
-[![Build Status](https://travis-ci.org/zquestz/s.svg?branch=master)](https://travis-ci.org/zquestz/s)
+[![License][License-Image]][License-Url] [![ReportCard][ReportCard-Image]][ReportCard-Url] [![Build][Build-Status-Image]][Build-Status-Url] [![Release][Release-Image]][Release-Url]
+
 # s
 Web search from the terminal. Just opens your default browser.
 
@@ -161,3 +162,12 @@ s -b w3m cats
 #### License
 
 s is released under the MIT license.
+
+[License-Url]: http://opensource.org/licenses/MIT
+[License-Image]: https://img.shields.io/npm/l/express.svg
+[Build-Status-Url]: http://travis-ci.org/zquestz/s
+[Build-Status-Image]: https://travis-ci.org/zquestz/s.svg?branch=master
+[Release-Url]: https://github.com/zquestz/s/releases/tag/v0.2.0
+[Release-image]: http://img.shields.io/badge/release-v0.2.0-1eb0fc.svg
+[ReportCard-Url]: http://goreportcard.com/report/zquestz/s
+[ReportCard-Image]: http://goreportcard.com/badge/zquestz/s
