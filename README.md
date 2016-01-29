@@ -83,6 +83,11 @@ Use w3m to find cats instead of just your default browser.
 s -b w3m cats
 ```
 
+Search for conspiracy theories in incognito mode.
+```
+s -b "chromium --incognito" conspiracy theories
+```
+
 ## Supported Providers
 
 * 8tracks
