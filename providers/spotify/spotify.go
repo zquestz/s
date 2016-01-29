@@ -8,14 +8,12 @@ import (
 )
 
 func init() {
-	providers.AddProvider("spotify", &SpotifyProvider{})
+	providers.AddProvider("spotify", &Provider{})
 }
 
-// SpotifyProvider adheres to the Provider interface.
-type SpotifyProvider struct {
-}
+type Provider struct {}
 
 // BuildURI generates a search URL for spotify.
-func (p *SpotifyProvider) BuildURI(q string) string {
+func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("https://play.spotify.com/search/%s", url.QueryEscape(q))
 }

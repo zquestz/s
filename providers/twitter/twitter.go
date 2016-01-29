@@ -8,14 +8,12 @@ import (
 )
 
 func init() {
-	providers.AddProvider("twitter", &TwitterProvider{})
+	providers.AddProvider("twitter", &Provider{})
 }
 
-// TwitterProvider adheres to the Provider interface.
-type TwitterProvider struct {
-}
+type Provider struct {}
 
 // BuildURI generates a search URL for Twitter.
-func (p *TwitterProvider) BuildURI(q string) string {
+func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("https://twitter.com/search?q=%s", url.QueryEscape(q))
 }

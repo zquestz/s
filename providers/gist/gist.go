@@ -8,14 +8,12 @@ import (
 )
 
 func init() {
-	providers.AddProvider("gist", &GistProvider{})
+	providers.AddProvider("gist", &Provider{})
 }
 
-// GistProvider adheres to the Provider interface.
-type GistProvider struct {
-}
+type Provider struct {}
 
 // BuildURI generates a search URL for Gist.
-func (p *GistProvider) BuildURI(q string) string {
+func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("https://gist.github.com/search?q=%s", url.QueryEscape(q))
 }

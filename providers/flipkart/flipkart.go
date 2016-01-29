@@ -8,14 +8,12 @@ import (
 )
 
 func init() {
-	providers.AddProvider("flipkart", &FlipkartProvider{})
+	providers.AddProvider("flipkart", &Provider{})
 }
 
-// FlipkartProvider adheres to the Provider interface.
-type FlipkartProvider struct {
-}
+type Provider struct {}
 
 // BuildURI generates a search URL for Flipkart.
-func (p *FlipkartProvider) BuildURI(q string) string {
+func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("http://www.flipkart.com/search?q=%s", url.QueryEscape(q))
 }

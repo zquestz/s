@@ -6,7 +6,7 @@ import (
 )
 
 func TestBuildURI(t *testing.T) {
-	p := ArxivProvider{}
+	p := Provider{}
 	cases := []struct {
 		query, want string
 	}{

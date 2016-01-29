@@ -8,14 +8,12 @@ import (
 )
 
 func init() {
-	providers.AddProvider("yahoo", &YahooProvider{})
+	providers.AddProvider("yahoo", &Provider{})
 }
 
-// YahooProvider adheres to the Provider interface.
-type YahooProvider struct {
-}
+type Provider struct {}
 
 // BuildURI generates a search URL for Yahoo.
-func (p *YahooProvider) BuildURI(q string) string {
+func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("https://search.yahoo.com/search?p=%s", url.QueryEscape(q))
 }

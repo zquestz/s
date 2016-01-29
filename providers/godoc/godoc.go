@@ -1,4 +1,4 @@
-package gopkg
+package godoc
 
 import (
 	"fmt"
@@ -8,14 +8,12 @@ import (
 )
 
 func init() {
-	providers.AddProvider("godoc", &GoDocProvider{})
+	providers.AddProvider("godoc", &Provider{})
 }
 
-// GoDocProvider adheres to the Provider interface.
-type GoDocProvider struct {
-}
+type Provider struct {}
 
 // BuildURI generates a search URL for GoDoc.
-func (p *GoDocProvider) BuildURI(q string) string {
+func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("https://godoc.org/?q=%s", url.QueryEscape(q))
 }

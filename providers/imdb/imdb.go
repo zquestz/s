@@ -8,14 +8,12 @@ import (
 )
 
 func init() {
-	providers.AddProvider("imdb", &IMDBProvider{})
+	providers.AddProvider("imdb", &Provider{})
 }
 
-// IMDBProvider adheres to the Provider interface.
-type IMDBProvider struct {
-}
+type Provider struct {}
 
 // BuildURI generates a search URL for IMDB.
-func (p *IMDBProvider) BuildURI(q string) string {
+func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("https://www.imdb.com/find?q=%s", url.QueryEscape(q))
 }

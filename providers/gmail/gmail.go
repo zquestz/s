@@ -8,14 +8,12 @@ import (
 )
 
 func init() {
-	providers.AddProvider("gmail", &GmailProvider{})
+	providers.AddProvider("gmail", &Provider{})
 }
 
-// GmailProvider adheres to the Provider interface.
-type GmailProvider struct {
-}
+type Provider struct {}
 
 // BuildURI generates a search URL for gmail.
-func (p *GmailProvider) BuildURI(q string) string {
+func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("https://mail.google.com/mail/u/0/#search/%s", url.QueryEscape(q))
 }

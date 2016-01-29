@@ -8,14 +8,12 @@ import (
 )
 
 func init() {
-	providers.AddProvider("vimeo", &VimeoProvider{})
+	providers.AddProvider("vimeo", &Provider{})
 }
 
-//VimeoProvider adheres to the Provider interface.
-type VimeoProvider struct {
-}
+type Provider struct {}
 
-//BuildURI generates a search URL for Vimeo.
-func (p *VimeoProvider) BuildURI(q string) string {
+// BuildURI generates a search URL for Vimeo.
+func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("https://vimeo.com/search?q=%s", url.QueryEscape(q))
 }

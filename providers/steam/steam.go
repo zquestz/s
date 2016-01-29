@@ -8,14 +8,12 @@ import (
 )
 
 func init() {
-	providers.AddProvider("steam", &SteamProvider{})
+	providers.AddProvider("steam", &Provider{})
 }
 
-// SteamProvider adheres to the Provider interface.
-type SteamProvider struct {
-}
+type Provider struct {}
 
 // BuildURI generates a search URL for Steam.
-func (p *SteamProvider) BuildURI(q string) string {
+func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("https://store.steampowered.com/search/?term=%s", url.QueryEscape(q))
 }

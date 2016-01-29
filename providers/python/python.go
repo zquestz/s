@@ -8,14 +8,12 @@ import (
 )
 
 func init() {
-	providers.AddProvider("python", &PythonProvider{})
+	providers.AddProvider("python", &Provider{})
 }
 
-//PythonProvider adheres to the Provider interface.
-type PythonProvider struct {
-}
+type Provider struct {}
 
-//BuildURI generates a search URL for Python.
-func (p *PythonProvider) BuildURI(q string) string {
+// BuildURI generates a search URL for Python.
+func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("https://www.python.org/search/?q=%s", url.QueryEscape(q))
 }

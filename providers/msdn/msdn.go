@@ -8,14 +8,12 @@ import (
 )
 
 func init() {
-	providers.AddProvider("msdn", &MSDNProvider{})
+	providers.AddProvider("msdn", &Provider{})
 }
 
-//MSDNProvider adheres to the Provider interface.
-type MSDNProvider struct {
-}
+type Provider struct {}
 
-//BuildURI generates a search URL for MSDN.
-func (p *MSDNProvider) BuildURI(q string) string {
+// BuildURI generates a search URL for MSDN.
+func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("https://social.msdn.microsoft.com/Search/en-US?query=%s", url.QueryEscape(q))
 }

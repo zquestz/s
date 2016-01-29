@@ -8,14 +8,12 @@ import (
 )
 
 func init() {
-	providers.AddProvider("amazon", &AmazonProvider{})
+	providers.AddProvider("amazon", &Provider{})
 }
 
-// AmazonProvider adheres to the Provider interface.
-type AmazonProvider struct {
-}
+type Provider struct {}
 
 // BuildURI generates a search URL for Amazon.
-func (p *AmazonProvider) BuildURI(q string) string {
+func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("https://www.amazon.com/s/?keywords=%s", url.QueryEscape(q))
 }

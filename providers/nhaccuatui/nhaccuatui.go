@@ -8,14 +8,12 @@ import (
 )
 
 func init() {
-	providers.AddProvider("nhaccuatui", &NhaccuatuiProvider{})
+	providers.AddProvider("nhaccuatui", &Provider{})
 }
 
-// NhaccuatuiProvider interface.
-type NhaccuatuiProvider struct {
-}
+type Provider struct {}
 
-// BuildURI generates a search URL for NhaccuatuiProvider.
-func (p *NhaccuatuiProvider) BuildURI(q string) string {
+// BuildURI generates a search URL for Nhaccuatui.
+func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("http://www.nhaccuatui.com/tim-kiem?q=%s", url.QueryEscape(q))
 }

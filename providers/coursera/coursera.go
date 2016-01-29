@@ -8,14 +8,12 @@ import (
 )
 
 func init() {
-	providers.AddProvider("coursera", &Coursera{})
+	providers.AddProvider("coursera", &Provider{})
 }
 
-// Coursera adheres to the Provider interface.
-type Coursera struct {
-}
+type Provider struct {}
 
 // BuildURI generates a search URL for Coursera.
-func (p *Coursera) BuildURI(q string) string {
+func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("https://www.coursera.org/courses/?query=%s", url.QueryEscape(q))
 }

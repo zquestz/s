@@ -9,35 +9,33 @@ import (
 )
 
 func init() {
-	providers.AddProvider("arxiv", &ArxivProvider{})
+	providers.AddProvider("arxiv", &Provider{})
 }
 
-// ArxivProvider adheres to the Provider interface.
-type ArxivProvider struct {
-}
+type Provider struct {}
 
 // If the query contains more than 1 word, the format to binary logical
 // combination as follows:
 // "neural networks" -> "OP neural networks"
 // "convolutional neural networks" -> "OP networks OP convolutional neural"
 func formatWithOp(qs []string, op string) string {
-	var formatted_string string
+	var formattedString string
 
 	if len(qs) == 1 {
-		formatted_string = qs[0]
+		formattedString = qs[0]
 	} else {
-		formatted_string = fmt.Sprintf("%s %s", op, strings.Join(qs[:2], " "))
+		formattedString = fmt.Sprintf("%s %s", op, strings.Join(qs[:2], " "))
 	}
 	// Populate all the additional entries with OP in front of the current
 	// formatted string.
 	for i := 2; i < len(qs); i++ {
-		formatted_string = fmt.Sprintf("%s %s %s", op, qs[i], formatted_string)
+		formattedString = fmt.Sprintf("%s %s %s", op, qs[i], formattedString)
 	}
-	return formatted_string
+	return formattedString
 }
 
 // BuildURI generates a search URL for ArXiv.
-func (p *ArxivProvider) BuildURI(q string) string {
+func (p *Provider) BuildURI(q string) string {
 	// Separate query by "or".
 	queries := strings.Split(q, " or ")
 	results := make([]string, len(queries))

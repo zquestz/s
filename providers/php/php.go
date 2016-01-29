@@ -8,14 +8,12 @@ import (
 )
 
 func init() {
-	providers.AddProvider("php", &PhpProvider{})
+	providers.AddProvider("php", &Provider{})
 }
 
-// PhpProvider adheres to the Provider interface.
-type PhpProvider struct {
-}
+type Provider struct {}
 
 // BuildURI generates a search URL for Php.
-func (p *PhpProvider) BuildURI(q string) string {
+func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("https://php.net/%s", url.QueryEscape(q))
 }

@@ -8,14 +8,12 @@ import (
 )
 
 func init() {
-	providers.AddProvider("libgen", &Libgen{})
+	providers.AddProvider("libgen", &Provider{})
 }
 
-// Libgen adheres to the Provider interface.
-type Libgen struct {
-}
+type Provider struct {}
 
 // BuildURI generates a search URL for Libgen.
-func (p *Libgen) BuildURI(q string) string {
+func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("http://gen.lib.rus.ec/search.php?req=%s", url.QueryEscape(q))
 }

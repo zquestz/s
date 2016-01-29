@@ -8,14 +8,12 @@ import (
 )
 
 func init() {
-	providers.AddProvider("google", &GoogleProvider{})
+	providers.AddProvider("google", &Provider{})
 }
 
-// GoogleProvider adheres to the Provider interface.
-type GoogleProvider struct {
-}
+type Provider struct {}
 
 // BuildURI generates a search URL for Google.
-func (p *GoogleProvider) BuildURI(q string) string {
+func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("https://www.google.com/search?q=%s", url.QueryEscape(q))
 }

@@ -8,14 +8,12 @@ import (
 )
 
 func init() {
-	providers.AddProvider("reddit", &RedditProvider{})
+	providers.AddProvider("reddit", &Provider{})
 }
 
-// RedditProvider adheres to the Provider interface.
-type RedditProvider struct {
-}
+type Provider struct {}
 
 // BuildURI generates a search URL for Reddit.
-func (p *RedditProvider) BuildURI(q string) string {
+func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("https://www.reddit.com/search?q=%s", url.QueryEscape(q))
 }

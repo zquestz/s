@@ -8,14 +8,12 @@ import (
 )
 
 func init() {
-	providers.AddProvider("rubygems", &RubyGemsProvider{})
+	providers.AddProvider("rubygems", &Provider{})
 }
 
-// RubyGemsProvider adheres to the Provider interface.
-type RubyGemsProvider struct {
-}
+type Provider struct {}
 
 // BuildURI generates a search URL for RubyGems.
-func (p *RubyGemsProvider) BuildURI(q string) string {
+func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("https://rubygems.org/search?utf8=✓&query=%s", url.QueryEscape(q))
 }
