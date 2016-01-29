@@ -88,7 +88,7 @@ func ExpandProvider(provider string) (string, error) {
 func ProviderNames() []string {
 	names := []string{}
 
-	for key, _ := range Providers {
+	for key := range Providers {
 		names = append(names, key)
 	}
 
