@@ -2,11 +2,18 @@ package providers
 
 import (
 	"fmt"
+	"os"
 	"regexp"
 	"sort"
 	"strings"
 
 	"github.com/zquestz/s/launcher"
+	"golang.org/x/text/language"
+)
+
+const (
+	defaultLanguage = "en"
+	defaultRegion   = "US"
 )
 
 // Provider interface provides a way to build the URI
@@ -94,4 +101,45 @@ func ProviderNames() []string {
 
 	sort.Strings(names)
 	return names
+}
+
+// Region returns the users region code.
+// Eg. "US", "GB", etc
+func Region() string {
+	l := locale()
+
+	tag, err := language.Parse(l)
+	if err != nil {
+		return defaultRegion
+	}
+
+	region, _ := tag.Region()
+
+	return region.String()
+}
+
+// Language returns the users language code.
+// Eg. "en", "es", etc
+func Language() string {
+	l := locale()
+
+	tag, err := language.Parse(l)
+	if err != nil {
+		return defaultLanguage
+	}
+
+	base, _ := tag.Base()
+
+	return base.String()
+}
+
+func locale() string {
+	lang := os.Getenv("LANG")
+	if lang == "" {
+		return ""
+	}
+
+	locale := strings.Split(lang, ".")[0]
+
+	return locale
 }
