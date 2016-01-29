@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/zquestz/s.svg?branch=master)](https://travis-ci.org/zquestz/s)
+
 # s
 Web search from the terminal. Just opens your default browser.
 
