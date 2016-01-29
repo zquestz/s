@@ -1,5 +1,3 @@
-//+build !darwin,!windows
-
 package launcher
 
 import (
