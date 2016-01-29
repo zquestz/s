@@ -3,6 +3,7 @@ package msdn
 import (
 	"fmt"
 	"net/url"
+
 	"github.com/zquestz/s/providers"
 )
 
