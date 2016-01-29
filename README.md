@@ -1,5 +1,4 @@
-[![License][License-Image]][License-Url] [![ReportCard][ReportCard-Image]][ReportCard-Url] [![Build][Build-Status-Image]][Build-Status-Url] [![Release][Release-Image]][Release-Url]
-
+[![License][License-Image]][License-Url] [![Build][Build-Status-Image]][Build-Status-Url] [![Release][Release-Image]][Release-Url]
 # s
 Web search from the terminal. Just opens your default browser.
 
@@ -169,5 +168,3 @@ s is released under the MIT license.
 [Build-Status-Image]: https://travis-ci.org/zquestz/s.svg?branch=master
 [Release-Url]: https://github.com/zquestz/s/releases/tag/v0.2.0
 [Release-image]: http://img.shields.io/badge/release-v0.2.0-1eb0fc.svg
-[ReportCard-Url]: http://goreportcard.com/report/zquestz/s
-[ReportCard-Image]: http://goreportcard.com/badge/zquestz/s
