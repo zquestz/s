@@ -101,6 +101,7 @@ s -b w3m cats
 * steam
 * taobao
 * thepiratebay
+* torrentz
 * twitchtv
 * twitter
 * wikipedia
@@ -117,6 +118,7 @@ s -b w3m cats
 * [Robert-Jan Keizer (KeizerDev)](https://github.com/KeizerDev/)
 * [Vitor Cortez (vekat)](https://github.com/vekat/)
 * [David Liu (tw4dl)](https://github.com/tw4dl/)
+* [Eray Aydın (erayaydin)](https://github.com/erayaydin/)
 
 #### License
 
