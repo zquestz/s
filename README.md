@@ -89,6 +89,11 @@ s -b "chromium --incognito" conspiracy theories
 s -b "firefox --private-window" conspiracy theories
 ```
 
+Search in a specific subreddit.
+```
+s -p reddit /r/cscareerquestions best startups.
+```
+
 ## Supported Providers
 
 * 8tracks
