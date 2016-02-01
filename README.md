@@ -133,6 +133,7 @@ s -p reddit /r/cscareerquestions best startups.
 * macports
 * mdn
 * msdn
+* naver
 * nhaccuatui
 * npm
 * npmsearch

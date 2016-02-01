@@ -42,6 +42,7 @@ import (
 	_ "github.com/zquestz/s/providers/macports"
 	_ "github.com/zquestz/s/providers/mdn"
 	_ "github.com/zquestz/s/providers/msdn"
+	_ "github.com/zquestz/s/providers/naver"
 	_ "github.com/zquestz/s/providers/nhaccuatui"
 	_ "github.com/zquestz/s/providers/npm"
 	_ "github.com/zquestz/s/providers/npmsearch"
