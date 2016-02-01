@@ -35,6 +35,7 @@ import (
 	_ "github.com/zquestz/s/providers/ifttt"
 	_ "github.com/zquestz/s/providers/imdb"
 	_ "github.com/zquestz/s/providers/imgur"
+	_ "github.com/zquestz/s/providers/inbox"
 	_ "github.com/zquestz/s/providers/kickasstorrents"
 	_ "github.com/zquestz/s/providers/libgen"
 	_ "github.com/zquestz/s/providers/linkedin"
