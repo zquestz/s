@@ -62,7 +62,7 @@ import (
 	_ "github.com/zquestz/s/providers/steam"
 	_ "github.com/zquestz/s/providers/taobao"
 	_ "github.com/zquestz/s/providers/thepiratebay"
-        _ "github.com/erayaydin/s/providers/torrentz"
+	_ "github.com/zquestz/s/providers/torrentz"
 	_ "github.com/zquestz/s/providers/twitchtv"
 	_ "github.com/zquestz/s/providers/twitter"
 	_ "github.com/zquestz/s/providers/unity3d"
