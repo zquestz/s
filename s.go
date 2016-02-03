@@ -14,6 +14,7 @@ import (
 	_ "github.com/zquestz/s/providers/bing"
 	_ "github.com/zquestz/s/providers/codepen"
 	_ "github.com/zquestz/s/providers/coursera"
+	_ "github.com/zquestz/s/providers/cplusplus"
 	_ "github.com/zquestz/s/providers/crunchyroll"
 	_ "github.com/zquestz/s/providers/digg"
 	_ "github.com/zquestz/s/providers/dockerhub"
