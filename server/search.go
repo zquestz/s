@@ -8,7 +8,7 @@ import (
 
 func search(w http.ResponseWriter, r *http.Request) {
 	provider := providers.Providers[r.FormValue("provider")]
-	uri := provider.BuildURI(r.FormValue("search"))
+	uri := provider.BuildURI(r.FormValue("q"))
 
 	http.Redirect(w, r, uri, 301)
 }
