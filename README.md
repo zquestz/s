@@ -153,6 +153,7 @@ s -p reddit /r/cscareerquestions best startups.
 * steam
 * taobao
 * thepiratebay
+* torrentz
 * twitchtv
 * twitter
 * unity3d
@@ -175,6 +176,7 @@ s -p reddit /r/cscareerquestions best startups.
 * [Lex Broner (akb)](http://github.com/akb/)
 * [Diego Jara (djap96)](https://github.com/djap96/)
 * [Luvsandondov Lkhamsuren (lkhamsurenl)](https://github.com/lkhamsurenl/)
+* [Eray Aydın (erayaydin)](https://github.com/erayaydin/)
 
 #### License
 
