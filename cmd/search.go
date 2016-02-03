@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
+	"runtime"
 	"strings"
 
 	"github.com/spf13/cobra"
@@ -69,16 +70,19 @@ func performCommand(cmd *cobra.Command, args []string) error {
 
 	st, err := os.Stdin.Stat()
 	if err != nil {
-		return fmt.Errorf("Failed to stat Stdin: %s", err)
-	}
-
-	if st.Mode()&os.ModeNamedPipe != 0 {
-		bytes, err := ioutil.ReadAll(os.Stdin)
-		if err != nil {
-			return fmt.Errorf("Failed to read from Stdin: %s", err)
+		// os.Stdin.Stat() can be unavailable on Windows.
+		if runtime.GOOS != "windows" {
+			return fmt.Errorf("Failed to stat Stdin: %s", err)
 		}
+	} else {
+		if st.Mode()&os.ModeNamedPipe != 0 {
+			bytes, err := ioutil.ReadAll(os.Stdin)
+			if err != nil {
+				return fmt.Errorf("Failed to read from Stdin: %s", err)
+			}
 
-		query = strings.TrimSpace(fmt.Sprintf("%s %s", query, bytes))
+			query = strings.TrimSpace(fmt.Sprintf("%s %s", query, bytes))
+		}
 	}
 
 	if query != "" {
