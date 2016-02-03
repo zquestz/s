@@ -24,6 +24,7 @@ select {float:right;}
 form, footer {text-align: center;}
 footer {display: block; padding: 1em; font-size: 1em;}
 div.logo {padding: 1em;}
+div.logo img { width: 100px; height: 129px;}
     </style>
     <title>s</title>
   </head>
