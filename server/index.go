@@ -38,7 +38,7 @@ div.logo img { width: 100px; height: 129px;}
       <div class="logo">
         <img src="data:image/png;base64,` + logo + `" alt="s" />
       </div>
-      <input class="input" type="text" name="q" tabindex="1" autofocus /><input type="submit" value="Search" tabindex="3" />
+      <input class="input" type="text" name="q" tabindex="1" autofocus required /><input type="submit" value="Search" tabindex="3" />
     </form>
     <footer><a href="https://github.com/zquestz/s">https://github.com/zquestz/s</a></footer>
   </body>
