@@ -7,20 +7,35 @@ import (
 	"github.com/zquestz/s/providers"
 )
 
-func search(w http.ResponseWriter, r *http.Request) {
-	provider := providers.Providers[r.FormValue("provider")]
+func search(defaultProvider string, w http.ResponseWriter, r *http.Request) {
+	requestedProvider := r.FormValue("provider")
+	if requestedProvider == "" {
+		requestedProvider = defaultProvider
+	}
+
+	provider := providers.Providers[requestedProvider]
 	if provider == nil {
-		notFound(w, r)
+		providerNotFound(w, r)
 		return
 	}
 
-	uri := provider.BuildURI(r.FormValue("q"))
+	if query := r.FormValue("q"); query != "" {
+		uri := provider.BuildURI(query)
+		http.Redirect(w, r, uri, 301)
+		return
+	}
 
-	http.Redirect(w, r, uri, 301)
+	queryNotFound(w, r)
 }
 
-func notFound(w http.ResponseWriter, r *http.Request) {
+func providerNotFound(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/plain")
 
 	w.Write([]byte(fmt.Sprintf("Provider %q not found.", r.FormValue("provider"))))
+}
+
+func queryNotFound(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "text/plain")
+
+	w.Write([]byte("A search query is required."))
 }

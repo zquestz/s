@@ -6,6 +6,8 @@ import (
 )
 
 // Run sets up and starts the http server.
+// It requires a valid port to bind to, and the
+// default provider to use for web searches.
 func Run(port int, provider string) error {
 	err := validatePort(port)
 	if err != nil {
@@ -15,7 +17,10 @@ func Run(port int, provider string) error {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		index(provider, w, r)
 	})
-	http.HandleFunc("/search", search)
+
+	http.HandleFunc("/search", func(w http.ResponseWriter, r *http.Request) {
+		search(provider, w, r)
+	})
 
 	err = http.ListenAndServe(fmt.Sprintf(":%d", port), nil)
 	if err != nil {
