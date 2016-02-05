@@ -32,24 +32,24 @@ s puppies
 
 Search for a wifi router on amazon
 ```
-s -p amazon wifi router
+s wifi router -p amazon
 ```
 
 Search for rhinos on wikipedia
 ```
-s -p wikipedia rhinos
+s rhinos -p wikipedia
 ```
 
 ## Provider Expansion
 
 We can do partial matching of provider names. This searches Facebook for hamsters.
 ```
-s -p fa hamsters
+s hamsters -p fa
 ```
 
 Or toasters on amazon.
 ```
-s -p am toasters
+s toasters -p am
 ```
 
 ## Provider Autocompletion
