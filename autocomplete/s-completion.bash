@@ -20,10 +20,19 @@ _provider_completion()
 {
     local cur=${COMP_WORDS[COMP_CWORD]}
     local prev=${COMP_WORDS[COMP_CWORD-1]}
+    local IFS=$'\n'
 
     if [[ "$prev" == "-p" ]] || [[ "$prev" == "--provider" ]]; then
         # Get all providers using `s -l`
         COMPREPLY=( $(compgen -W "$(s -l)" -- $cur) )
     fi
+
+    if [[ "$prev" == "-c" ]] || [[ "$prev" == "--cert" ]]; then
+        COMPREPLY=( $( compgen -G $cur\* -- $cur ) )
+    fi
+
+    if [[ "$prev" == "-k" ]] || [[ "$prev" == "--key" ]]; then
+        COMPREPLY=( $( compgen -G $cur\* -- $cur ) )
+    fi
 }
-complete -F _provider_completion s
+complete -o filenames -F _provider_completion s
