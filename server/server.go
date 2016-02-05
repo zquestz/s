@@ -3,28 +3,45 @@ package server
 import (
 	"fmt"
 	"net/http"
+
+	"github.com/NYTimes/gziphandler"
 )
 
 // Run sets up and starts the http server.
 // It requires a valid port to bind to, and the
 // default provider to use for web searches.
-func Run(port int, provider string) error {
+func Run(port int, cert string, key string, provider string) error {
 	err := validatePort(port)
 	if err != nil {
 		return err
 	}
 
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+	indexHandler := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if r.URL.Path != "/" {
+			http.NotFound(w, r)
+			return
+		}
+
 		index(provider, w, r)
 	})
 
-	http.HandleFunc("/search", func(w http.ResponseWriter, r *http.Request) {
+	searchHandler := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		search(provider, w, r)
 	})
 
-	err = http.ListenAndServe(fmt.Sprintf(":%d", port), nil)
-	if err != nil {
-		return err
+	http.Handle("/", gziphandler.GzipHandler(indexHandler))
+	http.Handle("/search", gziphandler.GzipHandler(searchHandler))
+
+	if cert != "" && key != "" {
+		err = http.ListenAndServeTLS(fmt.Sprintf(":%d", port), cert, key, nil)
+		if err != nil {
+			return fmt.Errorf("HTTP Server: %s", err)
+		}
+	} else {
+		err = http.ListenAndServe(fmt.Sprintf(":%d", port), nil)
+		if err != nil {
+			return fmt.Errorf("HTTP Server: %s", err)
+		}
 	}
 
 	return nil

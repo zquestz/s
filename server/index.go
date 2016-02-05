@@ -8,8 +8,9 @@ import (
 )
 
 type templateVars struct {
-	Providers   []string
+	CSS         string
 	Placeholder string
+	Providers   []string
 }
 
 func index(defaultProvider string, w http.ResponseWriter, r *http.Request) {
@@ -32,8 +33,9 @@ func index(defaultProvider string, w http.ResponseWriter, r *http.Request) {
 	t, _ = t.Parse(IndexTemplate)
 
 	tvars := templateVars{
-		Providers:   providers.ProviderNames(),
+		CSS:         IndexCSS,
 		Placeholder: "kittens...",
+		Providers:   providers.ProviderNames(),
 	}
 
 	t.Execute(w, tvars)

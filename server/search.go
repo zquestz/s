@@ -15,7 +15,7 @@ func search(defaultProvider string, w http.ResponseWriter, r *http.Request) {
 
 	provider := providers.Providers[requestedProvider]
 	if provider == nil {
-		providerNotFound(w, r)
+		providerNotFound(requestedProvider, w, r)
 		return
 	}
 
@@ -28,14 +28,10 @@ func search(defaultProvider string, w http.ResponseWriter, r *http.Request) {
 	queryNotFound(w, r)
 }
 
-func providerNotFound(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "text/plain")
-
-	w.Write([]byte(fmt.Sprintf("Provider %q not found.", r.FormValue("provider"))))
+func providerNotFound(provider string, w http.ResponseWriter, r *http.Request) {
+	http.Error(w, fmt.Sprintf("Provider %q not found.", provider), 400)
 }
 
 func queryNotFound(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "text/plain")
-
-	w.Write([]byte("A search query is required."))
+	http.Error(w, fmt.Sprintf("A search query is required."), 400)
 }
