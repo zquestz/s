@@ -1,8 +1,8 @@
 package server
 
 var (
-	// IndexTemplate is the go template for the index page.
-	IndexTemplate = `<!doctype html>
+  // IndexTemplate is the go template for the index page.
+  IndexTemplate = `<!doctype html>
 <html>
   <head>
     <meta charset="UTF-8">
@@ -24,12 +24,12 @@ var (
 </html>
 `
 
-	// IndexCSS is the css for the main index page.
-	IndexCSS = `*{font-family:"Tahoma","Geneva",sans-serif;font-size:14pt;text-align:center}
+  // IndexCSS is the css for the main index page.
+  IndexCSS = `*{font-family:"Tahoma","Geneva",sans-serif;font-size:14pt;text-align:center}
 body{margin:0;padding:2em;background-color:#272F32;color:#DAEAEF}
 a,a:visited{color:#FFF;font-size:.8em}
 a:active,a:hover{color:#9DBDC6}
-select{position:absolute;top:1.5em;right:1.5em;text-align:left}
+select{position:absolute;top:1.5em;right:1.5em;background:transparent;width:9em;padding:0.3em 2em 0.3em 0.3em;font-size:16px;border:1px solid #ccc;height:2.5em;-webkit-appearance:none;-moz-appearance:none;appearance:none;background:url("data:image/svg+xml;utf8, <svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='32px' width='32px'><text font-family='sans-serif' x='16' y='24' fill='darkslategray' font-size='20' text-anchor='middle'>[S]</text></svg>") 96% / 15% no-repeat #eee;}
 option{text-align:left}
 form{margin-top:10em}
 input[type=text]{width:100%;max-width:450px;border-bottom:1px solid #DAEAEF}
