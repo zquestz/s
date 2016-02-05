@@ -21,9 +21,9 @@ _provider_completion()
     local cur=${COMP_WORDS[COMP_CWORD]}
     local prev=${COMP_WORDS[COMP_CWORD-1]}
 
-    if [[ "$prev" == "-p" ]]; then
+    if [[ "$prev" == "-p" ]] || [[ "$prev" == "--provider" ]]; then
         # Get all providers using `s -l`
-        COMPREPLY=( $( compgen -W "$(s -l)" -- $cur ) )
+        COMPREPLY=( $(compgen -W "$(s -l)" -- $cur) )
     fi
 }
 complete -F _provider_completion s

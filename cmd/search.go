@@ -26,7 +26,7 @@ var binary string
 var serverMode bool
 var port int
 var certpem string
-var certkey string
+var keypem string
 
 // SearchCmd is the main command for Cobra.
 var SearchCmd = &cobra.Command{
@@ -62,9 +62,9 @@ func prepareFlags() {
 	SearchCmd.PersistentFlags().IntVarP(
 		&port, "port", "", 8080, "server port")
 	SearchCmd.PersistentFlags().StringVarP(
-		&certpem, "cert", "", "", "location of cert.pem for TLS")
+		&certpem, "cert", "c", "", "location of cert.pem for TLS")
 	SearchCmd.PersistentFlags().StringVarP(
-		&certkey, "key", "", "", "location of cert.key for TLS")
+		&keypem, "key", "k", "", "location of key.pem for TLS")
 }
 
 // Where all the work happens.
@@ -80,7 +80,7 @@ func performCommand(cmd *cobra.Command, args []string) error {
 	}
 
 	if serverMode {
-		err := server.Run(port, certpem, certkey, provider)
+		err := server.Run(port, certpem, keypem, provider)
 		if err != nil {
 			return err
 		}
