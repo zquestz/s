@@ -12,8 +12,8 @@ compile:
 		(cp README.md $(OUTDIR)/$$dir/README.md) ;\
 		(cp LICENSE $(OUTDIR)/$$dir/LICENSE) ;\
 		(cp -r autocomplete $(OUTDIR)/$$dir/autocomplete) ;\
-		(cd $(OUTDIR) && zip -q s_$$dir.zip -r $$dir) ;\
-		echo "make $(OUTDIR)/s_$$dir.zip" ;\
+		(cd $(OUTDIR) && zip -q s-$$dir.zip -r $$dir) ;\
+		echo "make $(OUTDIR)/s-$$dir.zip" ;\
 	done
 
 install: all
