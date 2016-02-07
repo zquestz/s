@@ -9,9 +9,9 @@ all:
 compile:
 	gox -osarch="$(OSARCH)" -output "$(OUTDIR)/{{.OS}}_{{.Arch}}/s"
 	@for dir in $(DIRS) ; do \
-		cp README.md $OUTDIR/$$dir/README.md ;\
-		cp LICENSE $OUTDIR/$$dir/LICENSE ;\
-		cp -r autocomplete $OUTDIR/$$dir/autocomplete ;\
+		cp $SRCDIR/README.md $OUTDIR/$$dir/README.md ;\
+		cp $SRCDIR/LICENSE $OUTDIR/$$dir/LICENSE ;\
+		cp -r $SRCDIR/autocomplete $OUTDIR/$$dir/autocomplete ;\
 		(cd $(OUTDIR) && zip -q s_$$dir.zip -r $$dir) ;\
 		echo "make $(OUTDIR)/s_$$dir.zip" ;\
 	done
