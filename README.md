@@ -1,16 +1,20 @@
 [![License][License-Image]][License-Url] [![ReportCard][ReportCard-Image]][ReportCard-Url] [![Build][Build-Status-Image]][Build-Status-Url] [![Release][Release-Image]][Release-Url]
 # s
-Web search from the terminal. Just opens your default browser.
+Web search from the terminal. Just opens in your browser.
 
 ```
 Usage:
   s <query> [flags]
 
 Flags:
-  -b, --binary string     binary to launch search uri
+  -b, --binary string     binary to launch search URI
+  -c, --cert string       path to cert.pem for TLS
+  -k, --key string        path to key.pem for TLS
   -l, --list-providers    list supported providers
+      --port int          server port (default 8080)
   -p, --provider string   set search provider (default "google")
-  -v, --verbose           display url when opening
+  -s, --server            launch web server
+  -v, --verbose           display URL when opening
       --version           display version
 ```
 
@@ -92,6 +96,20 @@ s -b "firefox --private-window" conspiracy theories
 Search in a specific subreddit.
 ```
 s -p reddit /r/cscareerquestions best startups.
+```
+
+## Server Mode
+
+A web interface is also provided. Just pass the `-s` flag.
+
+Start a server on port 8080 (default).
+```
+s -s
+```
+
+Start a server with TLS on port 8443.
+```
+s -s -c /path/to/cert.pem -k /path/to/key.pem --port 8443
 ```
 
 ## Supported Providers

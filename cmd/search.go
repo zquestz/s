@@ -50,13 +50,13 @@ func prepareFlags() {
 	SearchCmd.PersistentFlags().BoolVarP(
 		&displayVersion, "version", "", false, "display version")
 	SearchCmd.PersistentFlags().BoolVarP(
-		&verbose, "verbose", "v", false, "display url when opening")
+		&verbose, "verbose", "v", false, "display URL when opening")
 	SearchCmd.PersistentFlags().StringVarP(
 		&provider, "provider", "p", "google", "set search provider")
 	SearchCmd.PersistentFlags().BoolVarP(
 		&listProviders, "list-providers", "l", false, "list supported providers")
 	SearchCmd.PersistentFlags().StringVarP(
-		&binary, "binary", "b", "", "binary to launch search uri")
+		&binary, "binary", "b", "", "binary to launch search URI")
 	SearchCmd.PersistentFlags().BoolVarP(
 		&serverMode, "server", "s", false, "launch web server")
 	SearchCmd.PersistentFlags().IntVarP(
