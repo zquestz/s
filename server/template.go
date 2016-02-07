@@ -1,8 +1,8 @@
 package server
 
 var (
-  // IndexTemplate is the go template for the index page.
-  IndexTemplate = `<!doctype html>
+	// IndexTemplate is the go template for the index page.
+	IndexTemplate = `<!doctype html>
 <html>
   <head>
     <meta charset="UTF-8">
@@ -24,8 +24,8 @@ var (
 </html>
 `
 
-  // IndexCSS is the css for the main index page.
-  IndexCSS = `*{font-family:"Tahoma","Geneva",sans-serif;font-size:14pt;text-align:center}
+	// IndexCSS is the css for the main index page.
+	IndexCSS = `*{font-family:"Tahoma","Geneva",sans-serif;font-size:14pt;text-align:center}
 body{margin:0;padding:2em;background-color:#272F32;color:#DAEAEF}
 a,a:visited{color:#FFF;font-size:.8em}
 a:active,a:hover{color:#9DBDC6}

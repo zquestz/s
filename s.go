@@ -5,6 +5,7 @@ import (
 	"os"
 
 	// Load necessary providers.
+	_ "github.com/zquestz/s/providers/500px"
 	_ "github.com/zquestz/s/providers/8tracks"
 	_ "github.com/zquestz/s/providers/amazon"
 	_ "github.com/zquestz/s/providers/arxiv"
