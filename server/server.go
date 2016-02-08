@@ -32,6 +32,8 @@ func Run(port int, cert string, key string, provider string) error {
 	http.Handle("/", gziphandler.GzipHandler(indexHandler))
 	http.Handle("/search", gziphandler.GzipHandler(searchHandler))
 
+	setupFaviconHandlers()
+
 	if cert != "" && key != "" {
 		err = http.ListenAndServeTLS(fmt.Sprintf(":%d", port), cert, key, nil)
 		if err != nil {
