@@ -32,6 +32,7 @@ import (
 	_ "github.com/zquestz/s/providers/go"
 	_ "github.com/zquestz/s/providers/godoc"
 	_ "github.com/zquestz/s/providers/google"
+	_ "github.com/zquestz/s/providers/googleplus"
 	_ "github.com/zquestz/s/providers/hackernews"
 	_ "github.com/zquestz/s/providers/ietf"
 	_ "github.com/zquestz/s/providers/ifttt"
