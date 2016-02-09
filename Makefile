@@ -7,13 +7,13 @@ all:
 	go build .
 
 compile:
-	gox -osarch="$(OSARCH)" -output "$(OUTDIR)/s-{{.OS}}_{{.Arch}}/s"
+	gox -osarch="$(OSARCH)" -output "$(OUTDIR)/$(APPNAME)-{{.OS}}_{{.Arch}}/$(APPNAME)"
 	@for dir in $(DIRS) ; do \
-		(cp README.md $(OUTDIR)/s-$$dir/README.md) ;\
-		(cp LICENSE $(OUTDIR)/s-$$dir/LICENSE) ;\
-		(cp -r autocomplete $(OUTDIR)/s-$$dir/autocomplete) ;\
-		(cd $(OUTDIR) && zip -q s-$$dir.zip -r s-$$dir) ;\
-		echo "make $(OUTDIR)/s-$$dir.zip" ;\
+		(cp README.md $(OUTDIR)/$(APPNAME)-$$dir/README.md) ;\
+		(cp LICENSE $(OUTDIR)/$(APPNAME)-$$dir/LICENSE) ;\
+		(cp -r autocomplete $(OUTDIR)/$(APPNAME)-$$dir/autocomplete) ;\
+		(cd $(OUTDIR) && zip -q $(APPNAME)-$$dir.zip -r $(APPNAME)-$$dir) ;\
+		echo "make $(OUTDIR)/$(APPNAME)-$$dir.zip" ;\
 	done
 
 install: all
