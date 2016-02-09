@@ -8,6 +8,7 @@ import (
 	_ "github.com/zquestz/s/providers/500px"
 	_ "github.com/zquestz/s/providers/8tracks"
 	_ "github.com/zquestz/s/providers/amazon"
+	_ "github.com/zquestz/s/providers/arstechnica"
 	_ "github.com/zquestz/s/providers/arxiv"
 	_ "github.com/zquestz/s/providers/atmospherejs"
 	_ "github.com/zquestz/s/providers/baidu"
