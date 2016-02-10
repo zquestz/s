@@ -16,6 +16,6 @@ type Provider struct {
 }
 
 // BuildURI generates the search URL for packages.debian.org.
-func (p *DebianPKGProvider) BuildURI(q string) string {
+func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("https://packages.debian.org/search?keywords=%s&searchon=names&suite=stable&section=all", url.QueryEscape(q))
 }
