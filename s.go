@@ -19,6 +19,7 @@ import (
 	_ "github.com/zquestz/s/providers/cplusplus"
 	_ "github.com/zquestz/s/providers/crunchyroll"
 	_ "github.com/zquestz/s/providers/digg"
+	_ "github.com/zquestz/s/providers/diigo"
 	_ "github.com/zquestz/s/providers/dockerhub"
 	_ "github.com/zquestz/s/providers/dribbble"
 	_ "github.com/zquestz/s/providers/duckduckgo"
