@@ -8,14 +8,14 @@ import (
 )
 
 func init() {
-	providers.AddProvider("debianpkg", &DebianPKGProvider{})
+	providers.AddProvider("debianpkg", &Provider{})
 }
 
-// DebianPKGProvider adheres to the Provider interface.
-type DebianPKGProvider struct {
+// Provider adheres to the Provider interface.
+type Provider struct {
 }
 
-// BuildURI generates a search URL for WolframAlpha.
+// BuildURI generates the search URL for packages.debian.org.
 func (p *DebianPKGProvider) BuildURI(q string) string {
 	return fmt.Sprintf("https://packages.debian.org/search?keywords=%s&searchon=names&suite=stable&section=all", url.QueryEscape(q))
 }
