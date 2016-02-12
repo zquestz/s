@@ -16,6 +16,14 @@ const (
 	defaultRegion   = "US"
 )
 
+var (
+	enableBlacklist = false
+	enableWhitelist = false
+
+	blacklist = make(map[string]interface{})
+	whitelist = make(map[string]interface{})
+)
+
 // Provider interface provides a way to build the URI
 // for each provider.
 type Provider interface {
@@ -33,6 +41,28 @@ func init() {
 // This will register the provider so it can be used.
 func AddProvider(name string, provider Provider) {
 	Providers[name] = provider
+}
+
+// SetBlacklist filters out unneeded providers.
+func SetBlacklist(b []string) {
+	for _, v := range b {
+		blacklist[v] = nil
+	}
+
+	if len(blacklist) > 0 {
+		enableBlacklist = true
+	}
+}
+
+// SetWhitelist sets an exact list of supported providers.
+func SetWhitelist(w []string) {
+	for _, v := range w {
+		whitelist[v] = nil
+	}
+
+	if len(whitelist) > 0 {
+		enableWhitelist = true
+	}
 }
 
 // Search builds a search URL and opens it in your browser.
@@ -96,6 +126,20 @@ func ProviderNames() []string {
 	names := []string{}
 
 	for key := range Providers {
+		if enableWhitelist {
+			_, ok := whitelist[key]
+			if !ok {
+				continue
+			}
+		}
+
+		if enableBlacklist {
+			_, ok := blacklist[key]
+			if ok {
+				continue
+			}
+		}
+
 		names = append(names, key)
 	}
 
