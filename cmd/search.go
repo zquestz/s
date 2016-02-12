@@ -85,6 +85,9 @@ func performCommand(cmd *cobra.Command, args []string) error {
 		return nil
 	}
 
+	providers.SetBlacklist(config.Blacklist)
+	providers.SetWhitelist(config.Whitelist)
+
 	if config.ListProviders {
 		fmt.Printf(providers.DisplayProviders())
 		return nil

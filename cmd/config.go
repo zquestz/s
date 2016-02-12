@@ -11,15 +11,17 @@ import (
 
 // Config stores all the application configuration.
 type Config struct {
-	Binary         string `json:"binary"`
-	Cert           string `json:"cert"`
-	DisplayVersion bool   `json:"-"`
-	Key            string `json:"key"`
-	ListProviders  bool   `json:"-"`
-	Port           int    `json:"port,string"`
-	Provider       string `json:"provider"`
-	ServerMode     bool   `json:"-"`
-	Verbose        bool   `json:"verbose,string"`
+	Blacklist      []string `json:"blacklist"`
+	Binary         string   `json:"binary"`
+	Cert           string   `json:"cert"`
+	DisplayVersion bool     `json:"-"`
+	Key            string   `json:"key"`
+	ListProviders  bool     `json:"-"`
+	Port           int      `json:"port,string"`
+	Provider       string   `json:"provider"`
+	ServerMode     bool     `json:"-"`
+	Verbose        bool     `json:"verbose,string"`
+	Whitelist      []string `json:"whitelist"`
 }
 
 // Load reads the configuration from ~/.s/config and loads it into the Config struct.
