@@ -6,7 +6,7 @@ import (
 	"os/user"
 	"path/filepath"
 
-	"github.com/nahanni/go-ucl"
+	"github.com/zquestz/go-ucl"
 )
 
 // Config stores all the application configuration.
@@ -59,6 +59,7 @@ func (c *Config) loadConfig() ([]byte, error) {
 	}
 	defer f.Close()
 
+	ucl.Ucldebug = false
 	data, err := ucl.NewParser(f).Ucl()
 	if err != nil {
 		return nil, err
