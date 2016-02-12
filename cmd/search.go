@@ -13,20 +13,14 @@ import (
 )
 
 const (
-	appName = "s"
-	version = "0.3.1"
+	appName         = "s"
+	version         = "0.4.0"
+	defaultPort     = 8080
+	defaultProvider = "google"
 )
 
-// Flag variables
-var displayVersion bool
-var verbose bool
-var provider string
-var listProviders bool
-var binary string
-var serverMode bool
-var port int
-var certpem string
-var keypem string
+// Stores configuration data.
+var config Config
 
 // SearchCmd is the main command for Cobra.
 var SearchCmd = &cobra.Command{
@@ -36,51 +30,68 @@ var SearchCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		err := performCommand(cmd, args)
 		if err != nil {
-			fmt.Fprintf(os.Stderr, "[Error] %s\n", err)
-			os.Exit(1)
+			bail(err)
 		}
 	},
 }
 
 func init() {
+	err := config.Load()
+	if err != nil {
+		bail(err)
+	}
+
 	prepareFlags()
 }
 
+func bail(err error) {
+	fmt.Fprintf(os.Stderr, "[Error] %s\n", err)
+	os.Exit(1)
+}
+
 func prepareFlags() {
+	if config.Provider == "" {
+		config.Provider = defaultProvider
+	}
+
+	if config.Port == 0 {
+		config.Port = defaultPort
+	}
+
 	SearchCmd.PersistentFlags().BoolVarP(
-		&displayVersion, "version", "", false, "display version")
+		&config.DisplayVersion, "version", "", false, "display version")
 	SearchCmd.PersistentFlags().BoolVarP(
-		&verbose, "verbose", "v", false, "display URL when opening")
+		&config.Verbose, "verbose", "v", config.Verbose, "display URL when opening")
 	SearchCmd.PersistentFlags().StringVarP(
-		&provider, "provider", "p", "google", "set search provider")
+		&config.Provider, "provider", "p", config.Provider, "search provider")
 	SearchCmd.PersistentFlags().BoolVarP(
-		&listProviders, "list-providers", "l", false, "list supported providers")
+		&config.ListProviders, "list-providers", "l", false, "list supported providers")
 	SearchCmd.PersistentFlags().StringVarP(
-		&binary, "binary", "b", "", "binary to launch search URI")
+		&config.Binary, "binary", "b", config.Binary, "binary to launch search URI")
 	SearchCmd.PersistentFlags().BoolVarP(
-		&serverMode, "server", "s", false, "launch web server")
+		&config.ServerMode, "server", "s", false, "launch web server")
 	SearchCmd.PersistentFlags().IntVarP(
-		&port, "port", "", 8080, "server port")
+		&config.Port, "port", "", config.Port, "server port")
 	SearchCmd.PersistentFlags().StringVarP(
-		&certpem, "cert", "c", "", "path to cert.pem for TLS")
+		&config.Cert, "cert", "c", config.Cert, "path to cert.pem for TLS")
 	SearchCmd.PersistentFlags().StringVarP(
-		&keypem, "key", "k", "", "path to key.pem for TLS")
+		&config.Key, "key", "k", config.Key, "path to key.pem for TLS")
 }
 
 // Where all the work happens.
 func performCommand(cmd *cobra.Command, args []string) error {
-	if displayVersion {
+	if config.DisplayVersion {
 		fmt.Printf("%s %s\n", appName, version)
 		return nil
 	}
 
-	if listProviders {
+	if config.ListProviders {
 		fmt.Printf(providers.DisplayProviders())
 		return nil
 	}
 
-	if serverMode {
-		err := server.Run(port, certpem, keypem, provider)
+	if config.ServerMode {
+		err := server.Run(config.Port, config.Cert, config.Key, config.Provider)
 		if err != nil {
 			return err
 		}
@@ -108,7 +119,7 @@ func performCommand(cmd *cobra.Command, args []string) error {
 	}
 
 	if query != "" {
-		err := providers.Search(binary, provider, query, verbose)
+		err := providers.Search(config.Binary, config.Provider, query, config.Verbose)
 		if err != nil {
 			return err
 		}

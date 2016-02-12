@@ -12,7 +12,7 @@ Flags:
   -k, --key string        path to key.pem for TLS
   -l, --list-providers    list supported providers
       --port int          server port (default 8080)
-  -p, --provider string   set search provider (default "google")
+  -p, --provider string   search provider (default "google")
   -s, --server            launch web server
   -v, --verbose           display URL when opening
       --version           display version
@@ -111,6 +111,27 @@ Start a server with TLS on port 8443.
 ```
 s -s -c /path/to/cert.pem -k /path/to/key.pem --port 8443
 ```
+
+## Configuration
+
+To setup your own default configuration just create `~/.s/config`. The configuration file is in UCL format. JSON is also fully supported as UCL can parse JSON files.
+
+For more information about UCL visit:
+[https://github.com/vstakhov/libucl](https://github.com/vstakhov/libucl)
+
+This config sets your default provider to duckduckgo:
+```
+provider: duckduckgo
+```
+
+The following keys are supported:
+
+* binary (binary to launch search URI)
+* cert (path to cert.pem for TLS)
+* key (path to key.pem for TLS)
+* port (server port)
+* provider (search provider)
+* verbose (display URL when opening)
 
 ## Supported Providers
 
