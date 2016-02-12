@@ -38,7 +38,7 @@ var SearchCmd = &cobra.Command{
 func init() {
 	err := config.Load()
 	if err != nil {
-		bail(err)
+		bail(fmt.Errorf("Failed to load configuration: %s", err))
 	}
 
 	prepareFlags()
