@@ -159,6 +159,7 @@ s -s -c /path/to/cert.pem -k /path/to/key.pem --port 8443
 * mdn
 * msdn
 * naver
+* netflix
 * nhaccuatui
 * npm
 * npmsearch
@@ -170,6 +171,7 @@ s -s -c /path/to/cert.pem -k /path/to/key.pem --port 8443
 * python
 * quora
 * reddit
+* rottentomatoes
 * rubygems
 * soundcloud
 * spotify
@@ -201,6 +203,7 @@ s -s -c /path/to/cert.pem -k /path/to/key.pem --port 8443
 * [Diego Jara (djap96)](https://github.com/djap96/)
 * [Luvsandondov Lkhamsuren (lkhamsurenl)](https://github.com/lkhamsurenl/)
 * [Eray Aydın (erayaydin)](https://github.com/erayaydin/)
+* [Murilo Santana (mvrilo)](https://github.com/mvrilo/)
 
 #### License
 
