@@ -34,8 +34,8 @@ func setupFaviconHandlers() {
 	http.Handle("/mstile-310x150.png", gziphandler.GzipHandler(http.HandlerFunc(mstile310x150Png)))
 	http.Handle("/mstile-310x310.png", gziphandler.GzipHandler(http.HandlerFunc(mstile310x310Png)))
 	http.Handle("/mstile-70x70.png", gziphandler.GzipHandler(http.HandlerFunc(mstile70x70Png)))
-	http.Handle("/browserconfig.xml", gziphandler.GzipHandler(http.HandlerFunc(browserconfigXml)))
-	http.Handle("/manifest.json", gziphandler.GzipHandler(http.HandlerFunc(manifestJson)))
+	http.Handle("/browserconfig.xml", gziphandler.GzipHandler(http.HandlerFunc(browserconfigXML)))
+	http.Handle("/manifest.json", gziphandler.GzipHandler(http.HandlerFunc(manifestJSON)))
 	http.Handle("/safari-pinned-tab.svg", gziphandler.GzipHandler(http.HandlerFunc(safariPinnedTabSvg)))
 }
 
@@ -1697,7 +1697,7 @@ func mstile70x70Png(w http.ResponseWriter, r *http.Request) {
 	})
 }
 
-func browserconfigXml(w http.ResponseWriter, r *http.Request) {
+func browserconfigXML(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/xml")
 	setExpiresHeader(w)
 
@@ -1716,7 +1716,7 @@ func browserconfigXml(w http.ResponseWriter, r *http.Request) {
 `))
 }
 
-func manifestJson(w http.ResponseWriter, r *http.Request) {
+func manifestJSON(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	setExpiresHeader(w)
 
