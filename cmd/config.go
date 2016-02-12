@@ -6,7 +6,7 @@ import (
 	"os/user"
 	"path/filepath"
 
-	"github.com/zquestz/go-ucl"
+	ucl "github.com/zquestz/go-ucl"
 )
 
 // Config stores all the application configuration.
