@@ -8,14 +8,13 @@ import (
 )
 
 func init() {
-	providers.AddProvider("rottentomatoes", &RottenTomatoesProvider{})
+	providers.AddProvider("rottentomatoes", &Provider{})
 }
 
-// RottenTomatoesProvider adheres to the Provider interface.
-type RottenTomatoesProvider struct {
-}
+// Provider merely implements the Provider interface.
+type Provider struct{}
 
 // BuildURI generates a search URL for RottenTomatoes.
-func (p *RottenTomatoesProvider) BuildURI(q string) string {
+func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("http://www.rottentomatoes.com/search/?search=%s", url.QueryEscape(q))
 }

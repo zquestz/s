@@ -2,19 +2,19 @@ package netflix
 
 import (
 	"fmt"
+	"net/url"
 
 	"github.com/zquestz/s/providers"
 )
 
 func init() {
-	providers.AddProvider("netflix", &NetflixProvider{})
+	providers.AddProvider("netflix", &Provider{})
 }
 
-// NetflixProvider adheres to the Provider interface.
-type NetflixProvider struct {
-}
+// Provider merely implements the Provider interface.
+type Provider struct{}
 
 // BuildURI generates a search URL for Netflix.
-func (p *NetflixProvider) BuildURI(q string) string {
-	return fmt.Sprintf("http://www.netflix.com/search/%s", q)
+func (p *Provider) BuildURI(q string) string {
+	return fmt.Sprintf("http://www.netflix.com/search/%s", url.QueryEscape(q))
 }
