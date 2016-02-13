@@ -41,12 +41,26 @@ func init() {
 		bail(fmt.Errorf("Failed to load configuration: %s", err))
 	}
 
+	loadCustomProviders()
+
 	prepareFlags()
 }
 
 func bail(err error) {
 	fmt.Fprintf(os.Stderr, "[Error] %s\n", err)
 	os.Exit(1)
+}
+
+func loadCustomProviders() {
+	for _, p := range config.CustomProviders {
+		err := p.Valid()
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "[Warn] Invalid provider %q: %s\n", p.Name, err)
+			continue
+		}
+
+		providers.AddProvider(p.Name, p)
+	}
 }
 
 func prepareFlags() {
