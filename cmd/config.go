@@ -3,9 +3,9 @@ package cmd
 import (
 	"encoding/json"
 	"os"
-	"os/user"
 	"path/filepath"
 
+	"github.com/mitchellh/go-homedir"
 	"github.com/zquestz/go-ucl"
 	"github.com/zquestz/s/providers"
 )
@@ -46,12 +46,12 @@ func (c *Config) Load() error {
 }
 
 func (c *Config) loadConfig() ([]byte, error) {
-	u, err := user.Current()
+	h, err := homedir.Dir()
 	if err != nil {
 		return nil, err
 	}
 
-	f, err := os.Open(filepath.Join(u.HomeDir, ".s", "config"))
+	f, err := os.Open(filepath.Join(h, ".s", "config"))
 	if err != nil {
 		if os.IsNotExist(err) {
 			return nil, nil
