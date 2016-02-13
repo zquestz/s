@@ -74,6 +74,14 @@ s -p ba<TAB><TAB>
 baidu     bandcamp
 ```
 
+### Fish
+
+Alternatively, if you use [fish](http://fishshell.com/), the following will work:
+```
+mkdir -p ~/.config/fish/completions
+cp $GOPATH/src/github.com/zquestz/s/autocomplete/s.fish ~/.config/fish/completions/
+```
+
 ## Advanced
 
 Setup an alias in your `.profile` for your favorite providers.
