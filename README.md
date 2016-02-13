@@ -119,6 +119,18 @@ To setup your own default configuration just create `~/.s/config`. The configura
 For more information about UCL visit:
 [https://github.com/vstakhov/libucl](https://github.com/vstakhov/libucl)
 
+The following keys are supported:
+
+* blacklist (array of providers to exclude)
+* binary (binary to launch search URI)
+* cert (path to cert.pem for TLS)
+* customProviders (array of custom providers)
+* key (path to key.pem for TLS)
+* port (server port)
+* provider (search provider)
+* verbose (display URL when opening)
+* whitelist (array of providers to include)
+
 Set your default provider to duckduckgo:
 ```
 provider: duckduckgo
@@ -134,16 +146,20 @@ To exclude providers you don't need:
 blacklist: [dumpert]
 ```
 
-The following keys are supported:
+To add a custom provider:
+```
+customProviders [
+  {
+    name: example
+    url: "http://example.com?q=%s"
+  }
+]
+```
 
-* blacklist (array of providers to exclude)
-* binary (binary to launch search URI)
-* cert (path to cert.pem for TLS)
-* key (path to key.pem for TLS)
-* port (server port)
-* provider (search provider)
-* verbose (display URL when opening)
-* whitelist (array of providers to include)
+Custom providers require a few things:
+* An alphanumeric name. `^[a-zA-Z0-9_]*$`
+* A `%s` token for the query string.
+* A valid url scheme.
 
 ## Supported Providers
 
