@@ -79,7 +79,7 @@ baidu     bandcamp
 Alternatively, if you use [fish](http://fishshell.com/), the following will work:
 ```
 mkdir -p ~/.config/fish/completions
-cp $GOPATH/src/github.com/zquestz/s/autocomplete/s.fish ~/.config/fish/completions/
+ln -s $GOPATH/src/github.com/zquestz/s/autocomplete/s.fish ~/.config/fish/completions/s.fish
 ```
 
 ## Advanced
