@@ -11,7 +11,7 @@ function __fish_s_needs_option_argument
 end
 
 function __fish_s_provider_list
-    find $GOPATH/src/github.com/zquestz/s/providers -depth 1 -type d | sed 's:.*/::'
+    s -l
 end
 
 complete -f -c s -s p
