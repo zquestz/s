@@ -7,7 +7,7 @@ import (
 	"github.com/zquestz/s/providers"
 )
 
-func search(defaultProvider string, w http.ResponseWriter, r *http.Request) {
+func search(defaultProvider string, verbose bool, w http.ResponseWriter, r *http.Request) {
 	requestedProvider := r.FormValue("provider")
 	if requestedProvider == "" {
 		requestedProvider = defaultProvider
@@ -21,6 +21,11 @@ func search(defaultProvider string, w http.ResponseWriter, r *http.Request) {
 
 	if query := r.FormValue("q"); query != "" {
 		uri := provider.BuildURI(query)
+
+		if verbose {
+			fmt.Printf("%s\n", uri)
+		}
+
 		http.Redirect(w, r, uri, 301)
 		return
 	}

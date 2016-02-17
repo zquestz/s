@@ -10,7 +10,7 @@ import (
 // Run sets up and starts the http server.
 // It requires a valid port to bind to, and the
 // default provider to use for web searches.
-func Run(port int, cert string, key string, provider string) error {
+func Run(port int, cert string, key string, provider string, verbose bool) error {
 	err := validatePort(port)
 	if err != nil {
 		return err
@@ -26,7 +26,7 @@ func Run(port int, cert string, key string, provider string) error {
 	})
 
 	searchHandler := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		search(provider, w, r)
+		search(provider, verbose, w, r)
 	})
 
 	http.Handle("/", gziphandler.GzipHandler(indexHandler))
