@@ -55,14 +55,14 @@ function __fish_s_find_executable_matching_prefix
 end
 
 # s options
-complete -f -c s -s b -l binary         -d 'binary to launch search URI'
-complete -f -c s -s c -l cert           -d 'path to cert.pem for TLS'
-complete -f -c s -s k -l key            -d 'path to key.pem for TLS'
-complete -f -c s -s l -l list-providers -d 'list supported providers'
+complete -f -c s -o b -l binary         -d 'binary to launch search URI'
+complete -f -c s -o c -l cert           -d 'path to cert.pem for TLS'
+complete -f -c s -o k -l key            -d 'path to key.pem for TLS'
+complete -f -c s -o l -l list-providers -d 'list supported providers'
 complete -f -c s      -l port           -d 'server port (default 8080)'
-complete -f -c s -s p -l provider       -d 'search provider (default "google")'
-complete -f -c s -s s -l server         -d 'launch web server'
-complete -f -c s -s v -l verbose        -d 'display URL when opening'
+complete -f -c s -o p -l provider       -d 'search provider (default "google")'
+complete -f -c s -o s -l server         -d 'launch web server'
+complete -f -c s -o v -l verbose        -d 'display URL when opening'
 complete -f -c s      -l version        -d 'display version'
 
 # s {-b|--binary} options
