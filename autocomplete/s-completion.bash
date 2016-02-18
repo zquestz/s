@@ -20,7 +20,14 @@ _provider_completion()
 {
     local cur=${COMP_WORDS[COMP_CWORD]}
     local prev=${COMP_WORDS[COMP_CWORD-1]}
-    local IFS=$'\n'
+
+    if [[ "$cur" == -* ]]; then
+        COMPREPLY=( $(compgen -W "-b -c -k -h -k -l -p -s -v --" -- $cur) )
+    fi
+
+    if [[ "$cur" == --* ]]; then
+        COMPREPLY=( $(compgen -W "--binary --cert --help --key --list-providers --port --provider --server --verbose --version --" -- $cur) )
+    fi
 
     if [[ "$prev" == "-p" ]] || [[ "$prev" == "--provider" ]]; then
         # Get all providers using `s -l`
@@ -28,11 +35,11 @@ _provider_completion()
     fi
 
     if [[ "$prev" == "-c" ]] || [[ "$prev" == "--cert" ]]; then
-        COMPREPLY=( $( compgen -G $cur\* -- $cur ) )
+        COMPREPLY=( $(compgen -G $cur\* -- $cur) )
     fi
 
     if [[ "$prev" == "-k" ]] || [[ "$prev" == "--key" ]]; then
-        COMPREPLY=( $( compgen -G $cur\* -- $cur ) )
+        COMPREPLY=( $(compgen -G $cur\* -- $cur) )
     fi
 }
 complete -o filenames -F _provider_completion s
