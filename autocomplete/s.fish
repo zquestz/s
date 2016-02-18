@@ -5,7 +5,7 @@ function __fish_s_needs_option_argument
         return 0
     else if [ (count $cmd) -ge 2 ]
         if test $cmd[-2] = $opt
-            if not contains $cmd[-1] (s -l)
+            if not contains -- $cmd[-1] (s -l)
                 return 0
             end
         end
