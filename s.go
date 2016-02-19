@@ -18,6 +18,7 @@ import (
 	_ "github.com/zquestz/s/providers/coursera"
 	_ "github.com/zquestz/s/providers/cplusplus"
 	_ "github.com/zquestz/s/providers/crunchyroll"
+	_ "github.com/zquestz/s/providers/debianpkg"
 	_ "github.com/zquestz/s/providers/digg"
 	_ "github.com/zquestz/s/providers/diigo"
 	_ "github.com/zquestz/s/providers/dockerhub"

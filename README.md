@@ -186,6 +186,7 @@ Custom providers require a few things:
 * coursera
 * cplusplus
 * crunchyroll
+* debianpkg
 * digg
 * diigo
 * dockerhub
