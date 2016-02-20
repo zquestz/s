@@ -1,4 +1,4 @@
-[![License][License-Image]][License-Url] [![ReportCard][ReportCard-Image]][ReportCard-Url] [![Build][Build-Status-Image]][Build-Status-Url] [![Release][Release-Image]][Release-Url]
+[![License][License-Image]][License-URL] [![ReportCard][ReportCard-Image]][ReportCard-URL] [![Build][Build-Status-Image]][Build-Status-URL] [![Release][Release-Image]][Release-URL] [![Chat][Chat-Image]][Chat-URL]
 # s
 Web search from the terminal. Just opens in your browser.
 
@@ -169,7 +169,7 @@ customProviders [
 Custom providers require a few things:
 * An alphanumeric name. `^[a-zA-Z0-9_]*$`
 * A `%s` token for the query string.
-* A valid url scheme.
+* A valid URL scheme.
 
 ## Supported Providers
 
@@ -269,11 +269,13 @@ Custom providers require a few things:
 
 s is released under the MIT license.
 
-[License-Url]: http://opensource.org/licenses/MIT
+[License-URL]: http://opensource.org/licenses/MIT
 [License-Image]: https://img.shields.io/npm/l/express.svg
-[ReportCard-Url]: http://goreportcard.com/report/zquestz/s
+[ReportCard-URL]: http://goreportcard.com/report/zquestz/s
 [ReportCard-Image]: http://goreportcard.com/badge/zquestz/s
-[Build-Status-Url]: http://travis-ci.org/zquestz/s
+[Build-Status-URL]: http://travis-ci.org/zquestz/s
 [Build-Status-Image]: https://travis-ci.org/zquestz/s.svg?branch=master
-[Release-Url]: https://github.com/zquestz/s/releases/tag/v0.4.2
-[Release-image]: http://img.shields.io/badge/release-v0.4.2-1eb0fc.svg
+[Release-URL]: https://github.com/zquestz/s/releases/tag/v0.4.2
+[Release-Image]: http://img.shields.io/badge/release-v0.4.2-1eb0fc.svg
+[Chat-Image]: https://badges.gitter.im/zquestz/s.svg
+[Chat-URL]: https://gitter.im/zquestz/s?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
