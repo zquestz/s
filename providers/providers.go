@@ -19,9 +19,9 @@ const (
 var (
 	enableBlacklist = false
 	enableWhitelist = false
-
-	blacklist = make(map[string]interface{})
-	whitelist = make(map[string]interface{})
+	clientLocale    = ""
+	blacklist       = make(map[string]interface{})
+	whitelist       = make(map[string]interface{})
 )
 
 // Provider interface provides a way to build the URI
@@ -178,6 +178,9 @@ func Language() string {
 }
 
 func locale() string {
+	if clientLocale != "" {
+		return clientLocale
+	}
 	lang := os.Getenv("LANG")
 	if lang == "" {
 		return ""
@@ -186,4 +189,8 @@ func locale() string {
 	locale := strings.Split(lang, ".")[0]
 
 	return locale
+}
+
+func SetClientLocale(locale string) {
+	clientLocale = locale
 }
