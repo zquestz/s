@@ -177,10 +177,17 @@ func Language() string {
 	return base.String()
 }
 
+// SetClientLocale sets the locale of the client
+// connecting to the web server.
+func SetClientLocale(locale string) {
+	clientLocale = locale
+}
+
 func locale() string {
 	if clientLocale != "" {
 		return clientLocale
 	}
+
 	lang := os.Getenv("LANG")
 	if lang == "" {
 		return ""
@@ -189,8 +196,4 @@ func locale() string {
 	locale := strings.Split(lang, ".")[0]
 
 	return locale
-}
-
-func SetClientLocale(locale string) {
-	clientLocale = locale
 }
