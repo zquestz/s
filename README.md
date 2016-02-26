@@ -27,6 +27,12 @@ make
 make install
 ```
 
+Alternatively, you can use Homebrew:
+
+```
+brew install s-search
+```
+
 ## Examples
 
 Search for puppies on google.
