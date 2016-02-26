@@ -217,6 +217,7 @@ Custom providers require a few things:
 * lmgtfy
 * macports
 * mdn
+* metacpan
 * msdn
 * naver
 * netflix
