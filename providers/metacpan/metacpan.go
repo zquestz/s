@@ -12,7 +12,7 @@ func init() {
 }
 
 // Provider merely implements the Provider interface.
-type Provider struct{
+type Provider struct {
 }
 
 // BuildURI generates a search URL for MetaCPAN.
