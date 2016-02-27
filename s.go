@@ -75,6 +75,7 @@ import (
 	_ "github.com/zquestz/s/providers/steam"
 	_ "github.com/zquestz/s/providers/taobao"
 	_ "github.com/zquestz/s/providers/thepiratebay"
+	_ "github.com/zquestz/s/providers/theregister"
 	_ "github.com/zquestz/s/providers/torrentz"
 	_ "github.com/zquestz/s/providers/twitchtv"
 	_ "github.com/zquestz/s/providers/twitter"

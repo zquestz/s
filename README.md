@@ -249,6 +249,7 @@ Custom providers require a few things:
 * steam
 * taobao
 * thepiratebay
+* theregister
 * torrentz
 * twitchtv
 * twitter
