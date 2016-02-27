@@ -235,6 +235,7 @@ Custom providers require a few things:
 * packagist
 * php
 * pinterest
+* pypi
 * python
 * quora
 * reddit
