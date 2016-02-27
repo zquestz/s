@@ -200,6 +200,7 @@ Custom providers require a few things:
 * dribbble
 * duckduckgo
 * dumpert
+* engadget
 * facebook
 * flickr
 * flipkart
