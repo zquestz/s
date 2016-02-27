@@ -187,6 +187,7 @@ Custom providers require a few things:
 * atmospherejs
 * baidu
 * bandcamp
+* bgr
 * bing
 * codepen
 * coursera
