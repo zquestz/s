@@ -233,6 +233,7 @@ Custom providers require a few things:
 * nvd
 * overstock
 * packagist
+* phandroid
 * php
 * pinterest
 * python
