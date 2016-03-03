@@ -189,6 +189,7 @@ Custom providers require a few things:
 * bandcamp
 * bgr
 * bing
+* caskroom
 * codepen
 * coursera
 * cplusplus
