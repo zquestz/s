@@ -16,5 +16,5 @@ type Provider struct{}
 
 // BuildURI generates a search URL for Caskroom.
 func (p *Provider) BuildURI(q string) string {
-	return fmt.Sprintf("hcaskroom.io/search?q=%s, url.QueryEscape(q))
+	return fmt.Sprintf("caskroom.io/search?q=%s, url.QueryEscape(q))
 }
