@@ -193,6 +193,7 @@ Custom providers require a few things:
 * bgr
 * bing
 * buzzfeed
+* cnn
 * codepen
 * coursera
 * cplusplus
