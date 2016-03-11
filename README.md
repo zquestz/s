@@ -182,6 +182,7 @@ Custom providers require a few things:
 * 500px
 * 8tracks
 * amazon
+* archpkg
 * archwiki
 * arstechnica
 * arxiv
