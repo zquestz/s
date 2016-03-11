@@ -63,6 +63,7 @@ import (
 	_ "github.com/zquestz/s/providers/nhaccuatui"
 	_ "github.com/zquestz/s/providers/npm"
 	_ "github.com/zquestz/s/providers/npmsearch"
+	_ "github.com/zquestz/s/providers/npr"
 	_ "github.com/zquestz/s/providers/nvd"
 	_ "github.com/zquestz/s/providers/overstock"
 	_ "github.com/zquestz/s/providers/packagist"

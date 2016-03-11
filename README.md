@@ -237,6 +237,7 @@ Custom providers require a few things:
 * nhaccuatui
 * npm
 * npmsearch
+* npr
 * nvd
 * overstock
 * packagist
