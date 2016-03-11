@@ -182,9 +182,11 @@ Custom providers require a few things:
 * 500px
 * 8tracks
 * amazon
+* archwiki
 * arstechnica
 * arxiv
 * atmospherejs
+* aur
 * baidu
 * bandcamp
 * bgr
