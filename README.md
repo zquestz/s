@@ -192,6 +192,7 @@ Custom providers require a few things:
 * bandcamp
 * bgr
 * bing
+* buzzfeed
 * codepen
 * coursera
 * cplusplus

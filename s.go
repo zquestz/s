@@ -18,6 +18,7 @@ import (
 	_ "github.com/zquestz/s/providers/bandcamp"
 	_ "github.com/zquestz/s/providers/bgr"
 	_ "github.com/zquestz/s/providers/bing"
+	_ "github.com/zquestz/s/providers/buzzfeed"
 	_ "github.com/zquestz/s/providers/codepen"
 	_ "github.com/zquestz/s/providers/coursera"
 	_ "github.com/zquestz/s/providers/cplusplus"
