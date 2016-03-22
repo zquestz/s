@@ -216,6 +216,7 @@ Custom providers require a few things:
 * go
 * godoc
 * google
+* googledocs
 * googleplus
 * hackernews
 * ietf
