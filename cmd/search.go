@@ -75,11 +75,15 @@ func prepareFlags() {
 	SearchCmd.PersistentFlags().BoolVarP(
 		&config.DisplayVersion, "version", "", false, "display version")
 	SearchCmd.PersistentFlags().BoolVarP(
-		&config.Verbose, "verbose", "v", config.Verbose, "display URL when opening")
+		&config.Verbose, "verbose", "v", config.Verbose, "verbose mode")
 	SearchCmd.PersistentFlags().StringVarP(
 		&config.Provider, "provider", "p", config.Provider, "search provider")
+	SearchCmd.PersistentFlags().StringVarP(
+		&config.Tag, "tag", "t", config.Tag, "search tag")
 	SearchCmd.PersistentFlags().BoolVarP(
 		&config.ListProviders, "list-providers", "l", false, "list supported providers")
+	SearchCmd.PersistentFlags().BoolVarP(
+		&config.ListTags, "list-tags", "", false, "list available tags")
 	SearchCmd.PersistentFlags().StringVarP(
 		&config.Binary, "binary", "b", config.Binary, "binary to launch search URI")
 	SearchCmd.PersistentFlags().BoolVarP(
@@ -103,7 +107,12 @@ func performCommand(cmd *cobra.Command, args []string) error {
 	providers.SetWhitelist(config.Whitelist)
 
 	if config.ListProviders {
-		fmt.Printf(providers.DisplayProviders())
+		fmt.Printf(providers.DisplayProviders(config.Verbose))
+		return nil
+	}
+
+	if config.ListTags {
+		fmt.Printf(providers.DisplayTags(config.Verbose))
 		return nil
 	}
 
@@ -136,7 +145,14 @@ func performCommand(cmd *cobra.Command, args []string) error {
 	}
 
 	if query != "" {
-		err := providers.Search(config.Binary, config.Provider, query, config.Verbose)
+		err := providers.Search(
+			config.Binary,
+			config.Provider,
+			config.Tag,
+			query,
+			cmd.Flags().Changed("provider"),
+			config.Verbose,
+		)
 		if err != nil {
 			return err
 		}

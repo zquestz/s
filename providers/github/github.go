@@ -18,3 +18,8 @@ type Provider struct{}
 func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("https://github.com/search?utf8=✓&q=%s", url.QueryEscape(q))
 }
+
+// Tags returns the tags relevant to this provider.
+func (p *Provider) Tags() []string {
+	return []string{"code"}
+}

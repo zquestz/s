@@ -11,13 +11,19 @@ var alphanums = regexp.MustCompile("^[a-zA-Z0-9_]*$")
 
 // CustomProvider is used for Config based providers.
 type CustomProvider struct {
-	Name string `json:"name"`
-	URL  string `json:"url"`
+	Name    string   `json:"name"`
+	URL     string   `json:"url"`
+	TagList []string `json:"tags"`
 }
 
 // BuildURI builds the URI for custom providers.
 func (c *CustomProvider) BuildURI(q string) string {
 	return fmt.Sprintf(c.URL, url.QueryEscape(q))
+}
+
+// Tags returns the tags relevant to this provider.
+func (c *CustomProvider) Tags() []string {
+	return c.TagList
 }
 
 // Valid checks if the custom provider is setup correctly.

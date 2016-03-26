@@ -20,3 +20,8 @@ func (p *Provider) BuildURI(q string) string {
 		"https://www.linkedin.com/vsearch/f?type=all&keywords=%s&search=Search",
 		url.QueryEscape(q))
 }
+
+// Tags returns the tags relevant to this provider.
+func (p *Provider) Tags() []string {
+	return []string{}
+}

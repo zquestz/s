@@ -19,3 +19,8 @@ func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("https://datatracker.ietf.org/doc/search/"+
 		"?name=%s&rfcs=on&activedrafts=on", url.QueryEscape(q))
 }
+
+// Tags returns the tags relevant to this provider.
+func (p *Provider) Tags() []string {
+	return []string{}
+}
