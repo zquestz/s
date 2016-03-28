@@ -251,6 +251,7 @@ Custom providers require a few things:
 * lmgtfy
 * macports
 * mdn
+* medium
 * metacpan
 * msdn
 * naver
