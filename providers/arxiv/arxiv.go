@@ -49,3 +49,8 @@ func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("http://arxiv.org/find/all/1/all:+%s/0/1/0/all/0/1",
 		url.QueryEscape(formatWithOp(results, "OR")))
 }
+
+// Tags returns the tags relevant to this provider.
+func (p *Provider) Tags() []string {
+	return []string{"education"}
+}

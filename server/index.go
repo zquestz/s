@@ -37,7 +37,7 @@ func index(defaultProvider string, w http.ResponseWriter, r *http.Request) {
 		CSS:         IndexCSS,
 		JS:          IndexJS,
 		Placeholder: "kittens...",
-		Providers:   providers.ProviderNames(),
+		Providers:   providers.ProviderNames(false),
 	}
 
 	t.Execute(w, tvars)

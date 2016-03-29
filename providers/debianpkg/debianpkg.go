@@ -18,3 +18,8 @@ type Provider struct{}
 func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("https://packages.debian.org/search?keywords=%s&searchon=names&suite=stable&section=all", url.QueryEscape(q))
 }
+
+// Tags returns the tags relevant to this provider.
+func (p *Provider) Tags() []string {
+	return []string{}
+}

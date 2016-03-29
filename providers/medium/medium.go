@@ -1,4 +1,4 @@
-package php
+package medium
 
 import (
 	"fmt"
@@ -8,15 +8,15 @@ import (
 )
 
 func init() {
-	providers.AddProvider("php", &Provider{})
+	providers.AddProvider("medium", &Provider{})
 }
 
 // Provider merely implements the Provider interface.
 type Provider struct{}
 
-// BuildURI generates a search URL for Php.
+// BuildURI generates a search URL for Medium.
 func (p *Provider) BuildURI(q string) string {
-	return fmt.Sprintf("https://php.net/%s", url.QueryEscape(q))
+	return fmt.Sprintf("https://medium.com/search?q=%s", url.QueryEscape(q))
 }
 
 // Tags returns the tags relevant to this provider.

@@ -57,6 +57,7 @@ import (
 	_ "github.com/zquestz/s/providers/lmgtfy"
 	_ "github.com/zquestz/s/providers/macports"
 	_ "github.com/zquestz/s/providers/mdn"
+	_ "github.com/zquestz/s/providers/medium"
 	_ "github.com/zquestz/s/providers/metacpan"
 	_ "github.com/zquestz/s/providers/msdn"
 	_ "github.com/zquestz/s/providers/naver"

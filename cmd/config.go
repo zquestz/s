@@ -19,9 +19,11 @@ type Config struct {
 	DisplayVersion  bool                        `json:"-"`
 	Key             string                      `json:"key"`
 	ListProviders   bool                        `json:"-"`
+	ListTags        bool                        `json:"-"`
 	Port            int                         `json:"port,string"`
 	Provider        string                      `json:"provider"`
 	ServerMode      bool                        `json:"-"`
+	Tag             string                      `json:"tag"`
 	Verbose         bool                        `json:"verbose,string"`
 	Whitelist       []string                    `json:"whitelist"`
 }

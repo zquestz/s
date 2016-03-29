@@ -18,3 +18,13 @@ type Provider struct{}
 func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("https://www.baidu.com/s?wd=%s", url.QueryEscape(q))
 }
+
+// Tags returns the tags relevant to this provider.
+func (p *Provider) Tags() []string {
+	switch providers.Language() {
+	case "zh":
+		return []string{"search"}
+	default:
+		return []string{}
+	}
+}

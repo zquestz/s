@@ -11,11 +11,14 @@ Flags:
   -c, --cert string       path to cert.pem for TLS
   -k, --key string        path to key.pem for TLS
   -l, --list-providers    list supported providers
+      --list-tags         list available tags
       --port int          server port (default 8080)
   -p, --provider string   search provider (default "google")
   -s, --server            launch web server
-  -v, --verbose           display URL when opening
+  -t, --tag string        search tag
+  -v, --verbose           verbose mode
       --version           display version
+
 ```
 
 ## Install
@@ -50,9 +53,14 @@ Search for rhinos on wikipedia
 s -p wikipedia rhinos
 ```
 
-## Provider Expansion
+Search providers tagged "video" for muppets.
+```
+s -t video muppets
+```
 
-We can do partial matching of provider names. This searches Facebook for hamsters.
+## Provider/Tag Expansion
+
+We can do partial matching of provider and tag names. This searches Facebook for hamsters.
 ```
 s -p fa hamsters
 ```
@@ -62,9 +70,19 @@ Or toasters on amazon.
 s -p am toasters
 ```
 
-## Provider Autocompletion
+This searches "tech-news" tagged providers for ssd info.
+```
+s -t te ssd
+```
 
-Autocompletion for providers is supported. For setting up autocompletion:
+Or shopping sites for blankets.
+```
+s -t sh blankets
+```
+
+## Provider/Tag Autocompletion
+
+Autocompletion is supported for providers and tags. To set up autocompletion:
 
 1. Have `s` installed
 2. Add the following lines to `~/.bash_profile` or `~/.zshrc`
@@ -144,7 +162,8 @@ The following keys are supported:
 * key (path to key.pem for TLS)
 * port (server port)
 * provider (search provider)
-* verbose (display URL when opening)
+* tag (search tag)
+* verbose (verbose mode)
 * whitelist (array of providers to include)
 
 Set your default provider to duckduckgo:
@@ -168,6 +187,7 @@ customProviders [
   {
     name: example
     url: "http://example.com?q=%s"
+    tags: [example]
   }
 ]
 ```
@@ -231,6 +251,7 @@ Custom providers require a few things:
 * lmgtfy
 * macports
 * mdn
+* medium
 * metacpan
 * msdn
 * naver

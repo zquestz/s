@@ -18,3 +18,8 @@ type Provider struct{}
 func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("http://phandroid.com/gsearch/?search_term=%s", url.QueryEscape(q))
 }
+
+// Tags returns the tags relevant to this provider.
+func (p *Provider) Tags() []string {
+	return []string{}
+}

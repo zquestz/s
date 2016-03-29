@@ -18,3 +18,8 @@ type Provider struct{}
 func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("https://aur.archlinux.org/packages/?K=%s", url.QueryEscape(q))
 }
+
+// Tags returns the tags relevant to this provider.
+func (p *Provider) Tags() []string {
+	return []string{"arch"}
+}

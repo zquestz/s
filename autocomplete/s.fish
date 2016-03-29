@@ -59,9 +59,11 @@ complete -f -c s -o b -l binary         -d 'binary to launch search URI'
 complete -f -c s -o c -l cert           -d 'path to cert.pem for TLS'
 complete -f -c s -o k -l key            -d 'path to key.pem for TLS'
 complete -f -c s -o l -l list-providers -d 'list supported providers'
+complete -f -c s      -l list-tags      -d 'list available tags'
 complete -f -c s      -l port           -d 'server port (default 8080)'
 complete -f -c s -o p -l provider       -d 'search provider (default "google")'
 complete -f -c s -o s -l server         -d 'launch web server'
+complete -f -c s -o t -l tags           -d 'search tags'
 complete -f -c s -o v -l verbose        -d 'display URL when opening'
 complete -f -c s      -l version        -d 'display version'
 
@@ -80,3 +82,7 @@ complete -c s -n '__fish_s_needs_option_argument --key' -a '(__fish_s_find_pem_f
 # s {-p|--provider} options
 complete -f -c s -n '__fish_s_needs_option_argument -p' -a '(s -l)'
 complete -f -c s -n '__fish_s_needs_option_argument --provider' -a '(s -l)'
+
+# s {-t|--tag} options
+complete -f -c s -n '__fish_s_needs_option_argument -t' -a '(s --list-tags)'
+complete -f -c s -n '__fish_s_needs_option_argument --tags' -a '(s --list-tags)'

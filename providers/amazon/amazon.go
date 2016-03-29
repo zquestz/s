@@ -45,3 +45,8 @@ func (p *Provider) BuildURI(q string) string {
 		return fmt.Sprintf("https://www.amazon.com/s/?keywords=%s", url.QueryEscape(q))
 	}
 }
+
+// Tags returns the tags relevant to this provider.
+func (p *Provider) Tags() []string {
+	return []string{"shopping"}
+}
