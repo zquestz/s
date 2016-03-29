@@ -20,4 +20,5 @@ install: all
 	go install .
 
 uninstall:
-	rm $(GOPATH)/bin/$(APPNAME)
+	@rm $${GOPATH%%:*}/bin/$(APPNAME)
+	@echo rm $${GOPATH%%:*}/bin/$(APPNAME)
