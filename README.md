@@ -289,6 +289,7 @@ Custom providers require a few things:
 * yahoo
 * yandex
 * youtube
+* postgresql
 
 #### Contributors
 
