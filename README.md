@@ -266,6 +266,7 @@ Custom providers require a few things:
 * phandroid
 * php
 * pinterest
+* postgresql
 * python
 * quora
 * reddit
@@ -289,7 +290,6 @@ Custom providers require a few things:
 * yahoo
 * yandex
 * youtube
-* postgresql
 
 #### Contributors
 
