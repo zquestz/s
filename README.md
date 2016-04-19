@@ -266,6 +266,7 @@ Custom providers require a few things:
 * phandroid
 * php
 * pinterest
+* postgresql
 * python
 * quora
 * reddit
