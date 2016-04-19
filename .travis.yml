@@ -1,6 +1,5 @@
 language: go
 go:
-  - 1.4.3
   - 1.5.3
   - 1.6
   - tip
@@ -12,7 +11,6 @@ env:
     - BUILD_GOOS=darwin
     - BUILD_GOOS=windows
 install:
-  - if [ "$TRAVIS_GO_VERSION" = "1.4.3" ]; then go get golang.org/x/tools/cmd/vet; fi
   - go get -v github.com/zquestz/s
 script:
   - go build
