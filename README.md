@@ -315,7 +315,7 @@ s is released under the MIT license.
 [ReportCard-Image]: http://goreportcard.com/badge/zquestz/s
 [Build-Status-URL]: http://travis-ci.org/zquestz/s
 [Build-Status-Image]: https://travis-ci.org/zquestz/s.svg?branch=master
-[Release-URL]: https://github.com/zquestz/s/releases/tag/v0.5.0
-[Release-Image]: http://img.shields.io/badge/release-v0.5.0-1eb0fc.svg
+[Release-URL]: https://github.com/zquestz/s/releases/tag/v0.5.1
+[Release-Image]: http://img.shields.io/badge/release-v0.5.1-1eb0fc.svg
 [Chat-Image]: https://badges.gitter.im/zquestz/s.svg
 [Chat-URL]: https://gitter.im/zquestz/s?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
