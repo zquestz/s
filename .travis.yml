@@ -3,13 +3,9 @@ go:
   - 1.5.4
   - 1.6.1
   - tip
-env:
-  global:
-    - BUILD_GOARCH=amd64
-  matrix:
-    - BUILD_GOOS=linux
-    - BUILD_GOOS=darwin
-    - BUILD_GOOS=windows
+os:
+  - linux
+  - osx
 install:
   - go get -v github.com/zquestz/s
 script:
