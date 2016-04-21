@@ -72,6 +72,7 @@ import (
 	_ "github.com/zquestz/s/providers/phandroid"
 	_ "github.com/zquestz/s/providers/php"
 	_ "github.com/zquestz/s/providers/pinterest"
+	_ "github.com/zquestz/s/providers/postgresql"
 	_ "github.com/zquestz/s/providers/python"
 	_ "github.com/zquestz/s/providers/quora"
 	_ "github.com/zquestz/s/providers/reddit"
