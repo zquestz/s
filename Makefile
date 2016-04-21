@@ -16,7 +16,7 @@ compile:
 		echo "make $(OUTDIR)/$(APPNAME)-$$dir.zip" ;\
 	done
 
-install: all
+install:
 	go install .
 
 uninstall:
