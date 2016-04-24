@@ -85,7 +85,8 @@ func Search(binary string, p string, t string, q string, userProvider bool, verb
 			return err
 		}
 
-		for _, provider := range Providers {
+		for _, providerName := range ProviderNames(false) {
+			provider := Providers[providerName]
 			for _, providerTag := range provider.Tags() {
 				if providerTag == tag {
 					builders = append(builders, provider)

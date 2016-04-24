@@ -18,47 +18,87 @@ func search(defaultProvider string, verbose bool, w http.ResponseWriter, r *http
 	var locale string
 
 	requestedProvider := r.FormValue("provider")
+	requestedTag := r.FormValue("tag")
 	acceptLanguageHeader := r.Header.Get("Accept-Language")
 
 	if strings.TrimSpace(acceptLanguageHeader) != "" {
 		locale = parseAcceptLanguage(acceptLanguageHeader)
 	}
 
-	if requestedProvider == "" {
+	if requestedProvider == "" && requestedTag == "" {
 		requestedProvider = defaultProvider
 	}
 
 	provider := providers.Providers[requestedProvider]
-	if provider == nil {
+	if provider == nil && requestedTag == "" {
 		providerNotFound(requestedProvider, w, r)
 		return
 	}
 
+	builders := []providers.Provider{}
+
+	if provider != nil {
+		builders = append(builders, provider)
+	}
+
+	if requestedTag != "" {
+		for _, pName := range providers.ProviderNames(false) {
+			p := providers.Providers[pName]
+			for _, providerTag := range p.Tags() {
+				if providerTag == requestedTag {
+					builders = append(builders, p)
+				}
+			}
+		}
+	}
+
+	if len(builders) == 0 {
+		tagProvidersNotFound(requestedTag, w, r)
+		return
+	}
+
 	if query := r.FormValue("q"); query != "" {
-		uri := executeSearch(provider, query, locale)
+		uris := executeSearch(builders, query, locale)
 
 		if verbose {
-			fmt.Printf("%s\n", uri)
+			for _, uri := range uris {
+				fmt.Printf("%s\n", uri)
+			}
 		}
 
-		http.Redirect(w, r, uri, 301)
+		if len(uris) == 1 {
+			http.Redirect(w, r, uris[0], 301)
+			return
+		}
+
+		searchTemplate(uris, w)
 		return
 	}
 
 	queryNotFound(w, r)
 }
 
-func executeSearch(provider providers.Provider, query, locale string) string {
+func executeSearch(providerList []providers.Provider, query, locale string) []string {
+	uris := make([]string, 0, len(providerList))
+
 	clientLocaleMutex.Lock()
 	defer clientLocaleMutex.Unlock()
 
 	providers.SetClientLocale(locale)
 
-	return provider.BuildURI(query)
+	for _, p := range providerList {
+		uris = append(uris, p.BuildURI(query))
+	}
+
+	return uris
 }
 
 func providerNotFound(provider string, w http.ResponseWriter, r *http.Request) {
 	http.Error(w, fmt.Sprintf("Provider %q not found.", provider), 400)
+}
+
+func tagProvidersNotFound(tag string, w http.ResponseWriter, r *http.Request) {
+	http.Error(w, fmt.Sprintf("No providers matched tag %q.", tag), 400)
 }
 
 func queryNotFound(w http.ResponseWriter, r *http.Request) {

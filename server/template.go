@@ -1,8 +1,14 @@
 package server
 
+import (
+	"bytes"
+	"fmt"
+	"net/http"
+)
+
 var (
-	// IndexTemplate is the go template for the index page.
-	IndexTemplate = `<!doctype html>
+	// indexTemplate is the go template for the index page.
+	indexTemplate = `<!doctype html>
 <html>
   <head>
     <meta charset="UTF-8">
@@ -33,12 +39,17 @@ var (
     <title>s</title>
   </head>
   <body>
-    <form name="search" action="/search" method="POST" onsubmit="return validateForm()">
-      <select name="provider" tabindex="2">
-{{range .Providers}}         <option{{.|Selected}}>{{.}}</option>
-{{end}}      </select><br />
+    <form name="search" action="/search" method="POST">
+      <div id="rightCorner">
+        <select id="provider" name="provider" tabindex="2">
+{{range .Providers}}           <option{{.|Label}}{{.|Selected}}>{{.}}</option>
+{{end}}        </select><br />
+        <select id="tag" name="tag" tabindex="3">
+{{range .Tags}}           <option{{.|Label}}>{{.}}</option>
+{{end}}        </select>
+      </div>
       <input class="input" type="text" name="q" tabindex="1" placeholder="{{.Placeholder}}" autofocus required /><br />
-      <input type="submit" value="[ s ]" tabindex="3" />
+      <input type="submit" value="[ s ]" tabindex="4" />
     </form>
     <script>
 {{.JS}}
@@ -47,20 +58,13 @@ var (
 </html>
 `
 
-	// IndexJS is the javascript for the main index page.
-	IndexJS = `function validateForm() {
-    var v = document.forms["search"]["q"].value;
-    if (v == null || v == "") {
-        return false;
-    }
-}`
-
-	// IndexCSS is the css for the main index page.
-	IndexCSS = `*{font-family:"Tahoma","Geneva",sans-serif;font-size:14pt;text-align:center}
+	// indexCSS is the css for the main index page.
+	indexCSS = `*{font-family:"Tahoma","Geneva",sans-serif;font-size:14pt;text-align:center}
 body{margin:0;padding:2em;background-color:#272F32;color:#DAEAEF}
+#rightCorner{position:absolute;top:1.5em;right:1.5em;text-align:right}
 a,a:visited{color:#FFF;font-size:.8em}
 a:active,a:hover{color:#9DBDC6}
-select{position:absolute;top:1.5em;right:1.5em;text-align:left}
+select{text-align:left;margin-bottom:.5em}
 option{text-align:left}
 form{margin-top:10em}
 input[type=text]{width:100%;max-width:450px;border-bottom:1px solid #DAEAEF}
@@ -78,3 +82,83 @@ input:focus::-moz-placeholder{color:transparent}
 input:focus:-moz-placeholder{color:transparent}
 input:focus:-ms-input-placeholder{color:transparent}`
 )
+
+// indexJS is the javascript for the main index page.
+func indexJS(defaultProvider string) string {
+	var b bytes.Buffer
+
+	b.WriteString(`function sInit() {
+    "use strict";
+    var searchForm = document.forms.search;
+    searchForm.onsubmit = function () {
+        var v = searchForm.q.value;
+        if (v === null || v === "") {
+            return false;
+        }
+    };
+    var tag = document.getElementById("tag");
+    var provider = document.getElementById("provider");
+    tag.onchange = function () {
+        if (tag.value === "") {
+            if (provider.value === "") {
+                provider.value = "`)
+
+	b.WriteString(defaultProvider)
+	b.WriteString(`";
+            }
+        } else {
+            provider.value = "";
+        }
+    };
+}
+sInit();`)
+
+	return b.String()
+}
+
+// searchTemplate is the html used for tag based searches.
+func searchTemplate(uris []string, w http.ResponseWriter) {
+	var b bytes.Buffer
+
+	b.WriteString(`<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>s</title>
+  </head>
+  <body>
+    <script>
+`)
+	searchJS(uris, &b)
+	b.WriteString(`
+    </script>
+  </body>
+</html>
+`)
+
+	w.Header().Set("Content-Type", "text/html")
+	w.Write(b.Bytes())
+}
+
+// SearchJS is the javascript used for tag based searches.
+func searchJS(uris []string, b *bytes.Buffer) {
+	b.WriteString(`function sInit() {
+    "use strict";
+    var urls = [];`)
+	for _, u := range uris {
+		b.WriteString(fmt.Sprintf("\n    urls.push(window.open(%q));", u))
+	}
+	b.WriteString(`
+    var goBack = function () {
+        window.history.back();
+    };
+    try {
+        urls[urls.length - 1].focus();
+        goBack();
+    } catch (e) {
+        alert("Pop-up Blocker is enabled! Please add this site to your exception list.");
+        setTimeout(goBack, 5000);
+    }
+}
+sInit();`)
+}
