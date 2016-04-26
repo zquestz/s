@@ -1,6 +1,7 @@
 package server
 
 import (
+	"fmt"
 	"net/http"
 	"text/template"
 
@@ -12,6 +13,7 @@ type templateVars struct {
 	JS          string
 	Placeholder string
 	Providers   []string
+	Tags        []string
 }
 
 func index(defaultProvider string, w http.ResponseWriter, r *http.Request) {
@@ -27,17 +29,33 @@ func index(defaultProvider string, w http.ResponseWriter, r *http.Request) {
 		return ""
 	}
 
+	label := func(opt string) string {
+		if opt == "" {
+			return fmt.Sprintf(" label=%q", "-")
+		}
+
+		return ""
+	}
+
 	t.Funcs(template.FuncMap{
 		"Selected": selected,
+		"Label":    label,
 	})
 
-	t, _ = t.Parse(IndexTemplate)
+	t, _ = t.Parse(indexTemplate)
+
+	providerList := []string{""}
+	providerList = append(providerList, providers.ProviderNames(false)...)
+
+	tagList := []string{""}
+	tagList = append(tagList, providers.TagNames(false)...)
 
 	tvars := templateVars{
-		CSS:         IndexCSS,
-		JS:          IndexJS,
+		CSS:         indexCSS,
+		JS:          indexJS(defaultProvider),
 		Placeholder: "kittens...",
-		Providers:   providers.ProviderNames(false),
+		Providers:   providerList,
+		Tags:        tagList,
 	}
 
 	t.Execute(w, tvars)
