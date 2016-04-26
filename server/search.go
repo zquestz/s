@@ -42,14 +42,7 @@ func search(defaultProvider string, verbose bool, w http.ResponseWriter, r *http
 	}
 
 	if requestedTag != "" {
-		for _, pName := range providers.ProviderNames(false) {
-			p := providers.Providers[pName]
-			for _, providerTag := range p.Tags() {
-				if providerTag == requestedTag {
-					builders = append(builders, p)
-				}
-			}
-		}
+		builders = append(builders, providers.GetProvidersByTag(requestedTag)...)
 	}
 
 	if len(builders) == 0 {

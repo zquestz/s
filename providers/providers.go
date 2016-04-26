@@ -85,14 +85,7 @@ func Search(binary string, p string, t string, q string, userProvider bool, verb
 			return err
 		}
 
-		for _, providerName := range ProviderNames(false) {
-			provider := Providers[providerName]
-			for _, providerTag := range provider.Tags() {
-				if providerTag == tag {
-					builders = append(builders, provider)
-				}
-			}
-		}
+		builders = append(builders, GetProvidersByTag(tag)...)
 	}
 
 	var success bool
@@ -119,6 +112,22 @@ func Search(binary string, p string, t string, q string, userProvider bool, verb
 	}
 
 	return nil
+}
+
+// GetProvidersByTag gets all providers with a specific tag.
+func GetProvidersByTag(tag string) []Provider {
+	provs := []Provider{}
+
+	for _, providerName := range ProviderNames(false) {
+		provider := Providers[providerName]
+		for _, providerTag := range provider.Tags() {
+			if providerTag == tag {
+				provs = append(provs, provider)
+			}
+		}
+	}
+
+	return provs
 }
 
 // DisplayProviders displays all the loaded providers.
