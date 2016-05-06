@@ -78,6 +78,7 @@ import (
 	_ "github.com/zquestz/s/providers/reddit"
 	_ "github.com/zquestz/s/providers/rottentomatoes"
 	_ "github.com/zquestz/s/providers/rubygems"
+	_ "github.com/zquestz/s/providers/shodan"
 	_ "github.com/zquestz/s/providers/soundcloud"
 	_ "github.com/zquestz/s/providers/spotify"
 	_ "github.com/zquestz/s/providers/stackoverflow"

@@ -272,6 +272,7 @@ Custom providers require a few things:
 * reddit
 * rottentomatoes
 * rubygems
+* shodan
 * soundcloud
 * spotify
 * stackoverflow
