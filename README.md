@@ -217,6 +217,7 @@ Custom providers require a few things:
 * codepen
 * coursera
 * cplusplus
+* crates
 * crunchyroll
 * debianpkg
 * digg
