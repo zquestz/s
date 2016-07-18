@@ -158,7 +158,8 @@ func performCommand(cmd *cobra.Command, args []string) error {
 		}
 	} else {
 		// Don't return an error, help screen is more appropriate.
-		cmd.Help()
+		help := cmd.HelpFunc()
+		help(cmd, args)
 	}
 
 	return nil
