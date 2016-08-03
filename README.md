@@ -34,8 +34,6 @@ If you have issues building s, you can vendor the dependencies by using [gvt](ht
 
 ```
 go get -u github.com/FiloSottile/gvt
-cd $GOPATH/src/github.com/FiloSottile/gvt
-go install .
 cd $GOPATH/src/github.com/zquestz/s
 gvt restore
 ```
