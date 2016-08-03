@@ -30,6 +30,16 @@ make
 make install
 ```
 
+If you have issues building s, you can vendor the dependencies by using [gvt](https://github.com/FiloSottile/gvt):
+
+```
+go get -u github.com/FiloSottile/gvt
+cd $GOPATH/src/github.com/FiloSottile/gvt
+go install .
+cd $GOPATH/src/github.com/zquestz/s
+gvt restore
+```
+
 Alternatively, you can use Homebrew:
 
 ```
@@ -293,7 +303,7 @@ Custom providers require a few things:
 * yandex
 * youtube
 
-#### Contributors
+## Contributors
 
 * [Josh Ellithorpe (zquestz)](https://github.com/zquestz/)
 * [Christian Petersen (fnky)](https://github.com/fnky/)
@@ -307,7 +317,7 @@ Custom providers require a few things:
 * [Eray Aydın (erayaydin)](https://github.com/erayaydin/)
 * [Murilo Santana (mvrilo)](https://github.com/mvrilo/)
 
-#### License
+## License
 
 s is released under the MIT license.
 
