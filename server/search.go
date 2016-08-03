@@ -16,6 +16,7 @@ var (
 
 func search(defaultProvider string, verbose bool, w http.ResponseWriter, r *http.Request) {
 	var locale string
+	var err error
 
 	requestedProvider := r.FormValue("provider")
 	requestedTag := r.FormValue("tag")
@@ -29,12 +30,15 @@ func search(defaultProvider string, verbose bool, w http.ResponseWriter, r *http
 		requestedProvider = defaultProvider
 	}
 
-	provider := providers.Providers[requestedProvider]
-	if provider == nil && requestedTag == "" {
-		providerNotFound(requestedProvider, w, r)
-		return
+	if requestedProvider != "" {
+		requestedProvider, err = providers.ExpandProvider(requestedProvider)
+		if err != nil {
+			expandNotValid(err, w, r)
+			return
+		}
 	}
 
+	provider := providers.Providers[requestedProvider]
 	builders := []providers.Provider{}
 
 	if provider != nil {
@@ -42,12 +46,13 @@ func search(defaultProvider string, verbose bool, w http.ResponseWriter, r *http
 	}
 
 	if requestedTag != "" {
-		builders = append(builders, providers.GetProvidersByTag(requestedTag)...)
-	}
+		requestedTag, err = providers.ExpandTag(requestedTag)
+		if err != nil {
+			expandNotValid(err, w, r)
+			return
+		}
 
-	if len(builders) == 0 {
-		tagProvidersNotFound(requestedTag, w, r)
-		return
+		builders = append(builders, providers.GetProvidersByTag(requestedTag)...)
 	}
 
 	if query := r.FormValue("q"); query != "" {
@@ -60,7 +65,7 @@ func search(defaultProvider string, verbose bool, w http.ResponseWriter, r *http
 		}
 
 		if len(uris) == 1 {
-			http.Redirect(w, r, uris[0], 301)
+			http.Redirect(w, r, uris[0], http.StatusMovedPermanently)
 			return
 		}
 
@@ -86,16 +91,12 @@ func executeSearch(providerList []providers.Provider, query, locale string) []st
 	return uris
 }
 
-func providerNotFound(provider string, w http.ResponseWriter, r *http.Request) {
-	http.Error(w, fmt.Sprintf("Provider %q not found.", provider), 400)
-}
-
-func tagProvidersNotFound(tag string, w http.ResponseWriter, r *http.Request) {
-	http.Error(w, fmt.Sprintf("No providers matched tag %q.", tag), 400)
-}
-
 func queryNotFound(w http.ResponseWriter, r *http.Request) {
-	http.Error(w, fmt.Sprintf("A search query is required."), 400)
+	http.Error(w, fmt.Sprintf("A search query is required."), http.StatusBadRequest)
+}
+
+func expandNotValid(err error, w http.ResponseWriter, r *http.Request) {
+	http.Error(w, err.Error(), http.StatusBadRequest)
 }
 
 func parseAcceptLanguage(header string) string {
