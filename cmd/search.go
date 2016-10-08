@@ -14,7 +14,7 @@ import (
 
 const (
 	appName         = "s"
-	version         = "0.5.6"
+	version         = "0.5.7"
 	defaultPort     = 8080
 	defaultProvider = "google"
 )
@@ -76,6 +76,8 @@ func prepareFlags() {
 		&config.DisplayVersion, "version", "", false, "display version")
 	SearchCmd.PersistentFlags().BoolVarP(
 		&config.Verbose, "verbose", "v", config.Verbose, "verbose mode")
+	SearchCmd.PersistentFlags().BoolVarP(
+		&config.Output, "output", "o", config.Output, "output only mode")
 	SearchCmd.PersistentFlags().StringVarP(
 		&config.Provider, "provider", "p", config.Provider, "search provider")
 	SearchCmd.PersistentFlags().StringVarP(
@@ -151,6 +153,7 @@ func performCommand(cmd *cobra.Command, args []string) error {
 			config.Tag,
 			query,
 			cmd.Flags().Changed("provider"),
+			config.Output,
 			config.Verbose,
 		)
 		if err != nil {

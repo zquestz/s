@@ -12,6 +12,7 @@ Flags:
   -k, --key string        path to key.pem for TLS
   -l, --list-providers    list supported providers
       --list-tags         list available tags
+  -o, --output            output only mode
       --port int          server port (default 8080)
   -p, --provider string   search provider (default "google")
   -s, --server            launch web server
@@ -168,6 +169,7 @@ The following keys are supported:
 * cert (path to cert.pem for TLS)
 * customProviders (array of custom providers)
 * key (path to key.pem for TLS)
+* output (output only mode)
 * port (server port)
 * provider (search provider)
 * tag (search tag)
@@ -325,7 +327,7 @@ s is released under the MIT license.
 [ReportCard-Image]: https://goreportcard.com/badge/github.com/zquestz/s
 [Build-Status-URL]: http://travis-ci.org/zquestz/s
 [Build-Status-Image]: https://travis-ci.org/zquestz/s.svg?branch=master
-[Release-URL]: https://github.com/zquestz/s/releases/tag/v0.5.6
-[Release-Image]: http://img.shields.io/badge/release-v0.5.6-1eb0fc.svg
+[Release-URL]: https://github.com/zquestz/s/releases/tag/v0.5.7
+[Release-Image]: http://img.shields.io/badge/release-v0.5.7-1eb0fc.svg
 [Chat-Image]: https://badges.gitter.im/zquestz/s.svg
 [Chat-URL]: https://gitter.im/zquestz/s?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge

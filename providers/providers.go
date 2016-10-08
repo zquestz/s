@@ -67,7 +67,7 @@ func SetWhitelist(w []string) {
 }
 
 // Search builds a search URL and opens it in your browser.
-func Search(binary string, p string, t string, q string, userProvider bool, verbose bool) error {
+func Search(binary string, p string, t string, q string, userProvider bool, outputOnly bool, verbose bool) error {
 	prov, err := ExpandProvider(p)
 	if err != nil {
 		return err
@@ -94,13 +94,15 @@ func Search(binary string, p string, t string, q string, userProvider bool, verb
 		if builder != nil {
 			url := builder.BuildURI(q)
 
-			if verbose {
+			if verbose || outputOnly {
 				fmt.Printf("%s\n", url)
 			}
 
-			err = launcher.OpenURI(binary, url)
-			if err != nil {
-				return err
+			if !outputOnly {
+				err = launcher.OpenURI(binary, url)
+				if err != nil {
+					return err
+				}
 			}
 
 			success = true

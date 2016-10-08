@@ -20,6 +20,7 @@ type Config struct {
 	Key             string                      `json:"key"`
 	ListProviders   bool                        `json:"-"`
 	ListTags        bool                        `json:"-"`
+	Output          bool                        `json:"output,string"`
 	Port            int                         `json:"port,string"`
 	Provider        string                      `json:"provider"`
 	ServerMode      bool                        `json:"-"`
