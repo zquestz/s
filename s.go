@@ -98,6 +98,7 @@ import (
 	_ "github.com/zquestz/s/providers/yahoo"
 	_ "github.com/zquestz/s/providers/yandex"
 	_ "github.com/zquestz/s/providers/youtube"
+	_ "github.com/zquestz/s/providers/zhihu"
 
 	"github.com/zquestz/s/cmd"
 )

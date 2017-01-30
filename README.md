@@ -302,6 +302,7 @@ Custom providers require a few things:
 * yahoo
 * yandex
 * youtube
+* zhihu
 
 ## Contributors
 
@@ -316,6 +317,7 @@ Custom providers require a few things:
 * [Luvsandondov Lkhamsuren (lkhamsurenl)](https://github.com/lkhamsurenl/)
 * [Eray Aydın (erayaydin)](https://github.com/erayaydin/)
 * [Murilo Santana (mvrilo)](https://github.com/mvrilo/)
+* [Jun He (knarfeh)](https://github.com/knarfeh/)
 
 ## License
 
