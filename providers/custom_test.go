@@ -4,7 +4,7 @@ import "testing"
 
 var (
 	validName = "example"
-	validURL  = "http://example.com/?q=%s"
+	validURL  = "http://example.com/%s"
 )
 
 // TestValid checks validation errors on custom providers.
