@@ -33,17 +33,15 @@ func (c *CustomProvider) Valid() error {
 		return fmt.Errorf("name must be alphanumeric")
 	}
 
-	u, err := url.Parse(c.URL)
-	if err != nil {
-		return err
-	}
-
-	c.URL = u.String()
-
 	// Make sure query token is present
 	hasToken := strings.Contains(c.URL, "%s")
 	if !hasToken {
 		return fmt.Errorf("token %q required", "%s")
+	}
+
+	u, err := url.Parse(fmt.Sprintf(c.URL, "placeholder"))
+	if err != nil {
+		return err
 	}
 
 	// Validate scheme is set. Don't limit to http.
