@@ -3,8 +3,9 @@ package providers
 import "testing"
 
 var (
-	validName = "example"
-	validURL  = "http://example.com/%s"
+	validName     = "example"
+	validURL      = "http://example.com/%s"
+	validParamURL = "http://example.com/?q=%s"
 )
 
 // TestValid checks validation errors on custom providers.
@@ -15,9 +16,13 @@ func TestValid(t *testing.T) {
 		valid bool
 	}{
 		{validName, validURL, true},
+		{validName, validParamURL, true},
 		{"_", validURL, true},
+		{"_", validParamURL, true},
 		{"-", validURL, false},
+		{"-", validParamURL, false},
 		{"with whitespace", validURL, false},
+		{"with whitespace", validParamURL, false},
 		{validName, "noscheme.com?q=%s", false},
 		{validName, "http://notoken.com", false},
 		{validName, "invalid uri", false},

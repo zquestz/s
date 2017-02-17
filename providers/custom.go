@@ -39,7 +39,9 @@ func (c *CustomProvider) Valid() error {
 		return fmt.Errorf("token %q required", "%s")
 	}
 
-	u, err := url.Parse(fmt.Sprintf(c.URL, "placeholder"))
+	// Substitute %s before parsing since url.Parse()
+	// fails if the path contains %s.
+	u, err := url.Parse(fmt.Sprintf(c.URL, "search_term"))
 	if err != nil {
 		return err
 	}
