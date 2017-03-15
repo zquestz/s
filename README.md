@@ -237,6 +237,7 @@ Custom providers require a few things:
 * duckduckgo
 * dumpert
 * engadget
+* explainshell
 * facebook
 * flickr
 * flipkart
@@ -281,6 +282,7 @@ Custom providers require a few things:
 * python
 * quora
 * reddit
+* regex
 * rottentomatoes
 * rubygems
 * shodan
@@ -318,6 +320,7 @@ Custom providers require a few things:
 * [Eray Aydın (erayaydin)](https://github.com/erayaydin/)
 * [Murilo Santana (mvrilo)](https://github.com/mvrilo/)
 * [Jun He (knarfeh)](https://github.com/knarfeh/)
+* [Xavier Bruhiere (hackliff)](github.com/hackliff)
 
 ## License
 
