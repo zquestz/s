@@ -24,6 +24,7 @@ func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("%s/library?orderBy=RELEVANCE&search=%s", providerURL, url.QueryEscape(q))
 }
 
+// Tags returns the tags relevant to this provider.
 func (p *Provider) Tags() []string {
 	return []string{"code"}
 }
