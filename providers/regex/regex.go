@@ -1,0 +1,29 @@
+package regex
+
+import (
+	"fmt"
+	"net/url"
+
+	"github.com/zquestz/s/providers"
+)
+
+const (
+	providerName = "regex"
+	providerURL  = "https://regex101.com"
+)
+
+func init() {
+	providers.AddProvider(providerName, &Provider{})
+}
+
+// Provider merely implements the Provider interface
+type Provider struct{}
+
+// BuildURI generates a search URL for Regex 101
+func (p *Provider) BuildURI(q string) string {
+	return fmt.Sprintf("%s/library?orderBy=RELEVANCE&search=%s", providerURL, url.QueryEscape(q))
+}
+
+func (p *Provider) Tags() []string {
+	return []string{"code"}
+}
