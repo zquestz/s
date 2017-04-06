@@ -22,5 +22,7 @@ install:
 	go install .
 
 uninstall:
-	@rm $${GOPATH%%:*}/bin/$(APPNAME)
-	@echo rm $${GOPATH%%:*}/bin/$(APPNAME)
+	go clean -i
+
+docker:
+	docker build -t $(APPNAME) .
