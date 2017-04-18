@@ -54,12 +54,12 @@ s puppies
 
 Search for a wifi router on amazon
 ```
-s -p amazon wifi router
+s wifi router -p amazon
 ```
 
 Search for rhinos on wikipedia
 ```
-s -p wikipedia rhinos
+s rhinos -p wikipedia
 ```
 
 Search providers tagged "video" for muppets.
@@ -71,12 +71,12 @@ s -t video muppets
 
 We can do partial matching of provider and tag names. This searches Facebook for hamsters.
 ```
-s -p fa hamsters
+s hamsters -p fa
 ```
 
 Or toasters on amazon.
 ```
-s -p am toasters
+s toasters -p am
 ```
 
 This searches "tech-news" tagged providers for ssd info.
