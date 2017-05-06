@@ -1,5 +1,7 @@
 [![License][License-Image]][License-URL] [![ReportCard][ReportCard-Image]][ReportCard-URL] [![Build][Build-Status-Image]][Build-Status-URL] [![Release][Release-Image]][Release-URL] [![Chat][Chat-Image]][Chat-URL]
 # s
+
+[![Join the chat at https://gitter.im/zquestz/s](https://badges.gitter.im/zquestz/s.svg)](https://gitter.im/zquestz/s?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 Web search from the terminal. Just opens in your browser.
 
 ```
