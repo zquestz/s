@@ -20,7 +20,7 @@ _provider_completion()
 {
     local cur=${COMP_WORDS[COMP_CWORD]}
     local prev=${COMP_WORDS[COMP_CWORD-1]}
-    local longOpts="--binary --cert --help --key --list-providers --list-tags --port --provider --server --tags --verbose --version"
+    local longOpts="--binary --cert --help --key --list-providers --list-tags --port --provider --server --tag --verbose --version"
 
     # _filedir (in newer bash completions) is a huge improvement on compgen -f or compgen -G
     # because it deals correctly with spaces, ~ expansion, and .inputrc preferences.

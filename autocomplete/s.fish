@@ -63,7 +63,7 @@ complete -f -c s      -l list-tags      -d 'list available tags'
 complete -f -c s      -l port           -d 'server port (default 8080)'
 complete -f -c s -o p -l provider       -d 'search provider (default "google")'
 complete -f -c s -o s -l server         -d 'launch web server'
-complete -f -c s -o t -l tags           -d 'search tags'
+complete -f -c s -o t -l tag            -d 'search tag'
 complete -f -c s -o v -l verbose        -d 'display URL when opening'
 complete -f -c s      -l version        -d 'display version'
 
@@ -85,4 +85,4 @@ complete -f -c s -n '__fish_s_needs_option_argument --provider' -a '(s -l)'
 
 # s {-t|--tag} options
 complete -f -c s -n '__fish_s_needs_option_argument -t' -a '(s --list-tags)'
-complete -f -c s -n '__fish_s_needs_option_argument --tags' -a '(s --list-tags)'
+complete -f -c s -n '__fish_s_needs_option_argument --tag' -a '(s --list-tags)'
