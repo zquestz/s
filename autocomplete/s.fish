@@ -65,6 +65,7 @@ complete -f -c s -o p -l provider       -d 'search provider (default "google")'
 complete -f -c s -o s -l server         -d 'launch web server'
 complete -f -c s -o t -l tag            -d 'search tag'
 complete -f -c s -o v -l verbose        -d 'display URL when opening'
+complete -f -c s -o o -l output         -d 'output only mode'
 complete -f -c s      -l version        -d 'display version'
 
 # s {-b|--binary} options
