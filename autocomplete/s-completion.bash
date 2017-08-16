@@ -28,7 +28,7 @@ _provider_completion()
     comp_path () { if type _filedir >/dev/null; then _filedir ; else comp -G $cur\* ; fi; }
 
     case "$cur" in
-        -) comp -W "-b -c -k -h -k -l -p -s -t -v" && return 0 ;;
+        -) comp -W "-b -c -h -k -l -p -s -t -v" && return 0 ;;
        -*) comp -W "$longOpts" && return 0 ;;
     esac
 
