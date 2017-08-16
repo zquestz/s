@@ -60,12 +60,12 @@ complete -f -c s -o c -l cert           -d 'path to cert.pem for TLS'
 complete -f -c s -o k -l key            -d 'path to key.pem for TLS'
 complete -f -c s -o l -l list-providers -d 'list supported providers'
 complete -f -c s      -l list-tags      -d 'list available tags'
+complete -f -c s -o o -l output         -d 'output only mode'
 complete -f -c s      -l port           -d 'server port (default 8080)'
 complete -f -c s -o p -l provider       -d 'search provider (default "google")'
 complete -f -c s -o s -l server         -d 'launch web server'
 complete -f -c s -o t -l tag            -d 'search tag'
 complete -f -c s -o v -l verbose        -d 'display URL when opening'
-complete -f -c s -o o -l output         -d 'output only mode'
 complete -f -c s      -l version        -d 'display version'
 
 # s {-b|--binary} options
