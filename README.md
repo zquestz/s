@@ -230,6 +230,7 @@ Custom providers require a few things:
 * crates
 * crunchyroll
 * debianpkg
+* dict
 * digg
 * diigo
 * dockerhub
