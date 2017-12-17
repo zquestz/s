@@ -247,6 +247,7 @@ Custom providers require a few things:
 * gmail
 * go
 * godoc
+* goodreads
 * google
 * googledocs
 * googleplus
