@@ -26,6 +26,7 @@ import (
 	_ "github.com/zquestz/s/providers/crates"
 	_ "github.com/zquestz/s/providers/crunchyroll"
 	_ "github.com/zquestz/s/providers/debianpkg"
+	_ "github.com/zquestz/s/providers/dict"
 	_ "github.com/zquestz/s/providers/digg"
 	_ "github.com/zquestz/s/providers/diigo"
 	_ "github.com/zquestz/s/providers/dockerhub"
