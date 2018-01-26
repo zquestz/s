@@ -29,7 +29,8 @@ type Config struct {
 	Whitelist       []string                    `json:"whitelist"`
 }
 
-// Load reads the configuration from ~/.s/config and loads it into the Config struct.
+// Load reads the configuration from ~/.config/s/config
+// and loads it into the Config struct.
 // The config is in UCL format.
 func (c *Config) Load() error {
 	conf, err := c.loadConfig()
@@ -54,13 +55,21 @@ func (c *Config) loadConfig() ([]byte, error) {
 		return nil, err
 	}
 
-	f, err := os.Open(filepath.Join(h, ".s", "config"))
+	f, err := os.Open(filepath.Join(h, ".config", "s", "config"))
 	if err != nil {
 		if os.IsNotExist(err) {
-			return nil, nil
-		}
+			// Legacy configuration path.
+			f, err = os.Open(filepath.Join(h, ".s", "config"))
+			if err != nil {
+				if os.IsNotExist(err) {
+					return nil, nil
+				}
 
-		return nil, err
+				return nil, err
+			}
+		} else {
+			return nil, err
+		}
 	}
 	defer f.Close()
 

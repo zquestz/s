@@ -157,7 +157,7 @@ Feel free to try it out at [https://jumps.io/](https://jumps.io/).
 
 ## Configuration
 
-To setup your own default configuration just create `~/.s/config`. The configuration file is in UCL format. JSON is also fully supported as UCL can parse JSON files.
+To setup your own default configuration just create `~/.config/s/config`. The configuration file is in UCL format. JSON is also fully supported as UCL can parse JSON files.
 
 For more information about UCL visit:
 [https://github.com/vstakhov/libucl](https://github.com/vstakhov/libucl)
