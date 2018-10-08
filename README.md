@@ -211,6 +211,7 @@ Custom providers require a few things:
 
 * 500px
 * 8tracks
+* allocine
 * amazon
 * archpkg
 * archwiki
