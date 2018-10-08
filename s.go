@@ -7,6 +7,7 @@ import (
 	// Load necessary providers.
 	_ "github.com/zquestz/s/providers/500px"
 	_ "github.com/zquestz/s/providers/8tracks"
+	_ "github.com/zquestz/s/providers/aliexpress"
 	_ "github.com/zquestz/s/providers/allocine"
 	_ "github.com/zquestz/s/providers/amazon"
 	_ "github.com/zquestz/s/providers/archpkg"
