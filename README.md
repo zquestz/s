@@ -287,6 +287,7 @@ Custom providers require a few things:
 * postgresql
 * python
 * quora
+* qwant
 * reddit
 * regex
 * rottentomatoes
