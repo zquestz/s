@@ -83,6 +83,7 @@ import (
 	_ "github.com/zquestz/s/providers/postgresql"
 	_ "github.com/zquestz/s/providers/python"
 	_ "github.com/zquestz/s/providers/quora"
+	_ "github.com/zquestz/s/providers/qwant"
 	_ "github.com/zquestz/s/providers/reddit"
 	_ "github.com/zquestz/s/providers/regex"
 	_ "github.com/zquestz/s/providers/rottentomatoes"
