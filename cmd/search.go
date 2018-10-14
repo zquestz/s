@@ -14,7 +14,7 @@ import (
 
 const (
 	appName         = "s"
-	version         = "0.5.12"
+	version         = "0.5.13"
 	defaultPort     = 8080
 	defaultProvider = "google"
 )
