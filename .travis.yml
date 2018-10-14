@@ -3,6 +3,8 @@ go:
   - 1.7.5
   - 1.8.3
   - 1.9
+  - 1.10
+  - 1.11
   - tip
 os:
   - linux
@@ -16,10 +18,10 @@ script:
   - go test -i -race ./...
   - go test -v -race ./...
 after_script:
-  - if [ "$TRAVIS_GO_VERSION" = "1.9" ] && [ "$TRAVIS_OS_NAME" = "linux" ] && [ "$TRAVIS_TAG" != "" ]; then go get github.com/inconshreveable/mousetrap; fi
-  - if [ "$TRAVIS_GO_VERSION" = "1.9" ] && [ "$TRAVIS_OS_NAME" = "linux" ] && [ "$TRAVIS_TAG" != "" ]; then go get github.com/mitchellh/gox; fi
-  - if [ "$TRAVIS_GO_VERSION" = "1.9" ] && [ "$TRAVIS_OS_NAME" = "linux" ] && [ "$TRAVIS_TAG" != "" ]; then go get github.com/tcnksm/ghr; fi
-  - if [ "$TRAVIS_GO_VERSION" = "1.9" ] && [ "$TRAVIS_OS_NAME" = "linux" ] && [ "$TRAVIS_TAG" != "" ]; then make compile; ghr --username zquestz --token $GITHUB_TOKEN --replace $TRAVIS_TAG pkg/; fi
+  - if [ "$TRAVIS_GO_VERSION" = "1.11" ] && [ "$TRAVIS_OS_NAME" = "linux" ] && [ "$TRAVIS_TAG" != "" ]; then go get github.com/inconshreveable/mousetrap; fi
+  - if [ "$TRAVIS_GO_VERSION" = "1.11" ] && [ "$TRAVIS_OS_NAME" = "linux" ] && [ "$TRAVIS_TAG" != "" ]; then go get github.com/mitchellh/gox; fi
+  - if [ "$TRAVIS_GO_VERSION" = "1.11" ] && [ "$TRAVIS_OS_NAME" = "linux" ] && [ "$TRAVIS_TAG" != "" ]; then go get github.com/tcnksm/ghr; fi
+  - if [ "$TRAVIS_GO_VERSION" = "1.11" ] && [ "$TRAVIS_OS_NAME" = "linux" ] && [ "$TRAVIS_TAG" != "" ]; then make compile; ghr --username zquestz --token $GITHUB_TOKEN --replace $TRAVIS_TAG pkg/; fi
 notifications:
   webhooks:
     urls:
