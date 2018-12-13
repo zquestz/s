@@ -1,4 +1,4 @@
-name: ws
+name: s-search
 base: core18 # the base snap is the execution environment for this snap
 version:  git
 summary: Open a web search in your terminal. 
@@ -17,7 +17,7 @@ parts:
       - gcc
 
 apps:
-  ws:
+  s-search:
     command: s
     plugs:
       - desktop
