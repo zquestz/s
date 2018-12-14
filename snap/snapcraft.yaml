@@ -1,0 +1,25 @@
+name: s-search
+base: core18 # the base snap is the execution environment for this snap
+version:  git
+summary: Open a web search in your terminal. 
+description: |
+  Web search from the terminal. Just opens in your browser.
+
+grade: stable
+confinement: strict
+
+parts:
+  s:
+    plugin: go
+    source: .
+    go-importpath: github.com/zquestz/s
+    build-packages:
+      - gcc
+
+apps:
+  s-search:
+    command: s
+    plugs:
+      - desktop
+      - network
+      - network-bind
