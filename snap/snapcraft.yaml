@@ -1,6 +1,6 @@
 name: s-search
 base: core18 # the base snap is the execution environment for this snap
-version:  git
+version: git
 summary: Open a web search in your terminal. 
 description: |
   Web search from the terminal. Just opens in your browser.
