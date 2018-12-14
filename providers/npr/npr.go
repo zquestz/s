@@ -16,7 +16,7 @@ type Provider struct{}
 
 // BuildURI generates a search URL for NPR.
 func (p *Provider) BuildURI(q string) string {
-	return fmt.Sprintf("http://www.npr.org/templates/search/index.php?searchinput=%s", url.QueryEscape(q))
+	return fmt.Sprintf("https://www.npr.org/search?query=%s", url.QueryEscape(q))
 }
 
 // Tags returns the tags relevant to this provider.
