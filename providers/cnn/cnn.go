@@ -16,7 +16,7 @@ type Provider struct{}
 
 // BuildURI generates a search URL for CNN.
 func (p *Provider) BuildURI(q string) string {
-	return fmt.Sprintf("http://www.cnn.com/search/?text=%s", url.QueryEscape(q))
+	return fmt.Sprintf("https://www.cnn.com/search/?q=%s", url.QueryEscape(q))
 }
 
 // Tags returns the tags relevant to this provider.
