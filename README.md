@@ -223,6 +223,7 @@ Custom providers require a few things:
 * baidu
 * bandcamp
 * bgr
+* bigbasket
 * bing
 * buzzfeed
 * cnn
