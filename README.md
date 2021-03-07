@@ -31,14 +31,6 @@ make
 make install
 ```
 
-If you have issues building s, you can vendor the dependencies by using [gvt](https://github.com/FiloSottile/gvt):
-
-```
-go get -u github.com/FiloSottile/gvt
-cd $GOPATH/src/github.com/zquestz/s
-gvt restore
-```
-
 Alternatively, you can use Homebrew:
 
 ```
@@ -340,7 +332,7 @@ s is released under the MIT license.
 [ReportCard-Image]: https://goreportcard.com/badge/github.com/zquestz/s
 [Build-Status-URL]: http://travis-ci.org/zquestz/s
 [Build-Status-Image]: https://travis-ci.org/zquestz/s.svg?branch=master
-[Release-URL]: https://github.com/zquestz/s/releases/tag/v0.5.14
-[Release-Image]: http://img.shields.io/badge/release-v0.5.14-1eb0fc.svg
+[Release-URL]: https://github.com/zquestz/s/releases/tag/v0.5.15
+[Release-Image]: http://img.shields.io/badge/release-v0.5.15-1eb0fc.svg
 [Chat-Image]: https://badges.gitter.im/zquestz/s.svg
 [Chat-URL]: https://gitter.im/zquestz/s?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
