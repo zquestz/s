@@ -31,14 +31,6 @@ make
 make install
 ```
 
-If you have issues building s, you can vendor the dependencies by using [gvt](https://github.com/FiloSottile/gvt):
-
-```
-go get -u github.com/FiloSottile/gvt
-cd $GOPATH/src/github.com/zquestz/s
-gvt restore
-```
-
 Alternatively, you can use Homebrew:
 
 ```
