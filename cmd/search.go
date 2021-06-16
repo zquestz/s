@@ -119,7 +119,7 @@ func performCommand(cmd *cobra.Command, args []string) error {
 	}
 
 	if config.ServerMode {
-		err := server.Run(config.Port, config.Cert, config.Key, config.Provider, config.Verbose)
+		err := server.Run(config.Port, config.Cert, config.Key, strings.ToLower(config.Provider), config.Verbose)
 		if err != nil {
 			return err
 		}
