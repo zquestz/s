@@ -14,7 +14,7 @@ Flags:
       --list-tags         list available tags
   -o, --output            output only mode
       --port int          server port (default 8080)
-  -p, --provider string   search provider (default "google")
+  -p, --provider string   search provider (default "brave")
   -s, --server            launch web server
   -t, --tag string        search tag
   -v, --verbose           verbose mode
@@ -39,9 +39,14 @@ brew install s-search
 
 ## Examples
 
-Search for puppies on google.
+Search for puppies on brave search.
 ```
 s puppies
+```
+
+Search for dragonflies on google.
+```
+s -p google dragonflies
 ```
 
 Search for a wifi router on amazon
@@ -217,6 +222,7 @@ Custom providers require a few things:
 * bgr
 * bigbasket
 * bing
+* brave
 * buzzfeed
 * cnn
 * codepen
@@ -332,7 +338,7 @@ s is released under the MIT license.
 [ReportCard-Image]: https://goreportcard.com/badge/github.com/zquestz/s
 [Build-Status-URL]: http://travis-ci.org/zquestz/s
 [Build-Status-Image]: https://travis-ci.org/zquestz/s.svg?branch=master
-[Release-URL]: https://github.com/zquestz/s/releases/tag/v0.5.15
-[Release-Image]: http://img.shields.io/badge/release-v0.5.15-1eb0fc.svg
+[Release-URL]: https://github.com/zquestz/s/releases/tag/v0.5.16
+[Release-Image]: http://img.shields.io/badge/release-v0.5.16-1eb0fc.svg
 [Chat-Image]: https://badges.gitter.im/zquestz/s.svg
 [Chat-URL]: https://gitter.im/zquestz/s?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge

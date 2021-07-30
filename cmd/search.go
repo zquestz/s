@@ -14,9 +14,9 @@ import (
 
 const (
 	appName         = "s"
-	version         = "0.5.15"
+	version         = "0.5.16"
 	defaultPort     = 8080
-	defaultProvider = "google"
+	defaultProvider = "brave"
 )
 
 // Stores configuration data.

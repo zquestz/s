@@ -1,6 +1,6 @@
 # Start from a Debian image with the latest version of Go installed
 # and a workspace (GOPATH) configured at /go.
-FROM golang
+FROM golang:1.16.6
 
 MAINTAINER Josh Ellithorpe <quest@mac.com>
 
@@ -9,10 +9,6 @@ ADD . /go/src/github.com/zquestz/s
 
 # Switch to the correct working directory.
 WORKDIR /go/src/github.com/zquestz/s
-
-# Restore vendored packages.
-RUN go get -u github.com/FiloSottile/gvt
-RUN gvt restore
 
 # Build the code.
 RUN make install
