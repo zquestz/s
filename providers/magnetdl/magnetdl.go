@@ -14,7 +14,7 @@ func init() {
 // Provider merely implements the Provider interface.
 type Provider struct{}
 
-// BuildURI generates a search URL for Twitchtv.
+// BuildURI generates a search URL for magnetdl.
 func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("https://www.magnetdl.com/%s/%s/", url.QueryEscape(q)[:1], url.QueryEscape(q))
 }
