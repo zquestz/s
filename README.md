@@ -267,6 +267,7 @@ Custom providers require a few things:
 * linkedin
 * lmgtfy
 * macports
+* magnetdl
 * mdn
 * medium
 * metacpan
