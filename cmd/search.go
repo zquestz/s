@@ -71,6 +71,8 @@ func completion(cmd *cobra.Command, c string) {
 		if err != nil {
 			bail(fmt.Errorf("Failed to generate powershell completion: %w", err))
 		}
+	default:
+		bail(fmt.Errorf("Does not support completion for %s", c))
 	}
 }
 
