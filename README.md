@@ -7,18 +7,20 @@ Usage:
   s <query> [flags]
 
 Flags:
-  -b, --binary string     binary to launch search URI
-  -c, --cert string       path to cert.pem for TLS
-  -k, --key string        path to key.pem for TLS
-  -l, --list-providers    list supported providers
-      --list-tags         list available tags
-  -o, --output            output only mode
-      --port int          server port (default 8080)
-  -p, --provider string   search provider (default "brave")
-  -s, --server            launch web server
-  -t, --tag string        search tag
-  -v, --verbose           verbose mode
-      --version           display version
+  -b, --binary string       binary to launch search URI
+  -c, --cert string         path to cert.pem for TLS
+      --completion string   generate completion script for bash, zsh, fish or powershell
+  -h, --help                help for s
+  -k, --key string          path to key.pem for TLS
+  -l, --list-providers      list supported providers
+      --list-tags           list available tags
+  -o, --output              output only mode
+      --port int            server port (default 8080)
+  -p, --provider string     search provider (default "brave")
+  -s, --server              launch web server
+  -t, --tag string          search tag
+  -v, --verbose             verbose mode
+      --version             display version
 
 ```
 
@@ -90,26 +92,37 @@ s -t sh blankets
 
 Autocompletion is supported for providers and tags. To set up autocompletion:
 
-1. Have `s` installed
-2. Add the following lines to `~/.bash_profile` or `~/.zshrc`
+### Bash Linux
+
 ```
-if [ -f $GOPATH/src/github.com/zquestz/s/autocomplete/s-completion.bash ]; then
-    . $GOPATH/src/github.com/zquestz/s/autocomplete/s-completion.bash
-fi
+s --completion bash > /etc/bash_completion.d/s
 ```
 
-Now you are good to go.
+### Bash MacOS
+
 ```
-s -p ba<TAB><TAB>
-baidu     bandcamp
+s --completion bash > /usr/local/etc/bash_completion.d/s
+```
+
+
+### Zsh
+
+Generate a `_s` completion script and put it somewhere in your `$fpath`:
+
+```
+s --completion zsh > /usr/local/share/zsh/site-functions/_s
 ```
 
 ### Fish
 
-Alternatively, if you use [fish](http://fishshell.com/), the following will work:
 ```
-mkdir -p ~/.config/fish/completions
-ln -s $GOPATH/src/github.com/zquestz/s/autocomplete/s.fish ~/.config/fish/completions/s.fish
+s --completion fish > ~/.config/fish/completions/s.fish
+```
+
+### Powershell
+
+```
+(& s --completion powershell) | Out-String | Invoke-Expression
 ```
 
 ## Advanced

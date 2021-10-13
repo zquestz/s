@@ -27,6 +27,7 @@ type Config struct {
 	Tag             string                      `json:"tag"`
 	Verbose         bool                        `json:"verbose,string"`
 	Whitelist       []string                    `json:"whitelist"`
+	Completion      string                      `json:"completion"`
 }
 
 // Load reads the configuration from ~/.config/s/config

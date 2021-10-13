@@ -51,6 +51,31 @@ func bail(err error) {
 	os.Exit(1)
 }
 
+func completion(cmd *cobra.Command, c string) {
+	switch c {
+	case "bash":
+		err := cmd.GenBashCompletion(os.Stdout)
+		if err != nil {
+			bail(fmt.Errorf("Failed to generate bash completion: %w", err))
+		}
+	case "zsh":
+		if err := cmd.GenZshCompletion(os.Stdout); err != nil {
+			bail(fmt.Errorf("Failed to generate zsh completion: %w", err))
+		}
+	case "fish":
+		if err := cmd.GenFishCompletion(os.Stdout, true); err != nil {
+			bail(fmt.Errorf("Failed to generate fish completion: %w", err))
+		}
+	case "powershell":
+		err := cmd.GenPowerShellCompletion(os.Stdout)
+		if err != nil {
+			bail(fmt.Errorf("Failed to generate powershell completion: %w", err))
+		}
+	default:
+		bail(fmt.Errorf("Does not support completion for %s", c))
+	}
+}
+
 func loadCustomProviders() {
 	for _, p := range config.CustomProviders {
 		err := p.Valid()
@@ -90,18 +115,46 @@ func prepareFlags() {
 		&config.Binary, "binary", "b", config.Binary, "binary to launch search URI")
 	SearchCmd.PersistentFlags().BoolVarP(
 		&config.ServerMode, "server", "s", false, "launch web server")
+	SearchCmd.PersistentFlags().StringVarP(
+		&config.Completion, "completion", "", "", "generate completion script for bash, zsh, fish or powershell")
 	SearchCmd.PersistentFlags().IntVarP(
 		&config.Port, "port", "", config.Port, "server port")
 	SearchCmd.PersistentFlags().StringVarP(
 		&config.Cert, "cert", "c", config.Cert, "path to cert.pem for TLS")
 	SearchCmd.PersistentFlags().StringVarP(
 		&config.Key, "key", "k", config.Key, "path to key.pem for TLS")
+
+	err := SearchCmd.RegisterFlagCompletionFunc("provider", func(cmd *cobra.Command, args []string, toComplete string) ([]string, cobra.ShellCompDirective) {
+		return providers.ProviderNames(config.Verbose), cobra.ShellCompDirectiveNoFileComp
+	})
+	if err != nil {
+		bail(err)
+	}
+
+	err = SearchCmd.RegisterFlagCompletionFunc("tag", func(cmd *cobra.Command, args []string, toComplete string) ([]string, cobra.ShellCompDirective) {
+		return providers.TagNames(config.Verbose), cobra.ShellCompDirectiveNoFileComp
+	})
+	if err != nil {
+		bail(err)
+	}
+
+	err = SearchCmd.RegisterFlagCompletionFunc("completion", func(cmd *cobra.Command, args []string, toComplete string) ([]string, cobra.ShellCompDirective) {
+		return []string{"bash", "fish", "powershell", "zsh"}, cobra.ShellCompDirectiveNoFileComp
+	})
+	if err != nil {
+		bail(err)
+	}
 }
 
 // Where all the work happens.
 func performCommand(cmd *cobra.Command, args []string) error {
 	if config.DisplayVersion {
 		fmt.Printf("%s %s\n", appName, version)
+		return nil
+	}
+
+	if config.Completion != "" {
+		completion(cmd, config.Completion)
 		return nil
 	}
 
