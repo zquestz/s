@@ -7,19 +7,20 @@ Usage:
   s <query> [flags]
 
 Flags:
-  -b, --binary string     binary to launch search URI
-  -c, --cert string       path to cert.pem for TLS
+  -b, --binary string       binary to launch search URI
+  -c, --cert string         path to cert.pem for TLS
       --completion string   generate completion script for bash, zsh, fish or powershell
-  -k, --key string        path to key.pem for TLS
-  -l, --list-providers    list supported providers
-      --list-tags         list available tags
-  -o, --output            output only mode
-      --port int          server port (default 8080)
-  -p, --provider string   search provider (default "brave")
-  -s, --server            launch web server
-  -t, --tag string        search tag
-  -v, --verbose           verbose mode
-      --version           display version
+  -h, --help                help for s
+  -k, --key string          path to key.pem for TLS
+  -l, --list-providers      list supported providers
+      --list-tags           list available tags
+  -o, --output              output only mode
+      --port int            server port (default 8080)
+  -p, --provider string     search provider (default "brave")
+  -s, --server              launch web server
+  -t, --tag string          search tag
+  -v, --verbose             verbose mode
+      --version             display version
 
 ```
 
