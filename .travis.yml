@@ -2,7 +2,6 @@ language: go
 go:
   - 1.15.8
   - 1.16.6
-  - tip
 os:
   - linux
   - osx
