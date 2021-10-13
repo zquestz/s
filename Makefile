@@ -13,7 +13,6 @@ compile:
 	@for dir in $(DIRS) ; do \
 		(cp README.md $(OUTDIR)/$(APPNAME)-$$dir/README.md) ;\
 		(cp LICENSE $(OUTDIR)/$(APPNAME)-$$dir/LICENSE) ;\
-		(cp -r autocomplete $(OUTDIR)/$(APPNAME)-$$dir/autocomplete) ;\
 		(cd $(OUTDIR) && zip -q $(APPNAME)-$$dir.zip -r $(APPNAME)-$$dir) ;\
 		echo "make $(OUTDIR)/$(APPNAME)-$$dir.zip" ;\
 	done
