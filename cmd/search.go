@@ -6,6 +6,7 @@ import (
 	"os"
 	"runtime"
 	"strings"
+	"unicode"
 
 	"github.com/spf13/cobra"
 	"github.com/zquestz/s/providers"
@@ -38,7 +39,7 @@ var SearchCmd = &cobra.Command{
 func init() {
 	err := config.Load()
 	if err != nil {
-		bail(fmt.Errorf("Failed to load configuration: %s", err))
+		bail(fmt.Errorf("failed to load configuration: %s", err))
 	}
 
 	loadCustomProviders()
@@ -47,8 +48,17 @@ func init() {
 }
 
 func bail(err error) {
-	fmt.Fprintf(os.Stderr, "[Error] %s\n", err)
+	fmt.Fprintf(os.Stderr, "[Error] %s\n", capitalize(err.Error()))
 	os.Exit(1)
+}
+
+func capitalize(str string) string {
+	if len(str) == 0 {
+		return ""
+	}
+	tmp := []rune(str)
+	tmp[0] = unicode.ToUpper(tmp[0])
+	return string(tmp)
 }
 
 func completion(cmd *cobra.Command, c string) {
@@ -56,23 +66,23 @@ func completion(cmd *cobra.Command, c string) {
 	case "bash":
 		err := cmd.GenBashCompletion(os.Stdout)
 		if err != nil {
-			bail(fmt.Errorf("Failed to generate bash completion: %w", err))
+			bail(fmt.Errorf("failed to generate bash completion: %w", err))
 		}
 	case "zsh":
 		if err := cmd.GenZshCompletion(os.Stdout); err != nil {
-			bail(fmt.Errorf("Failed to generate zsh completion: %w", err))
+			bail(fmt.Errorf("failed to generate zsh completion: %w", err))
 		}
 	case "fish":
 		if err := cmd.GenFishCompletion(os.Stdout, true); err != nil {
-			bail(fmt.Errorf("Failed to generate fish completion: %w", err))
+			bail(fmt.Errorf("failed to generate fish completion: %w", err))
 		}
 	case "powershell":
 		err := cmd.GenPowerShellCompletion(os.Stdout)
 		if err != nil {
-			bail(fmt.Errorf("Failed to generate powershell completion: %w", err))
+			bail(fmt.Errorf("failed to generate powershell completion: %w", err))
 		}
 	default:
-		bail(fmt.Errorf("Does not support completion for %s", c))
+		bail(fmt.Errorf("completion not supported: %s", c))
 	}
 }
 
@@ -116,7 +126,7 @@ func prepareFlags() {
 	SearchCmd.PersistentFlags().BoolVarP(
 		&config.ServerMode, "server", "s", false, "launch web server")
 	SearchCmd.PersistentFlags().StringVarP(
-		&config.Completion, "completion", "", "", "generate completion script for bash, zsh, fish or powershell")
+		&config.Completion, "completion", "", "", "completion script for bash, zsh, fish or powershell")
 	SearchCmd.PersistentFlags().IntVarP(
 		&config.Port, "port", "", config.Port, "server port")
 	SearchCmd.PersistentFlags().StringVarP(
@@ -158,16 +168,18 @@ func performCommand(cmd *cobra.Command, args []string) error {
 		return nil
 	}
 
+	config.Provider = strings.ToLower(config.Provider)
+
 	providers.SetBlacklist(config.Blacklist)
 	providers.SetWhitelist(config.Whitelist)
 
 	if config.ListProviders {
-		fmt.Printf(providers.DisplayProviders(config.Verbose))
+		fmt.Print(providers.DisplayProviders(config.Verbose))
 		return nil
 	}
 
 	if config.ListTags {
-		fmt.Printf(providers.DisplayTags(config.Verbose))
+		fmt.Print(providers.DisplayTags(config.Verbose))
 		return nil
 	}
 
@@ -186,13 +198,13 @@ func performCommand(cmd *cobra.Command, args []string) error {
 	if err != nil {
 		// os.Stdin.Stat() can be unavailable on Windows.
 		if runtime.GOOS != "windows" {
-			return fmt.Errorf("Failed to stat Stdin: %s", err)
+			return fmt.Errorf("failed to stat Stdin: %s", err)
 		}
 	} else {
 		if st.Mode()&os.ModeNamedPipe != 0 {
 			bytes, err := ioutil.ReadAll(os.Stdin)
 			if err != nil {
-				return fmt.Errorf("Failed to read from Stdin: %s", err)
+				return fmt.Errorf("failed to read from Stdin: %s", err)
 			}
 
 			query = strings.TrimSpace(fmt.Sprintf("%s %s", query, bytes))

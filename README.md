@@ -9,7 +9,7 @@ Usage:
 Flags:
   -b, --binary string       binary to launch search URI
   -c, --cert string         path to cert.pem for TLS
-      --completion string   generate completion script for bash, zsh, fish or powershell
+      --completion string   completion script for bash, zsh, fish or powershell
   -h, --help                help for s
   -k, --key string          path to key.pem for TLS
   -l, --list-providers      list supported providers
