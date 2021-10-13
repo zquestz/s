@@ -106,8 +106,10 @@ s --completion bash > /usr/local/etc/bash_completion.d/s
 
 ### Zsh
 
+Generate a `_s` completion script and put it somewhere in your `$fpath`:
+
 ```
-s --completion zsh > "${fpath[1]}/_s"
+s --completion zsh > /usr/local/share/zsh/site-functions/_s
 ```
 
 ### Fish
