@@ -1,7 +1,5 @@
 language: go
 go:
-  - 1.15.15
-  - 1.16.9
   - 1.17.2
 os:
   - linux
