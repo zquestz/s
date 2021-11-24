@@ -16,7 +16,7 @@ type Provider struct{}
 
 // BuildURI generates a search URL for Twitchtv.
 func (p *Provider) BuildURI(q string) string {
-	return fmt.Sprintf("https://www.twitch.tv/search?query=%s", url.QueryEscape(q))
+	return fmt.Sprintf("https://www.twitch.tv/search?term=%s", url.QueryEscape(q))
 }
 
 // Tags returns the tags relevant to this provider.
