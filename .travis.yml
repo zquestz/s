@@ -3,7 +3,6 @@ go:
   - 1.17.2
 os:
   - linux
-  - osx
 install:
   - go get -v github.com/zquestz/s
 script:
