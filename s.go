@@ -57,6 +57,7 @@ import (
 	_ "github.com/zquestz/s/providers/googlemaps"
 	_ "github.com/zquestz/s/providers/googleplus"
 	_ "github.com/zquestz/s/providers/hackernews"
+	_ "github.com/zquestz/s/providers/idealo"
 	_ "github.com/zquestz/s/providers/ietf"
 	_ "github.com/zquestz/s/providers/ifttt"
 	_ "github.com/zquestz/s/providers/imdb"
