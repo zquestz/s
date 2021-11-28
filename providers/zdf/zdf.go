@@ -1,10 +1,10 @@
-package youtube
+package zdf
 
 import (
 	"fmt"
 	"net/url"
 
-	"github.com/zquestz/s/providers"
+	"github.com/xoro/s/providers"
 )
 
 func init() {
