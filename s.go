@@ -54,6 +54,7 @@ import (
 	_ "github.com/zquestz/s/providers/goodreads"
 	_ "github.com/zquestz/s/providers/google"
 	_ "github.com/zquestz/s/providers/googledocs"
+	_ "github.com/zquestz/s/providers/googlemaps"
 	_ "github.com/zquestz/s/providers/googleplus"
 	_ "github.com/zquestz/s/providers/hackernews"
 	_ "github.com/zquestz/s/providers/ietf"
