@@ -21,5 +21,9 @@ func (p *Provider) BuildURI(q string) string {
 
 // Tags returns the tags relevant to this provider.
 func (p *Provider) Tags() []string {
-	return []string{"television"}
+	switch providers.Language() {
+	case "de":
+		return []string{"tv"}
+	default:
+		return []string{}
 }
