@@ -226,6 +226,7 @@ Custom providers require a few things:
 * amazon
 * archpkg
 * archwiki
+* ardmediathek
 * arstechnica
 * arxiv
 * atmospherejs
@@ -269,6 +270,7 @@ Custom providers require a few things:
 * googledocs
 * googleplus
 * hackernews
+* idealo
 * ietf
 * ifttt
 * imdb
@@ -324,6 +326,7 @@ Custom providers require a few things:
 * yahoo
 * yandex
 * youtube
+* zdf
 * zhihu
 
 ## Contributors
