@@ -26,4 +26,5 @@ func (p *Provider) Tags() []string {
 		return []string{"tv"}
 	default:
 		return []string{}
+	}
 }
