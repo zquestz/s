@@ -270,6 +270,7 @@ Custom providers require a few things:
 * googledocs
 * googleplus
 * hackernews
+* idealo
 * ietf
 * ifttt
 * imdb
@@ -325,6 +326,7 @@ Custom providers require a few things:
 * yahoo
 * yandex
 * youtube
+* zdf
 * zhihu
 
 ## Contributors
