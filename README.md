@@ -226,6 +226,7 @@ Custom providers require a few things:
 * amazon
 * archpkg
 * archwiki
+* ardmediathek
 * arstechnica
 * arxiv
 * atmospherejs
