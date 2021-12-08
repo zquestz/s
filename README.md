@@ -259,6 +259,7 @@ Custom providers require a few things:
 * flickr
 * flipkart
 * foursquare
+* freshports
 * giphy
 * gist
 * github
