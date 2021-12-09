@@ -16,7 +16,7 @@ type Provider struct{}
 
 // BuildURI generates a search URL for Allocine.
 func (p *Provider) BuildURI(q string) string {
-	return fmt.Sprintf("http://www.allocine.fr/recherche/?q=%s", url.QueryEscape(q))
+	return fmt.Sprintf("http://www.allocine.fr/rechercher/?q=%s", url.QueryEscape(q))
 }
 
 // Tags returns the tags relevant to this provider.
