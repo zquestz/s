@@ -279,6 +279,7 @@ Custom providers require a few things:
 * imgur
 * inbox
 * instagram
+* kaufda
 * kickasstorrents
 * libgen
 * linkedin
@@ -296,6 +297,7 @@ Custom providers require a few things:
 * npmsearch
 * npr
 * nvd
+* openbsdman
 * overstock
 * packagist
 * phandroid
