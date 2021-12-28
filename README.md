@@ -297,6 +297,7 @@ Custom providers require a few things:
 * npmsearch
 * npr
 * nvd
+* openbsdman
 * overstock
 * packagist
 * phandroid
