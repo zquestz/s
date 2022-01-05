@@ -17,7 +17,7 @@ const (
 	appName         = "s"
 	version         = "0.6.3"
 	defaultPort     = 8080
-	defaultProvider = "brave"
+	defaultProvider = "presearch"
 )
 
 // Stores configuration data.
