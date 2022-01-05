@@ -253,6 +253,7 @@ Custom providers require a few things:
 * dribbble
 * duckduckgo
 * dumpert
+* ecosia
 * engadget
 * explainshell
 * facebook

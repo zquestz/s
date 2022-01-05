@@ -39,6 +39,7 @@ import (
 	_ "github.com/zquestz/s/providers/dribbble"
 	_ "github.com/zquestz/s/providers/duckduckgo"
 	_ "github.com/zquestz/s/providers/dumpert"
+	_ "github.com/zquestz/s/providers/ecosia"
 	_ "github.com/zquestz/s/providers/engadget"
 	_ "github.com/zquestz/s/providers/explainshell"
 	_ "github.com/zquestz/s/providers/facebook"
