@@ -324,6 +324,7 @@ Custom providers require a few things:
 * torrentz
 * twitchtv
 * twitter
+* ultimateguitar
 * unity3d
 * upcloud
 * vimeo
