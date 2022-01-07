@@ -111,6 +111,7 @@ import (
 	_ "github.com/zquestz/s/providers/torrentz"
 	_ "github.com/zquestz/s/providers/twitchtv"
 	_ "github.com/zquestz/s/providers/twitter"
+	_ "github.com/zquestz/s/providers/ultimateguitar"
 	_ "github.com/zquestz/s/providers/unity3d"
 	_ "github.com/zquestz/s/providers/upcloud"
 	_ "github.com/zquestz/s/providers/vimeo"
