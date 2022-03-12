@@ -363,7 +363,7 @@ s is released under the MIT license.
 [ReportCard-Image]: https://goreportcard.com/badge/github.com/zquestz/s
 [Build-Status-URL]: http://travis-ci.com/zquestz/s
 [Build-Status-Image]: https://travis-ci.com/zquestz/s.svg?branch=master
-[Release-URL]: https://github.com/zquestz/s/releases/tag/v0.6.5
-[Release-Image]: http://img.shields.io/badge/release-v0.6.5-1eb0fc.svg
+[Release-URL]: https://github.com/zquestz/s/releases/tag/v0.6.6
+[Release-Image]: http://img.shields.io/badge/release-v0.6.6-1eb0fc.svg
 [Chat-Image]: https://badges.gitter.im/zquestz/s.svg
 [Chat-URL]: https://gitter.im/zquestz/s?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
