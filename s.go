@@ -48,6 +48,7 @@ import (
 	_ "github.com/zquestz/s/providers/foursquare"
 	_ "github.com/zquestz/s/providers/freebsdman"
 	_ "github.com/zquestz/s/providers/freshports"
+	_ "github.com/zquestz/s/providers/gibiru"
 	_ "github.com/zquestz/s/providers/giphy"
 	_ "github.com/zquestz/s/providers/gist"
 	_ "github.com/zquestz/s/providers/github"
