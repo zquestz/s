@@ -242,6 +242,20 @@ func TagNames(verbose bool) []string {
 	tags := make(map[string][]string)
 
 	for name, p := range Providers {
+		if enableWhitelist {
+			_, ok := whitelist[name]
+			if !ok {
+				continue
+			}
+		}
+
+		if enableBlacklist {
+			_, ok := blacklist[name]
+			if ok {
+				continue
+			}
+		}
+
 		for _, t := range p.Tags() {
 			tags[t] = append(tags[t], name)
 		}
