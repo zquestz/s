@@ -361,7 +361,7 @@ s is released under the MIT license.
 [License-Image]: https://img.shields.io/npm/l/express.svg
 [ReportCard-URL]: http://goreportcard.com/report/zquestz/s
 [ReportCard-Image]: https://goreportcard.com/badge/github.com/zquestz/s
-[Build-Status-URL]: http://travis-ci.com/zquestz/s
+[Build-Status-URL]: https://app.travis-ci.com/github/zquestz/s
 [Build-Status-Image]: https://travis-ci.com/zquestz/s.svg?branch=master
 [Release-URL]: https://github.com/zquestz/s/releases/tag/v0.6.7
 [Release-Image]: http://img.shields.io/badge/release-v0.6.7-1eb0fc.svg
