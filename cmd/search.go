@@ -15,7 +15,7 @@ import (
 
 const (
 	appName         = "s"
-	version         = "0.6.6"
+	version         = "0.6.7"
 	defaultPort     = 8080
 	defaultProvider = "presearch"
 )
@@ -134,6 +134,11 @@ func prepareFlags() {
 	SearchCmd.PersistentFlags().StringVarP(
 		&config.Key, "key", "k", config.Key, "path to key.pem for TLS")
 
+	config.Provider = strings.ToLower(config.Provider)
+
+	providers.SetBlacklist(config.Blacklist)
+	providers.SetWhitelist(config.Whitelist)
+
 	err := SearchCmd.RegisterFlagCompletionFunc("provider", func(cmd *cobra.Command, args []string, toComplete string) ([]string, cobra.ShellCompDirective) {
 		return providers.ProviderNames(config.Verbose), cobra.ShellCompDirectiveNoFileComp
 	})
@@ -167,11 +172,6 @@ func performCommand(cmd *cobra.Command, args []string) error {
 		completion(cmd, config.Completion)
 		return nil
 	}
-
-	config.Provider = strings.ToLower(config.Provider)
-
-	providers.SetBlacklist(config.Blacklist)
-	providers.SetWhitelist(config.Whitelist)
 
 	if config.ListProviders {
 		fmt.Print(providers.DisplayProviders(config.Verbose))
