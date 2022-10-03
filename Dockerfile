@@ -2,7 +2,7 @@
 # and a workspace (GOPATH) configured at /go.
 FROM golang:1.19.1
 
-MAINTAINER Josh Ellithorpe <quest@mac.com>
+LABEL org.opencontainers.image.authors="Josh Ellithorpe <quest@mac.com>"
 
 # Copy the local package files to the container's workspace.
 ADD . /go/src/github.com/zquestz/s
