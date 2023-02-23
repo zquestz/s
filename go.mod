@@ -7,7 +7,7 @@ require (
 	github.com/mitchellh/go-homedir v1.1.0
 	github.com/spf13/cobra v1.5.0
 	github.com/zquestz/go-ucl v0.0.0-20220615095619-8a3686d7543a
-	golang.org/x/text v0.3.7
+	golang.org/x/text v0.3.8
 )
 
 require (
