@@ -33,6 +33,7 @@ var (
     <meta name="msapplication-TileColor" content="#272f32">
     <meta name="msapplication-TileImage" content="/mstile-144x144.png">
     <meta name="theme-color" content="#272f32">
+    <meta name="description" content="Web search from the terminal. Supports over 50 providers including google, github, and stackoverflow.">
     <style>
 {{.CSS}}
     </style>
