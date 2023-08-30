@@ -307,6 +307,7 @@ Custom providers require a few things:
 * php
 * pinterest
 * postgresql
+* pypi
 * python
 * quora
 * qwant
