@@ -308,6 +308,7 @@ Custom providers require a few things:
 * pinterest
 * postgresql
 * pydoc
+* pypi
 * python
 * quora
 * qwant
