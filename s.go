@@ -91,6 +91,7 @@ import (
 	_ "github.com/zquestz/s/providers/packagist"
 	_ "github.com/zquestz/s/providers/perplexity"
 	_ "github.com/zquestz/s/providers/phandroid"
+	_ "github.com/zquestz/s/providers/phind"
 	_ "github.com/zquestz/s/providers/php"
 	_ "github.com/zquestz/s/providers/pinterest"
 	_ "github.com/zquestz/s/providers/postgresql"
