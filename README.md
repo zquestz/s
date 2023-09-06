@@ -302,8 +302,10 @@ Custom providers require a few things:
 * openbsdman
 * overstock
 * packagist
+* perplexity
 * presearch
 * phandroid
+* phind
 * php
 * pinterest
 * postgresql
