@@ -281,6 +281,7 @@ Custom providers require a few things:
 * imgur
 * inbox
 * instagram
+* kagi
 * kaufda
 * kickasstorrents
 * libgen
