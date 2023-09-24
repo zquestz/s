@@ -1,6 +1,6 @@
 # Start from a Debian image with the latest version of Go installed
 # and a workspace (GOPATH) configured at /go.
-FROM golang:1.21.1
+FROM golang:1.21.1-alpine
 
 LABEL org.opencontainers.image.authors="Josh Ellithorpe <quest@mac.com>"
 
@@ -11,6 +11,7 @@ ADD . /go/src/github.com/zquestz/s
 WORKDIR /go/src/github.com/zquestz/s
 
 # Build the code.
+RUN apk add --update make
 RUN make install
 
 # Set the start command.
