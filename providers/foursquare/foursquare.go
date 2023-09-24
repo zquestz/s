@@ -14,7 +14,7 @@ func init() {
 // Provider merely implements the Provider interface.
 type Provider struct{}
 
-//BuildURI generates a search URL for Foursquare.
+// BuildURI generates a search URL for Foursquare.
 func (p *Provider) BuildURI(q string) string {
 	return fmt.Sprintf("https://foursquare.com/explore?&q=%s", url.QueryEscape(q))
 }
