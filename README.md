@@ -1,4 +1,4 @@
-[![License][License-Image]][License-URL] [![ReportCard][ReportCard-Image]][ReportCard-URL] [![Build][Build-Status-Image]][Build-Status-URL] [![Release][Release-Image]][Release-URL] [![Chat][Chat-Image]][Chat-URL]
+[![License][License-Image]][License-URL] [![ReportCard][ReportCard-Image]][ReportCard-URL] [![Build][Build-Status-Image]][Build-Status-URL] [![Release][Release-Image]][Release-URL]
 # s
 Web search from the terminal. Just opens in your browser.
 
@@ -370,5 +370,3 @@ s is released under the MIT license.
 [Build-Status-Image]: https://travis-ci.com/zquestz/s.svg?branch=master
 [Release-URL]: https://github.com/zquestz/s/releases/tag/v0.6.9
 [Release-Image]: http://img.shields.io/badge/release-v0.6.9-1eb0fc.svg
-[Chat-Image]: https://badges.gitter.im/zquestz/s.svg
-[Chat-URL]: https://gitter.im/zquestz/s?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
