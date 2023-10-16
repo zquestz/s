@@ -4,7 +4,7 @@
 
 There are a few basic ground-rules for contributors to `s`:
 
-1. When adding a `provider`: 
+1. When adding a `provider`:
     1. Each provider should be a **single** commit.
     2. Add it to the README.md.
     3. Add it to `s.go`.
