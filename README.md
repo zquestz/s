@@ -1,8 +1,10 @@
 [![License][License-Image]][License-URL] [![ReportCard][ReportCard-Image]][ReportCard-URL] [![Build][Build-Status-Image]][Build-Status-URL] [![Release][Release-Image]][Release-URL]
+
 # s
+
 Web search from the terminal. Just opens in your browser.
 
-```
+```text
 Usage:
   s <query> [flags]
 
@@ -26,7 +28,7 @@ Flags:
 
 ## Install
 
-```
+```zsh
 go get -v github.com/zquestz/s
 cd $GOPATH/src/github.com/zquestz/s
 make
@@ -35,56 +37,65 @@ make install
 
 Alternatively, you can use Homebrew:
 
-```
+```zsh
 brew install s-search
 ```
 
 ## Examples
 
 Search for puppies on presearch.
-```
+
+```zsh
 s puppies
 ```
 
 Search for dragonflies on google.
-```
+
+```zsh
 s -p google dragonflies
 ```
 
 Search for a wifi router on amazon
-```
+
+```zsh
 s -p amazon wifi router
 ```
 
 Search for rhinos on wikipedia
-```
+
+```zsh
 s -p wikipedia rhinos
 ```
 
 Search providers tagged "video" for muppets.
-```
+
+```zsh
 s -t video muppets
 ```
 
 ## Provider/Tag Expansion
 
 We can do partial matching of provider and tag names. This searches Facebook for hamsters.
-```
+
+```zsh
 s -p fa hamsters
 ```
 
 Or toasters on amazon.
-```
+
+```zsh
 s -p am toasters
 ```
 
 This searches "tech-news" tagged providers for ssd info.
-```
+
+```zsh
 s -t te ssd
 ```
 
 Or shopping sites for blankets.
-```
+
+```zsh
 s -t sh blankets
 ```
 
@@ -94,58 +105,61 @@ Autocompletion is supported for providers and tags. To set up autocompletion:
 
 ### Bash Linux
 
-```
+```zsh
 s --completion bash > /etc/bash_completion.d/s
 ```
 
 ### Bash MacOS
 
-```
+```zsh
 s --completion bash > /usr/local/etc/bash_completion.d/s
 ```
-
 
 ### Zsh
 
 Generate a `_s` completion script and put it somewhere in your `$fpath`:
 
-```
+```zsh
 s --completion zsh > /usr/local/share/zsh/site-functions/_s
 ```
 
 ### Fish
 
-```
+```zsh
 s --completion fish > ~/.config/fish/completions/s.fish
 ```
 
 ### Powershell
 
-```
+```powershell
 (& s --completion powershell) | Out-String | Invoke-Expression
 ```
 
 ## Advanced
 
 Setup an alias in your `.profile` for your favorite providers.
-```
+
+```bash
 alias sa="s -p amazon"
 alias sw="s -p wikipedia"
 ```
 
 Use w3m to find cats instead of just your default browser.
-```
+
+```zsh
 s -b w3m cats
 ```
 
 Search for conspiracy theories in incognito mode.
-```
+
+```zsh
 s -b "chromium --incognito" conspiracy theories
 s -b "firefox --private-window" conspiracy theories
 ```
 
 Search in a specific subreddit.
-```
+
+```zsh
 s -p reddit /r/cscareerquestions best startups.
 ```
 
@@ -154,12 +168,14 @@ s -p reddit /r/cscareerquestions best startups.
 A web interface is also provided. Just pass the `-s` flag.
 
 Start a server on port 8080 (default).
-```
+
+```zsh
 s -s
 ```
 
 Start a server with TLS on port 8443.
-```
+
+```zsh
 s -s -c /path/to/cert.pem -k /path/to/key.pem --port 8443
 ```
 
@@ -187,22 +203,26 @@ The following keys are supported:
 * whitelist (array of providers to include)
 
 Set your default provider to duckduckgo:
-```
+
+```ucl
 provider: duckduckgo
 ```
 
 To only search a few providers:
-```
+
+```ucl
 whitelist: [google, amazon, wikipedia]
 ```
 
 To exclude providers you don't need:
-```
+
+```ucl
 blacklist: [dumpert]
 ```
 
 To add a custom provider:
-```
+
+```ucl
 customProviders [
   {
     name: example
@@ -213,6 +233,7 @@ customProviders [
 ```
 
 Custom providers require a few things:
+
 * An alphanumeric name. `^[a-zA-Z0-9_]*$`
 * A `%s` token for the query string.
 * A valid URL scheme.

@@ -6,7 +6,7 @@ A short summary of your changes.
 
 Fixes # (issue)
 
-## Checklist:
+## Checklist
 
 - [ ] All files have been linted with gofmt.
 - [ ] Documentation has been updated.
