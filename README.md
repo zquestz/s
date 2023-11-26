@@ -325,6 +325,7 @@ Custom providers require a few things:
 * packagist
 * perplexity
 * presearch
+* protondb
 * phandroid
 * phind
 * php
