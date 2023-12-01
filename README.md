@@ -277,6 +277,7 @@ Custom providers require a few things:
 * engadget
 * explainshell
 * facebook
+* flake8rules
 * flickr
 * flipkart
 * foursquare
