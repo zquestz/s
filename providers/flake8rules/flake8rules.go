@@ -1,9 +1,9 @@
 package flake8rules
 
 import (
-	"strings"
 	"fmt"
 	"net/url"
+	"strings"
 
 	"github.com/zquestz/s/providers"
 )
