@@ -5,9 +5,9 @@ go 1.17
 require (
 	github.com/NYTimes/gziphandler v1.1.1
 	github.com/mitchellh/go-homedir v1.1.0
-	github.com/spf13/cobra v1.7.0
+	github.com/spf13/cobra v1.8.0
 	github.com/zquestz/go-ucl v0.0.0-20220615095619-8a3686d7543a
-	golang.org/x/text v0.13.0
+	golang.org/x/text v0.14.0
 )
 
 require (
