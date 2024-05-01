@@ -16,7 +16,7 @@ type Provider struct{}
 
 // BuildURI generates a search URL for ThePirateBay.
 func (p *Provider) BuildURI(q string) string {
-	return fmt.Sprintf("https://thepiratebay.se/search/%s", url.QueryEscape(q))
+	return fmt.Sprintf("https://thepiratebay.org/search/%s", url.QueryEscape(q))
 }
 
 // Tags returns the tags relevant to this provider.

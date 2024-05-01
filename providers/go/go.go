@@ -16,7 +16,7 @@ type Provider struct{}
 
 // BuildURI generates a search URL for Go.
 func (p *Provider) BuildURI(q string) string {
-	return fmt.Sprintf("https://golang.org/search?q=%s", url.QueryEscape(q))
+	return fmt.Sprintf("https://pkg.go.dev/search?q=%s", url.QueryEscape(q))
 }
 
 // Tags returns the tags relevant to this provider.

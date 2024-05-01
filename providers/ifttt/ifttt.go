@@ -3,6 +3,7 @@ package ifttt
 import (
 	"fmt"
 	"net/url"
+	"strings"
 
 	"github.com/zquestz/s/providers"
 )
@@ -16,7 +17,10 @@ type Provider struct{}
 
 // BuildURI generates a search URL for IFTTT.
 func (p *Provider) BuildURI(q string) string {
-	return fmt.Sprintf("https://www.ifttt.com/recipes/search?q=%s", url.QueryEscape(q))
+	return fmt.Sprintf(
+		"https://www.ifttt.com/search/query/%s",
+		strings.Replace(url.QueryEscape(q), "+", "%20", -1),
+	)
 }
 
 // Tags returns the tags relevant to this provider.

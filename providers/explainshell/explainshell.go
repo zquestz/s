@@ -2,14 +2,12 @@ package explainshell
 
 import (
 	"fmt"
-	"strings"
+	"net/url"
 
 	"github.com/zquestz/s/providers"
 )
 
 const (
-	// strings.Replace will apply for all matches when n < 0
-	replaceAll   = -1
 	providerName = "explainshell"
 	providerURL  = "https://explainshell.com"
 )
@@ -23,7 +21,7 @@ type Provider struct{}
 
 // BuildURI generates a search URL for Explain Shell
 func (p *Provider) BuildURI(q string) string {
-	searchParam := strings.Replace(q, " ", "+", replaceAll)
+	searchParam := url.QueryEscape(q)
 	return fmt.Sprintf("%s/explain?cmd=%s", providerURL, searchParam)
 }
 

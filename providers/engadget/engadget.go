@@ -16,7 +16,7 @@ type Provider struct{}
 
 // BuildURI generates a search URL for engadget.
 func (p *Provider) BuildURI(q string) string {
-	return fmt.Sprintf("http://www.engadget.com/search/?search-terms=%s", url.QueryEscape(q))
+	return fmt.Sprintf("https://search.engadget.com/search?p=%s", url.QueryEscape(q))
 }
 
 // Tags returns the tags relevant to this provider.

@@ -16,7 +16,7 @@ type Provider struct{}
 
 // BuildURI generates a search URL for MSDN.
 func (p *Provider) BuildURI(q string) string {
-	return fmt.Sprintf("https://social.msdn.microsoft.com/Search/en-US?query=%s", url.QueryEscape(q))
+	return fmt.Sprintf("https://learn.microsoft.com/en-us/search/?terms=%s", url.QueryEscape(q))
 }
 
 // Tags returns the tags relevant to this provider.

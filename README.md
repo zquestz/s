@@ -267,7 +267,6 @@ Custom providers require a few things:
 * crunchyroll
 * debianpkg
 * dict
-* digg
 * diigo
 * dockerhub
 * dribbble
@@ -293,18 +292,15 @@ Custom providers require a few things:
 * goodreads
 * google
 * googledocs
-* googleplus
 * hackernews
 * idealo
 * ietf
 * ifttt
 * imdb
 * imgur
-* inbox
 * instagram
 * kagi
 * kaufda
-* kickasstorrents
 * libgen
 * linkedin
 * lmgtfy
@@ -318,7 +314,6 @@ Custom providers require a few things:
 * netflix
 * nhaccuatui
 * npm
-* npmsearch
 * npr
 * nvd
 * openbsdman
@@ -349,12 +344,10 @@ Custom providers require a few things:
 * taobao
 * thepiratebay
 * theregister
-* torrentz
 * twitchtv
 * twitter
 * ultimateguitar
 * unity3d
-* upcloud
 * vimeo
 * wikipedia
 * wolframalpha
@@ -390,5 +383,5 @@ s is released under the MIT license.
 [ReportCard-Image]: https://goreportcard.com/badge/github.com/zquestz/s
 [Build-Status-URL]: https://app.travis-ci.com/github/zquestz/s
 [Build-Status-Image]: https://travis-ci.com/zquestz/s.svg?branch=master
-[Release-URL]: https://github.com/zquestz/s/releases/tag/v0.6.9
-[Release-Image]: http://img.shields.io/badge/release-v0.6.9-1eb0fc.svg
+[Release-URL]: https://github.com/zquestz/s/releases/tag/v0.6.10
+[Release-Image]: http://img.shields.io/badge/release-v0.6.10-1eb0fc.svg

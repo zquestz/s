@@ -16,7 +16,7 @@ type Provider struct{}
 
 // BuildURI generates a search URL for macports.
 func (p *Provider) BuildURI(q string) string {
-	return fmt.Sprintf("https://www.macports.org/ports.php?by=name&substr=%s", url.QueryEscape(q))
+	return fmt.Sprintf("https://ports.macports.org/search/?q=%s&name=on", url.QueryEscape(q))
 }
 
 // Tags returns the tags relevant to this provider.
