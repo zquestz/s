@@ -383,5 +383,5 @@ s is released under the MIT license.
 [ReportCard-Image]: https://goreportcard.com/badge/github.com/zquestz/s
 [Build-Status-URL]: https://app.travis-ci.com/github/zquestz/s
 [Build-Status-Image]: https://travis-ci.com/zquestz/s.svg?branch=master
-[Release-URL]: https://github.com/zquestz/s/releases/tag/v0.7.0
-[Release-Image]: http://img.shields.io/badge/release-v0.7.0-1eb0fc.svg
+[Release-URL]: https://github.com/zquestz/s/releases/tag/v0.7.1
+[Release-Image]: http://img.shields.io/badge/release-v0.7.1-1eb0fc.svg

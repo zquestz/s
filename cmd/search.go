@@ -15,7 +15,7 @@ import (
 
 const (
 	appName         = "s"
-	version         = "0.7.0"
+	version         = "0.7.1"
 	defaultPort     = 8080
 	defaultProvider = "presearch"
 )
