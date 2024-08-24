@@ -42,15 +42,15 @@ var (
   <body>
     <form name="search" action="/search" method="get">
       <div id="rightCorner">
-        <select id="provider" name="provider" tabindex="2">
+        <select id="provider" name="provider">
 {{range .Providers}}           <option{{.|Label}}{{.|Selected}}>{{.}}</option>
 {{end}}        </select><br>
-        <select id="tag" name="tag" tabindex="3">
+        <select id="tag" name="tag">
 {{range .Tags}}           <option{{.|Label}}>{{.}}</option>
 {{end}}        </select>
       </div>
-      <input class="input" type="text" name="q" tabindex="1" placeholder="{{.Placeholder}}" autofocus required><br>
-      <input type="submit" value="[ s ]" tabindex="4">
+      <input class="input" type="text" name="q" placeholder="{{.Placeholder}}" autofocus required><br>
+      <input type="submit" value="[ s ]">
     </form>
     <script>
 {{.JS}}
