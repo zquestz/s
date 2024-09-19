@@ -39,6 +39,12 @@ Alternatively, you can use Homebrew:
 brew install s-search
 ```
 
+Arch Linux users can install from the AUR:
+
+```zsh
+yay -S s
+```
+
 ## Examples
 
 Search for puppies on presearch.
