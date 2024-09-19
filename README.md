@@ -27,11 +27,10 @@ Flags:
 
 ## Install
 
+Make sure that `GOPATH` and `GOBIN` env vars are set. Then run:
+
 ```zsh
-go get -v github.com/zquestz/s
-cd $GOPATH/src/github.com/zquestz/s
-make
-make install
+go install github.com/zquestz/s@latest
 ```
 
 Alternatively, you can use Homebrew:
