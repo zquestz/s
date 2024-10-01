@@ -26,6 +26,8 @@ apps:
     command: bin/s
     plugs:
       - network
+      - network-bind
+      - desktop
 
 parts:
   s-search:
