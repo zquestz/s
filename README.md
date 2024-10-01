@@ -1,6 +1,6 @@
 # s
 
-[![License][License-Image]][License-URL] [![ReportCard][ReportCard-Image]][ReportCard-URL] [![Build][Build-Status-Image]][Build-Status-URL] [![Release][Release-Image]][Release-URL]
+[![License][License-Image]][License-URL] [![ReportCard][ReportCard-Image]][ReportCard-URL] [![Build][Build-Status-Image]][Build-Status-URL] [![Release][Release-Image]][Release-URL][![🧪 Snap Builds](https://github.com/kz6fittycent/s/actions/workflows/test-snap-can-build.yml/badge.svg)](https://github.com/kz6fittycent/s/actions/workflows/test-snap-can-build.yml)<a href="https://snapcraft.io/s-search"><img src="https://snapcraft.io/s-search/badge.svg" alt="Snap Status"></a>
 
 Web search from the terminal. Just opens in your browser.
 
