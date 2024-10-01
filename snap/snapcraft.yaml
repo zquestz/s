@@ -7,7 +7,8 @@ description: |
 
 grade: stable
 confinement: strict
-source: https://github.com/zquestz/s
+
+source-code: https://github.com/zquestz/s
 issues: https://github.com/zquestz/s/issues
 contact: https://github.com/zquestz/s
 license: MIT
@@ -19,18 +20,19 @@ architectures:
   - build-on: arm64
   - build-on: ppc64el
 
-parts:
-  s-search:
-    plugin: go
-    source: https://github.com/zquestz/s
-    source-type: git
-    build-snaps:
-      - go
-    build-packages:
-      - gcc
-
 apps:
   s-search:
-    command: s
+    command: bin/s
     plugs:
       - network
+
+parts:
+  s-search:
+    source: https://github.com/zquestz/s
+    source-type: git
+    plugin: go    
+    build-snaps:
+      - go
+      
+    build-packages:
+      - gcc      
