@@ -1,5 +1,5 @@
 name: s-search
-base: core18 # the base snap is the execution environment for this snap
+base: core22
 version: git
 summary: Open a web search in your terminal. 
 description: |
@@ -7,12 +7,24 @@ description: |
 
 grade: stable
 confinement: strict
+source: https://github.com/zquestz/s
+issues: https://github.com/zquestz/s/issues
+contact: https://github.com/zquestz/s
+license: MIT
+
+architectures:
+  - build-on: amd64
+  - build-on: s390x
+  - build-on: armhf
+  - build-on: arm64
+  - build-on: ppc64el
+
 
 parts:
   s:
     plugin: go
-    source: .
-    go-importpath: github.com/zquestz/s
+    source: https://github.com/zquestz/s
+    source-type: git
     build-packages:
       - gcc
 
@@ -20,6 +32,4 @@ apps:
   s-search:
     command: s
     plugs:
-      - desktop
       - network
-      - network-bind
