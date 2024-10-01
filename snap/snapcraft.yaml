@@ -19,11 +19,11 @@ architectures:
   - build-on: arm64
   - build-on: ppc64el
 
-
 parts:
-  s:
+  s-search:
     plugin: go
-    source: .
+    source: https://github.com/zquestz/s
+    source-type: git
     build-snaps:
       - go
     build-packages:
