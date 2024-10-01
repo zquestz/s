@@ -12,6 +12,7 @@ source-code: https://github.com/zquestz/s
 issues: https://github.com/zquestz/s/issues
 contact: https://github.com/zquestz/s
 license: MIT
+icon: snap/local/s.png
 
 architectures:
   - build-on: amd64
