@@ -23,8 +23,9 @@ architectures:
 parts:
   s:
     plugin: go
-    source: https://github.com/zquestz/s
-    source-type: git
+    source: .
+    build-snaps:
+      - go
     build-packages:
       - gcc
 
