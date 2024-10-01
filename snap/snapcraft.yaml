@@ -1,6 +1,6 @@
 name: s-search
 base: core22
-version: git
+adopt-info: s-search
 summary: Open a web search in your terminal. 
 description: |
   Web search from the terminal. Just opens in your browser.
@@ -36,3 +36,7 @@ parts:
       
     build-packages:
       - gcc      
+      
+    override-pull: |
+      craftctl default
+      craftctl set version="$(git describe --tags | sed 's/^v//' | cut -d "-" -f1)" 
