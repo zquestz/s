@@ -1,6 +1,6 @@
 name: s-search
-base: core18 # the base snap is the execution environment for this snap
-version: git
+base: core22
+adopt-info: s-search
 summary: Open a web search in your terminal. 
 description: |
   Web search from the terminal. Just opens in your browser.
@@ -8,18 +8,38 @@ description: |
 grade: stable
 confinement: strict
 
-parts:
-  s:
-    plugin: go
-    source: .
-    go-importpath: github.com/zquestz/s
-    build-packages:
-      - gcc
+source-code: https://github.com/zquestz/s
+issues: https://github.com/zquestz/s/issues
+contact: https://github.com/zquestz/s
+license: MIT
+icon: snap/local/s.png
+
+architectures:
+  - build-on: amd64
+  - build-on: s390x
+  - build-on: armhf
+  - build-on: arm64
+  - build-on: ppc64el
 
 apps:
   s-search:
-    command: s
+    command: bin/s
     plugs:
-      - desktop
       - network
       - network-bind
+      - desktop
+
+parts:
+  s-search:
+    source: https://github.com/zquestz/s
+    source-type: git
+    plugin: go    
+    build-snaps:
+      - go
+      
+    build-packages:
+      - gcc      
+      
+    override-pull: |
+      craftctl default
+      craftctl set version="$(git describe --tags | sed 's/^v//' | cut -d "-" -f1)" 
