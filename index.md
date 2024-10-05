@@ -1,4 +1,4 @@
-[![License][License-Image]][License-URL] [![ReportCard][ReportCard-Image]][ReportCard-URL] [![Build][Build-Status-Image]][Build-Status-URL] [![Release][Release-Image]][Release-URL]
+[![License][License-Image]][License-URL] [![ReportCard][ReportCard-Image]][ReportCard-URL] [![Build][Build-Status-Image]][Build-Status-URL] [![Release][Release-Image]][Release-URL] [![🧪 Snap Builds][Snap-Build-Image]][Snap-Build-URL] [![Snap Status][Snap-Image]][Snap-URL]
 
 Web search from the terminal. Just opens in your browser.
 
@@ -25,17 +25,22 @@ Flags:
 
 ## Install
 
+Make sure that `GOPATH` and `GOBIN` env vars are set. Then run:
+
 ```zsh
-go get -v github.com/zquestz/s
-cd $GOPATH/src/github.com/zquestz/s
-make
-make install
+go install github.com/zquestz/s@latest
 ```
 
 Alternatively, you can use Homebrew:
 
 ```zsh
 brew install s-search
+```
+
+Arch Linux users can install from the AUR:
+
+```zsh
+yay -S s
 ```
 
 ## Examples
@@ -380,6 +385,10 @@ s is released under the MIT license.
 [ReportCard-URL]: http://goreportcard.com/report/zquestz/s
 [ReportCard-Image]: https://goreportcard.com/badge/github.com/zquestz/s
 [Build-Status-URL]: https://app.travis-ci.com/github/zquestz/s
-[Build-Status-Image]: https://travis-ci.com/zquestz/s.svg?branch=master
-[Release-URL]: https://github.com/zquestz/s/releases/tag/v0.7.0
-[Release-Image]: http://img.shields.io/badge/release-v0.7.0-1eb0fc.svg
+[Build-Status-Image]: https://app.travis-ci.com/zquestz/s.svg?branch=master
+[Release-URL]: https://github.com/zquestz/s/releases/tag/v0.7.1
+[Release-Image]: http://img.shields.io/badge/release-v0.7.1-1eb0fc.svg
+[Snap-Build-URL]: https://github.com/zquestz/s/actions/workflows/test-snap-builds.yml
+[Snap-Build-Image]: https://github.com/zquestz/s/actions/workflows/test-snap-builds.yml/badge.svg
+[Snap-Image]: https://snapcraft.io/s-search/badge.svg
+[Snap-URL]: https://snapcraft.io/s-search
