@@ -1,6 +1,6 @@
 # s
 
-[![License][License-Image]][License-URL] [![ReportCard][ReportCard-Image]][ReportCard-URL] [![Build][Build-Status-Image]][Build-Status-URL] [![Release][Release-Image]][Release-URL] [![🧪 Snap Builds](https://github.com/kz6fittycent/s/actions/workflows/test-snap-can-build.yml/badge.svg)](https://github.com/kz6fittycent/s/actions/workflows/test-snap-can-build.yml) <a href="https://snapcraft.io/s-search"><img src="https://snapcraft.io/s-search/badge.svg" alt="Snap Status"></a>
+[![License][License-Image]][License-URL] [![ReportCard][ReportCard-Image]][ReportCard-URL] [![Build][Build-Status-Image]][Build-Status-URL] [![Release][Release-Image]][Release-URL] [![🧪 Snap Builds][Snap-Build-Image]][Snap-Build-URL] [![Snap Status][Snap-Image]][Snap-URL]
 
 Web search from the terminal. Just opens in your browser.
 
@@ -390,3 +390,7 @@ s is released under the MIT license.
 [Build-Status-Image]: https://app.travis-ci.com/zquestz/s.svg?branch=master
 [Release-URL]: https://github.com/zquestz/s/releases/tag/v0.7.1
 [Release-Image]: http://img.shields.io/badge/release-v0.7.1-1eb0fc.svg
+[Snap-Build-URL]: https://github.com/zquestz/s/actions/workflows/test-snap-builds.yml
+[Snap-Build-Image]: https://github.com/zquestz/s/actions/workflows/test-snap-builds.yml/badge.svg
+[Snap-Image]: https://snapcraft.io/s-search/badge.svg
+[Snap-URL]: https://snapcraft.io/s-search
