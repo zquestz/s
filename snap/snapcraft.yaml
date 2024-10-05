@@ -11,7 +11,7 @@ confinement: strict
 website: https://zquestz.github.io/s/
 source-code: https://github.com/zquestz/s
 issues: https://github.com/zquestz/s/issues
-contact: quest@mac.com
+contact: https://github.com/zquestz/s
 license: MIT
 icon: snap/local/s.png
 
