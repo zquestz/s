@@ -8,9 +8,10 @@ description: |
 grade: stable
 confinement: strict
 
+website: https://zquestz.github.io/s/
 source-code: https://github.com/zquestz/s
 issues: https://github.com/zquestz/s/issues
-contact: https://github.com/zquestz/s
+contact: quest@mac.com
 license: MIT
 icon: snap/local/s.png
 
