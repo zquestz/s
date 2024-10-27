@@ -230,7 +230,7 @@ To add a custom provider:
 customProviders [
   {
     name: example
-    url: "http://example.com?q=%s"
+    url: "https://example.com?q=%s"
     tags: [example]
   }
 ]
@@ -370,7 +370,7 @@ Custom providers require a few things:
 * [Robert-Jan Keizer (KeizerDev)](https://github.com/KeizerDev/)
 * [Vitor Cortez (vekat)](https://github.com/vekat/)
 * [David Liu (tw4dl)](https://github.com/tw4dl/)
-* [Lex Broner (akb)](http://github.com/akb/)
+* [Lex Broner (akb)](https://github.com/akb/)
 * [Diego Jara (djap96)](https://github.com/djap96/)
 * [Luvsandondov Lkhamsuren (lkhamsurenl)](https://github.com/lkhamsurenl/)
 * [Eray Aydın (erayaydin)](https://github.com/erayaydin/)
@@ -382,14 +382,14 @@ Custom providers require a few things:
 
 s is released under the MIT license.
 
-[License-URL]: http://opensource.org/licenses/MIT
+[License-URL]: https://opensource.org/licenses/MIT
 [License-Image]: https://img.shields.io/npm/l/express.svg
-[ReportCard-URL]: http://goreportcard.com/report/zquestz/s
+[ReportCard-URL]: https://goreportcard.com/report/zquestz/s
 [ReportCard-Image]: https://goreportcard.com/badge/github.com/zquestz/s
 [Build-Status-URL]: https://app.travis-ci.com/github/zquestz/s
 [Build-Status-Image]: https://app.travis-ci.com/zquestz/s.svg?branch=master
 [Release-URL]: https://github.com/zquestz/s/releases/tag/v0.7.1
-[Release-Image]: http://img.shields.io/badge/release-v0.7.1-1eb0fc.svg
+[Release-Image]: https://img.shields.io/badge/release-v0.7.1-1eb0fc.svg
 [Snap-Build-URL]: https://github.com/zquestz/s/actions/workflows/test-snap-builds.yml
 [Snap-Build-Image]: https://github.com/zquestz/s/actions/workflows/test-snap-builds.yml/badge.svg
 [Snap-Image]: https://snapcraft.io/s-search/badge.svg
