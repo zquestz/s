@@ -109,14 +109,14 @@ Autocompletion is supported for providers and tags. To set up autocompletion:
 
 ### Bash Linux
 
-```zsh
-s --completion bash > /etc/bash_completion.d/s
+```bash
+sudo bash -c "s --completion bash > /etc/bash_completion.d/s"
 ```
 
 ### Bash MacOS
 
-```zsh
-s --completion bash > /usr/local/etc/bash_completion.d/s
+```bash
+sudo bash -c "s --completion bash > /usr/local/etc/bash_completion.d/s"
 ```
 
 ### Zsh
@@ -124,7 +124,7 @@ s --completion bash > /usr/local/etc/bash_completion.d/s
 Generate a `_s` completion script and put it somewhere in your `$fpath`:
 
 ```zsh
-s --completion zsh > /usr/local/share/zsh/site-functions/_s
+sudo zsh -c "s --completion zsh > /usr/local/share/zsh/site-functions/_s"
 ```
 
 ### Fish
