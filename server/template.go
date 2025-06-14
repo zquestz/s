@@ -88,7 +88,17 @@ input:focus:-ms-input-placeholder{color:transparent}`
 func indexJS(defaultProvider string) string {
 	var b bytes.Buffer
 
-	b.WriteString(`function sInit() {
+	b.WriteString(`function setCookie(name, value, days) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+}
+
+function sInit() {
     "use strict";
     var searchForm = document.forms.search;
     searchForm.onsubmit = function () {
@@ -99,6 +109,11 @@ func indexJS(defaultProvider string) string {
     };
     var tag = document.getElementById("tag");
     var provider = document.getElementById("provider");
+
+    provider.onchange = function () {
+        setCookie("s-provider", provider.value, 365);
+    };
+
     tag.onchange = function () {
         if (tag.value === "") {
             if (provider.value === "") {

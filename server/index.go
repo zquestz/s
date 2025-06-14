@@ -19,10 +19,17 @@ type templateVars struct {
 func index(defaultProvider string, w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html")
 
+	selectedProvider := defaultProvider
+	if cookie, err := r.Cookie("s-provider"); err == nil && cookie.Value != "" {
+		if _, exists := providers.Providers[cookie.Value]; exists {
+			selectedProvider = cookie.Value
+		}
+	}
+
 	t := template.New("index")
 
 	selected := func(p string) string {
-		if p == defaultProvider {
+		if p == selectedProvider {
 			return " selected"
 		}
 
@@ -52,7 +59,7 @@ func index(defaultProvider string, w http.ResponseWriter, r *http.Request) {
 
 	tvars := templateVars{
 		CSS:         indexCSS,
-		JS:          indexJS(defaultProvider),
+		JS:          indexJS(selectedProvider),
 		Placeholder: "kittens...",
 		Providers:   providerList,
 		Tags:        tagList,

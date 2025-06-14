@@ -28,6 +28,11 @@ func search(defaultProvider string, verbose bool, w http.ResponseWriter, r *http
 
 	if requestedProvider == "" && requestedTag == "" {
 		requestedProvider = defaultProvider
+		if cookie, err := r.Cookie("s-provider"); err == nil && cookie.Value != "" {
+			if _, exists := providers.Providers[cookie.Value]; exists {
+				requestedProvider = cookie.Value
+			}
+		}
 	}
 
 	if requestedProvider != "" {
