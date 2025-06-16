@@ -37,6 +37,7 @@ func setupFaviconHandlers() {
 	http.Handle("/browserconfig.xml", gziphandler.GzipHandler(http.HandlerFunc(browserconfigXML)))
 	http.Handle("/manifest.json", gziphandler.GzipHandler(http.HandlerFunc(manifestJSON)))
 	http.Handle("/safari-pinned-tab.svg", gziphandler.GzipHandler(http.HandlerFunc(safariPinnedTabSvg)))
+	http.Handle("/opensearch.xml", gziphandler.GzipHandler(http.HandlerFunc(opensearchXML)))
 }
 
 func setExpiresHeader(w http.ResponseWriter) {
@@ -1713,6 +1714,21 @@ func browserconfigXML(w http.ResponseWriter, r *http.Request) {
     </tile>
   </msapplication>
 </browserconfig>
+`))
+}
+
+func opensearchXML(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/opensearchdescription+xml")
+	setExpiresHeader(w)
+
+	w.Write([]byte(`<?xml version="1.0" encoding="utf-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+  <ShortName>s</ShortName>
+  <Description>Multi-provider web search portal supporting 50+ search engines including Google, GitHub, and Stack Overflow</Description>
+  <InputEncoding>UTF-8</InputEncoding>
+  <Image width="32" height="32" type="image/png">/favicon-32x32.png</Image>
+  <Url type="text/html" method="get" template="/search?q={searchTerms}"/>
+</OpenSearchDescription>
 `))
 }
 

@@ -28,6 +28,7 @@ var (
     <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
     <link rel="manifest" href="/manifest.json">
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#272f32">
+    <link rel="search" type="application/opensearchdescription+xml" title="s" href="/opensearch.xml">
     <meta name="apple-mobile-web-app-title" content="s">
     <meta name="application-name" content="s">
     <meta name="msapplication-TileColor" content="#272f32">
