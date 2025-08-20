@@ -1718,7 +1718,7 @@ func browserconfigXML(w http.ResponseWriter, r *http.Request) {
 }
 
 func opensearchXML(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/opensearchdescription+xml")
+	w.Header().Set("Content-Type", "application/opensearchdescription+xml; charset=utf-8")
 	setExpiresHeader(w)
 
 	w.Write([]byte(`<?xml version="1.0" encoding="utf-8"?>
