@@ -1702,7 +1702,7 @@ func browserconfigXML(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/xml")
 	setExpiresHeader(w)
 
-	w.Write([]byte(`<?xml version="1.0" encoding="utf-8"?>
+	w.Write([]byte(`<?xml version="1.0" encoding="UTF-8"?>
 <browserconfig>
   <msapplication>
     <tile>
@@ -1721,7 +1721,7 @@ func opensearchXML(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/opensearchdescription+xml; charset=utf-8")
 	setExpiresHeader(w)
 
-	w.Write([]byte(`<?xml version="1.0" encoding="utf-8"?>
+	w.Write([]byte(`<?xml version="1.0" encoding="UTF-8"?>
 <OpenSearchDescription
   xmlns="http://a9.com/-/spec/opensearch/1.1/"
   xmlns:moz="http://www.mozilla.org/2006/browser/search/">
@@ -1729,6 +1729,7 @@ func opensearchXML(w http.ResponseWriter, r *http.Request) {
   <Description>Multi-provider web search portal supporting 50+ search engines including Google, GitHub, and Stack Overflow</Description>
   <InputEncoding>UTF-8</InputEncoding>
   <Image width="32" height="32" type="image/png">/favicon-32x32.png</Image>
+  <Image width="16" height="16" type="image/png">/favicon-16x16.png</Image>
   <Url type="text/html" method="get" template="/search?q={searchTerms}"/>
 </OpenSearchDescription>
 `))
@@ -1742,39 +1743,39 @@ func manifestJSON(w http.ResponseWriter, r *http.Request) {
 	"name": "s",
 	"icons": [
 		{
-			"src": "\/android-chrome-36x36.png",
+			"src": "/android-chrome-36x36.png",
 			"sizes": "36x36",
-			"type": "image\/png",
+			"type": "image/png",
 			"density": 0.75
 		},
 		{
-			"src": "\/android-chrome-48x48.png",
+			"src": "/android-chrome-48x48.png",
 			"sizes": "48x48",
-			"type": "image\/png",
+			"type": "image/png",
 			"density": 1
 		},
 		{
-			"src": "\/android-chrome-72x72.png",
+			"src": "/android-chrome-72x72.png",
 			"sizes": "72x72",
-			"type": "image\/png",
+			"type": "image/png",
 			"density": 1.5
 		},
 		{
-			"src": "\/android-chrome-96x96.png",
+			"src": "/android-chrome-96x96.png",
 			"sizes": "96x96",
-			"type": "image\/png",
+			"type": "image/png",
 			"density": 2
 		},
 		{
-			"src": "\/android-chrome-144x144.png",
+			"src": "/android-chrome-144x144.png",
 			"sizes": "144x144",
-			"type": "image\/png",
+			"type": "image/png",
 			"density": 3
 		},
 		{
-			"src": "\/android-chrome-192x192.png",
+			"src": "/android-chrome-192x192.png",
 			"sizes": "192x192",
-			"type": "image\/png",
+			"type": "image/png",
 			"density": 4
 		}
 	],
