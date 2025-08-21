@@ -2,6 +2,7 @@ package server
 
 import (
 	"net/http"
+	"strings"
 	"time"
 
 	"github.com/NYTimes/gziphandler"
@@ -1721,6 +1722,17 @@ func opensearchXML(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/opensearchdescription+xml; charset=utf-8")
 	setExpiresHeader(w)
 
+	scheme := "http"
+	if r.TLS != nil {
+		scheme = "https"
+	} else if proto := strings.ToLower(r.Header.Get("X-Forwarded-Proto")); proto == "https" {
+		scheme = "https"
+	} else if proto := strings.ToLower(r.Header.Get("X-Forwarded-Scheme")); proto == "https" {
+		scheme = "https"
+	}
+
+	baseURL := scheme + "://" + r.Host
+
 	w.Write([]byte(`<?xml version="1.0" encoding="UTF-8"?>
 <OpenSearchDescription
   xmlns="http://a9.com/-/spec/opensearch/1.1/"
@@ -1728,9 +1740,9 @@ func opensearchXML(w http.ResponseWriter, r *http.Request) {
   <ShortName>s</ShortName>
   <Description>Multi-provider web search portal supporting 50+ search engines including Google, GitHub, and Stack Overflow</Description>
   <InputEncoding>UTF-8</InputEncoding>
-  <Image width="32" height="32" type="image/png">/favicon-32x32.png</Image>
-  <Image width="16" height="16" type="image/png">/favicon-16x16.png</Image>
-  <Url type="text/html" method="get" template="/search?q={searchTerms}"/>
+  <Image width="32" height="32" type="image/png">` + baseURL + `/favicon-32x32.png</Image>
+  <Image width="16" height="16" type="image/png">` + baseURL + `/favicon-16x16.png</Image>
+  <Url type="text/html" method="get" template="` + baseURL + `/search?q={searchTerms}"/>
 </OpenSearchDescription>
 `))
 }
