@@ -6,7 +6,6 @@ import (
 
 	// Load necessary providers.
 	_ "github.com/zquestz/s/providers/500px"
-	_ "github.com/zquestz/s/providers/8tracks"
 	_ "github.com/zquestz/s/providers/aliexpress"
 	_ "github.com/zquestz/s/providers/allocine"
 	_ "github.com/zquestz/s/providers/amazon"
@@ -28,7 +27,6 @@ import (
 	_ "github.com/zquestz/s/providers/codepen"
 	_ "github.com/zquestz/s/providers/coursera"
 	_ "github.com/zquestz/s/providers/cplusplus"
-	_ "github.com/zquestz/s/providers/cppreference"
 	_ "github.com/zquestz/s/providers/crates"
 	_ "github.com/zquestz/s/providers/crunchyroll"
 	_ "github.com/zquestz/s/providers/debianpkg"
@@ -70,9 +68,7 @@ import (
 	_ "github.com/zquestz/s/providers/kaufda"
 	_ "github.com/zquestz/s/providers/libgen"
 	_ "github.com/zquestz/s/providers/linkedin"
-	_ "github.com/zquestz/s/providers/lmgtfy"
 	_ "github.com/zquestz/s/providers/macports"
-	_ "github.com/zquestz/s/providers/magnetdl"
 	_ "github.com/zquestz/s/providers/mdn"
 	_ "github.com/zquestz/s/providers/medium"
 	_ "github.com/zquestz/s/providers/metacpan"
@@ -88,7 +84,6 @@ import (
 	_ "github.com/zquestz/s/providers/packagist"
 	_ "github.com/zquestz/s/providers/perplexity"
 	_ "github.com/zquestz/s/providers/phandroid"
-	_ "github.com/zquestz/s/providers/phind"
 	_ "github.com/zquestz/s/providers/php"
 	_ "github.com/zquestz/s/providers/pinterest"
 	_ "github.com/zquestz/s/providers/postgresql"
@@ -122,7 +117,6 @@ import (
 	_ "github.com/zquestz/s/providers/yandex"
 	_ "github.com/zquestz/s/providers/youtube"
 	_ "github.com/zquestz/s/providers/zdf"
-	_ "github.com/zquestz/s/providers/zhihu"
 
 	"github.com/zquestz/s/cmd"
 )

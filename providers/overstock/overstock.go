@@ -2,7 +2,7 @@ package overstock
 
 import (
 	"fmt"
-	"net/url"
+	"strings"
 
 	"github.com/zquestz/s/providers"
 )
@@ -16,7 +16,8 @@ type Provider struct{}
 
 // BuildURI generates a search URL for Overstock.
 func (p *Provider) BuildURI(q string) string {
-	return fmt.Sprintf("https://www.overstock.com/search?q=%s", url.QueryEscape(q))
+	query := strings.ReplaceAll(q, " ", "-")
+	return fmt.Sprintf("https://www.overstock.com/%s,/k,/results.html", query)
 }
 
 // Tags returns the tags relevant to this provider.

@@ -97,7 +97,7 @@ func executeSearch(providerList []providers.Provider, query, locale string) []st
 }
 
 func queryNotFound(w http.ResponseWriter, r *http.Request) {
-	http.Error(w, fmt.Sprintf("A search query is required."), http.StatusBadRequest)
+	http.Error(w, "A search query is required.", http.StatusBadRequest)
 }
 
 func expandNotValid(err error, w http.ResponseWriter, r *http.Request) {
