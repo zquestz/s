@@ -1,0 +1,51 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    name: Build and Release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.25'
+
+      - name: Install gox
+        run: go install github.com/mitchellh/gox@latest
+
+      - name: Cross-compile
+        run: |
+          mkdir -p pkg
+          gox -osarch="darwin/amd64 darwin/arm64 dragonfly/amd64 freebsd/386 freebsd/amd64 freebsd/arm linux/386 linux/amd64 linux/arm netbsd/386 netbsd/amd64 netbsd/arm openbsd/386 openbsd/amd64 plan9/386 plan9/amd64 solaris/amd64 windows/386 windows/amd64" -output "pkg/s-{{.OS}}_{{.Arch}}/s"
+
+      - name: Package releases
+        run: |
+          cd pkg
+          for dir in s-*/ ; do
+            dir_name="${dir%/}"
+            cp ../README.md "$dir_name/"
+            cp ../LICENSE "$dir_name/"
+            zip -q "${dir_name}.zip" -r "$dir_name"
+            echo "Created ${dir_name}.zip"
+          done
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: pkg/*.zip
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
