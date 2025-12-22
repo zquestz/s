@@ -165,7 +165,7 @@ func searchJS(uris []string, b *bytes.Buffer) {
     var urls = [];`)
 	for _, u := range uris {
 		encodedURL, _ := json.Marshal(u)
-		b.WriteString(fmt.Sprintf("\n    urls.push(window.open(%s));", encodedURL))
+		fmt.Fprintf(b, "\n    urls.push(window.open(%s));", encodedURL)
 	}
 	b.WriteString(`
     var goBack = function () {
