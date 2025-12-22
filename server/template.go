@@ -2,6 +2,7 @@ package server
 
 import (
 	"bytes"
+	"encoding/json"
 	"fmt"
 	"net/http"
 )
@@ -163,7 +164,8 @@ func searchJS(uris []string, b *bytes.Buffer) {
     "use strict";
     var urls = [];`)
 	for _, u := range uris {
-		b.WriteString(fmt.Sprintf("\n    urls.push(window.open(%q));", u))
+		encodedURL, _ := json.Marshal(u)
+		b.WriteString(fmt.Sprintf("\n    urls.push(window.open(%s));", encodedURL))
 	}
 	b.WriteString(`
     var goBack = function () {
