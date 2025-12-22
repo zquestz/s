@@ -15,70 +15,85 @@ var (
 )
 
 func search(defaultProvider string, verbose bool, w http.ResponseWriter, r *http.Request) {
-	var locale string
-	var err error
-
 	requestedProvider := r.FormValue("provider")
 	requestedTag := r.FormValue("tag")
-	acceptLanguageHeader := r.Header.Get("Accept-Language")
-
-	if strings.TrimSpace(acceptLanguageHeader) != "" {
-		locale = parseAcceptLanguage(acceptLanguageHeader)
-	}
+	locale := getLocale(r)
 
 	if requestedProvider == "" && requestedTag == "" {
-		requestedProvider = defaultProvider
-		if cookie, err := r.Cookie("s-provider"); err == nil && cookie.Value != "" {
-			if _, exists := providers.Providers[cookie.Value]; exists {
-				requestedProvider = cookie.Value
-			}
+		requestedProvider = getProviderFromCookie(r, defaultProvider)
+	}
+
+	builders, err := buildProviderList(requestedProvider, requestedTag)
+	if err != nil {
+		expandNotValid(err, w, r)
+		return
+	}
+
+	if query := r.FormValue("q"); query != "" {
+		handleSearch(builders, query, locale, verbose, w, r)
+		return
+	}
+
+	queryNotFound(w, r)
+}
+
+func getLocale(r *http.Request) string {
+	acceptLanguageHeader := r.Header.Get("Accept-Language")
+	if strings.TrimSpace(acceptLanguageHeader) != "" {
+		return parseAcceptLanguage(acceptLanguageHeader)
+	}
+	return ""
+}
+
+func getProviderFromCookie(r *http.Request, defaultProvider string) string {
+	if cookie, err := r.Cookie("s-provider"); err == nil && cookie.Value != "" {
+		if _, exists := providers.Providers[cookie.Value]; exists {
+			return cookie.Value
 		}
 	}
+	return defaultProvider
+}
+
+func buildProviderList(requestedProvider, requestedTag string) ([]providers.Provider, error) {
+	var err error
+	builders := []providers.Provider{}
 
 	if requestedProvider != "" {
 		requestedProvider, err = providers.ExpandProvider(requestedProvider)
 		if err != nil {
-			expandNotValid(err, w, r)
-			return
+			return nil, err
 		}
-	}
-
-	provider := providers.Providers[requestedProvider]
-	builders := []providers.Provider{}
-
-	if provider != nil {
-		builders = append(builders, provider)
+		if provider := providers.Providers[requestedProvider]; provider != nil {
+			builders = append(builders, provider)
+		}
 	}
 
 	if requestedTag != "" {
 		requestedTag, err = providers.ExpandTag(requestedTag)
 		if err != nil {
-			expandNotValid(err, w, r)
-			return
+			return nil, err
 		}
-
 		builders = append(builders, providers.GetProvidersByTag(requestedTag)...)
 	}
 
-	if query := r.FormValue("q"); query != "" {
-		uris := executeSearch(builders, query, locale)
+	return builders, nil
+}
 
-		if verbose {
-			for _, uri := range uris {
-				fmt.Printf("%s\n", uri)
-			}
+func handleSearch(builders []providers.Provider, query, locale string, verbose bool, w http.ResponseWriter, r *http.Request) {
+	uris := executeSearch(builders, query, locale)
+
+	if verbose {
+		for _, uri := range uris {
+			fmt.Printf("%s\n", uri)
 		}
+	}
 
-		if len(uris) == 1 {
-			http.Redirect(w, r, uris[0], http.StatusMovedPermanently)
-			return
-		}
-
-		searchTemplate(uris, w)
+	if len(uris) == 1 {
+		http.Redirect(w, r, uris[0], http.StatusMovedPermanently)
 		return
 	}
 
-	queryNotFound(w, r)
+	searchTemplate(uris, w)
 }
 
 func executeSearch(providerList []providers.Provider, query, locale string) []string {
