@@ -206,6 +206,8 @@ The following keys are supported:
 - verbose (verbose mode)
 - whitelist (array of providers to include)
 
+NOTE: You must include a trailing newline in the configuration file or it may fail to parse correctly.
+
 Set your default provider to duckduckgo:
 
 ```ucl
