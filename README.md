@@ -351,6 +351,7 @@ Custom providers require a few things:
 - twitter
 - ultimateguitar
 - unity3d
+- unsplash
 - vimeo
 - wikipedia
 - wolframalpha
