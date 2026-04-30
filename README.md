@@ -282,6 +282,7 @@ Custom providers require a few things:
 - explainshell
 - facebook
 - flake8rules
+- flathub
 - flickr
 - flipkart
 - foursquare
