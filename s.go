@@ -112,6 +112,7 @@ import (
 	_ "github.com/zquestz/s/providers/twitter"
 	_ "github.com/zquestz/s/providers/ultimateguitar"
 	_ "github.com/zquestz/s/providers/unity3d"
+	_ "github.com/zquestz/s/providers/unsplash"
 	_ "github.com/zquestz/s/providers/vimeo"
 	_ "github.com/zquestz/s/providers/wikipedia"
 	_ "github.com/zquestz/s/providers/wolframalpha"
