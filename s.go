@@ -23,6 +23,7 @@ import (
 	_ "github.com/zquestz/s/providers/bing"
 	_ "github.com/zquestz/s/providers/brave"
 	_ "github.com/zquestz/s/providers/buzzfeed"
+	_ "github.com/zquestz/s/providers/caniuse"
 	_ "github.com/zquestz/s/providers/cnn"
 	_ "github.com/zquestz/s/providers/codepen"
 	_ "github.com/zquestz/s/providers/coursera"
