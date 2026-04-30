@@ -42,6 +42,7 @@ import (
 	_ "github.com/zquestz/s/providers/explainshell"
 	_ "github.com/zquestz/s/providers/facebook"
 	_ "github.com/zquestz/s/providers/flake8rules"
+	_ "github.com/zquestz/s/providers/flathub"
 	_ "github.com/zquestz/s/providers/flickr"
 	_ "github.com/zquestz/s/providers/flipkart"
 	_ "github.com/zquestz/s/providers/foursquare"
