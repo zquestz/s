@@ -264,6 +264,7 @@ Custom providers require a few things:
 - bing
 - brave
 - buzzfeed
+- caniuse
 - cnn
 - codepen
 - coursera
