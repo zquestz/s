@@ -10,6 +10,10 @@ import (
 	"golang.org/x/text/language"
 )
 
+const (
+	maxHeaderLength = 256
+)
+
 var (
 	clientLocaleMutex sync.Mutex
 )
@@ -38,11 +42,15 @@ func search(defaultProvider string, verbose bool, w http.ResponseWriter, r *http
 }
 
 func getLocale(r *http.Request) string {
-	acceptLanguageHeader := r.Header.Get("Accept-Language")
-	if strings.TrimSpace(acceptLanguageHeader) != "" {
-		return parseAcceptLanguage(acceptLanguageHeader)
-	}
-	return ""
+    acceptLanguageHeader := r.Header.Get("Accept-Language")
+    if strings.TrimSpace(acceptLanguageHeader) == "" {
+        return ""
+    }
+
+    if len(acceptLanguageHeader) > maxHeaderLength {
+        acceptLanguageHeader = acceptLanguageHeader[:maxHeaderLength]
+    }
+    return parseAcceptLanguage(acceptLanguageHeader)
 }
 
 func getProviderFromCookie(r *http.Request, defaultProvider string) string {
