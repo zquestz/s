@@ -168,6 +168,31 @@ Search in a specific subreddit.
 s -p reddit /r/cscareerquestions best startups.
 ```
 
+## JSON Output
+
+Need machine readable output for scripting? Just pass the `-j` flag to any of the list commands.
+
+List all supported providers as JSON.
+
+```zsh
+s -l -j
+```
+
+List all available tags as JSON.
+
+```zsh
+s --list-tags -j
+```
+
+Adding the verbose flag includes the tags for each provider, and vice versa.
+
+```zsh
+s -l -v -j
+s --list-tags -v -j
+```
+
+To always output JSON for list commands, add `json: true` to your configuration file.
+
 ## Server Mode
 
 A web interface is also provided. Just pass the `-s` flag.
