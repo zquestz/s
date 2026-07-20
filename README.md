@@ -1,6 +1,6 @@
 # s
 
-[![License][License-Image]][License-URL] [![ReportCard][ReportCard-Image]][ReportCard-URL] [![Build][Build-Status-Image]][Build-Status-URL] [![Release][Release-Image]][Release-URL] [![🧪 Snap Builds][Snap-Build-Image]][Snap-Build-URL] [![Snap Status][Snap-Image]][Snap-URL]
+[![License][License-Image]][License-URL] [![Build][Build-Status-Image]][Build-Status-URL] [![Release][Release-Image]][Release-URL] [![🧪 Snap Builds][Snap-Build-Image]][Snap-Build-URL] [![Snap Status][Snap-Image]][Snap-URL]
 
 Web search from the terminal. Just opens in your browser.
 
@@ -411,8 +411,6 @@ s is released under the MIT license.
 
 [License-URL]: https://opensource.org/licenses/MIT
 [License-Image]: https://img.shields.io/npm/l/express.svg
-[ReportCard-URL]: https://goreportcard.com/report/zquestz/s
-[ReportCard-Image]: https://goreportcard.com/badge/github.com/zquestz/s
 [Build-Status-URL]: https://github.com/zquestz/s/actions/workflows/ci.yml
 [Build-Status-Image]: https://github.com/zquestz/s/actions/workflows/ci.yml/badge.svg
 [Release-URL]: https://github.com/zquestz/s/releases/tag/v0.7.6
