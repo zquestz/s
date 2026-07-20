@@ -30,13 +30,15 @@ func Run(port int, cert string, key string, provider string, verbose bool) error
 		search(provider, verbose, w, r)
 	})
 
-	http.Handle("/", gzhttp.GzipHandler(indexHandler))
-	http.Handle("/search", gzhttp.GzipHandler(searchHandler))
+	mux := http.NewServeMux()
+	mux.Handle("/", gzhttp.GzipHandler(indexHandler))
+	mux.Handle("/search", gzhttp.GzipHandler(searchHandler))
 
-	setupFaviconHandlers()
+	setupFaviconHandlers(mux)
 
 	srv := &http.Server{
 		Addr:              fmt.Sprintf(":%d", port),
+		Handler:           mux,
 		ReadHeaderTimeout: 10 * time.Second,
 		ReadTimeout:       30 * time.Second,
 		WriteTimeout:      30 * time.Second,
