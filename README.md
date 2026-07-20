@@ -415,8 +415,8 @@ s is released under the MIT license.
 [ReportCard-Image]: https://goreportcard.com/badge/github.com/zquestz/s
 [Build-Status-URL]: https://github.com/zquestz/s/actions/workflows/ci.yml
 [Build-Status-Image]: https://github.com/zquestz/s/actions/workflows/ci.yml/badge.svg
-[Release-URL]: https://github.com/zquestz/s/releases/tag/v0.7.5
-[Release-Image]: https://img.shields.io/badge/release-v0.7.5-1eb0fc.svg
+[Release-URL]: https://github.com/zquestz/s/releases/tag/v0.7.6
+[Release-Image]: https://img.shields.io/badge/release-v0.7.6-1eb0fc.svg
 [Snap-Build-URL]: https://github.com/zquestz/s/actions/workflows/test-snap-builds.yml
 [Snap-Build-Image]: https://github.com/zquestz/s/actions/workflows/test-snap-builds.yml/badge.svg
 [Snap-Image]: https://snapcraft.io/s-search/badge.svg
