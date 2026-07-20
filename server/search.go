@@ -97,7 +97,7 @@ func handleSearch(builders []providers.Provider, query, locale string, verbose b
 	}
 
 	if len(uris) == 1 {
-		http.Redirect(w, r, uris[0], http.StatusMovedPermanently)
+		http.Redirect(w, r, uris[0], http.StatusFound)
 		return
 	}
 

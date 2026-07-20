@@ -3,6 +3,7 @@ package server
 import (
 	"fmt"
 	"net/http"
+	"time"
 
 	"github.com/NYTimes/gziphandler"
 )
@@ -34,16 +35,22 @@ func Run(port int, cert string, key string, provider string, verbose bool) error
 
 	setupFaviconHandlers()
 
+	srv := &http.Server{
+		Addr:              fmt.Sprintf(":%d", port),
+		ReadHeaderTimeout: 10 * time.Second,
+		ReadTimeout:       30 * time.Second,
+		WriteTimeout:      30 * time.Second,
+		IdleTimeout:       120 * time.Second,
+	}
+
 	if cert != "" && key != "" {
-		err = http.ListenAndServeTLS(fmt.Sprintf(":%d", port), cert, key, nil)
-		if err != nil {
-			return fmt.Errorf("HTTP Server: %s", err)
-		}
+		err = srv.ListenAndServeTLS(cert, key)
 	} else {
-		err = http.ListenAndServe(fmt.Sprintf(":%d", port), nil)
-		if err != nil {
-			return fmt.Errorf("HTTP Server: %s", err)
-		}
+		err = srv.ListenAndServe()
+	}
+
+	if err != nil {
+		return fmt.Errorf("HTTP Server: %s", err)
 	}
 
 	return nil

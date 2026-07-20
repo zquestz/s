@@ -21,6 +21,8 @@ func TestValid(t *testing.T) {
 		{"_", validParamURL, true},
 		{"-", validURL, false},
 		{"-", validParamURL, false},
+		{"", validURL, false},
+		{"", validParamURL, false},
 		{"with whitespace", validURL, false},
 		{"with whitespace", validParamURL, false},
 		{validName, "noscheme.com?q=%s", false},

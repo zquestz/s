@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-var alphanums = regexp.MustCompile("^[a-zA-Z0-9_]*$")
+var alphanums = regexp.MustCompile("^[a-zA-Z0-9_]+$")
 
 // CustomProvider is used for Config based providers.
 type CustomProvider struct {
