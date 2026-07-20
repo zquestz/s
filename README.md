@@ -420,8 +420,8 @@ s is released under the MIT license.
 [License-Image]: https://img.shields.io/npm/l/express.svg
 [Build-Status-URL]: https://github.com/zquestz/s/actions/workflows/ci.yml
 [Build-Status-Image]: https://github.com/zquestz/s/actions/workflows/ci.yml/badge.svg
-[Release-URL]: https://github.com/zquestz/s/releases/tag/v0.7.6
-[Release-Image]: https://img.shields.io/badge/release-v0.7.6-1eb0fc.svg
+[Release-URL]: https://github.com/zquestz/s/releases/tag/v0.8.0
+[Release-Image]: https://img.shields.io/badge/release-v0.8.0-1eb0fc.svg
 [Snap-Build-URL]: https://github.com/zquestz/s/actions/workflows/test-snap-builds.yml
 [Snap-Build-Image]: https://github.com/zquestz/s/actions/workflows/test-snap-builds.yml/badge.svg
 [Snap-Image]: https://snapcraft.io/s-search/badge.svg
