@@ -23,9 +23,6 @@ jobs:
         with:
           go-version: '1.26.x'
 
-      - name: Install gox
-        run: go install github.com/mitchellh/gox@latest
-
       - name: Download dependencies
         run: go mod download
 
