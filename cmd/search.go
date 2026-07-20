@@ -142,14 +142,14 @@ func prepareFlags() {
 	providers.SetWhitelist(config.Whitelist)
 
 	err := SearchCmd.RegisterFlagCompletionFunc("provider", func(cmd *cobra.Command, args []string, toComplete string) ([]string, cobra.ShellCompDirective) {
-		return providers.ProviderNames(config.Verbose), cobra.ShellCompDirectiveNoFileComp
+		return providers.ProviderNames(config.Verbose, providers.SystemLocale()), cobra.ShellCompDirectiveNoFileComp
 	})
 	if err != nil {
 		bail(err)
 	}
 
 	err = SearchCmd.RegisterFlagCompletionFunc("tag", func(cmd *cobra.Command, args []string, toComplete string) ([]string, cobra.ShellCompDirective) {
-		return providers.TagNames(config.Verbose), cobra.ShellCompDirectiveNoFileComp
+		return providers.TagNames(config.Verbose, providers.SystemLocale()), cobra.ShellCompDirectiveNoFileComp
 	})
 	if err != nil {
 		bail(err)
@@ -175,9 +175,11 @@ func performCommand(cmd *cobra.Command, args []string) error {
 		return nil
 	}
 
+	locale := providers.SystemLocale()
+
 	if config.ListProviders {
 		if config.JSON {
-			out, err := providers.DisplayProvidersJSON(config.Verbose)
+			out, err := providers.DisplayProvidersJSON(config.Verbose, locale)
 			if err != nil {
 				return err
 			}
@@ -186,13 +188,13 @@ func performCommand(cmd *cobra.Command, args []string) error {
 			return nil
 		}
 
-		fmt.Print(providers.DisplayProviders(config.Verbose))
+		fmt.Print(providers.DisplayProviders(config.Verbose, locale))
 		return nil
 	}
 
 	if config.ListTags {
 		if config.JSON {
-			out, err := providers.DisplayTagsJSON(config.Verbose)
+			out, err := providers.DisplayTagsJSON(config.Verbose, locale)
 			if err != nil {
 				return err
 			}
@@ -201,7 +203,7 @@ func performCommand(cmd *cobra.Command, args []string) error {
 			return nil
 		}
 
-		fmt.Print(providers.DisplayTags(config.Verbose))
+		fmt.Print(providers.DisplayTags(config.Verbose, locale))
 		return nil
 	}
 

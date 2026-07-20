@@ -19,7 +19,7 @@ type Provider struct{}
 // If q starts with "/r/subreddit query", treat as subreddit and do restrict
 // search on the subreddit. The exception is when q = "/r/subreddit" where no
 // query is provided, treat it as regular reddit search.
-func (p *Provider) BuildURI(q string) string {
+func (p *Provider) BuildURI(q string, _ string) string {
 	qs := strings.Split(q, " ")
 	if strings.HasPrefix(qs[0], "/r/") && len(qs) > 1 {
 		return fmt.Sprintf("https://www.reddit.com%s/search?q=%s&restrict_sr=on",
@@ -29,6 +29,6 @@ func (p *Provider) BuildURI(q string) string {
 }
 
 // Tags returns the tags relevant to this provider.
-func (p *Provider) Tags() []string {
+func (p *Provider) Tags(_ string) []string {
 	return []string{"forums"}
 }

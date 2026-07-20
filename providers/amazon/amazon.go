@@ -15,8 +15,8 @@ func init() {
 type Provider struct{}
 
 // BuildURI generates a search URL for Amazon.
-func (p *Provider) BuildURI(q string) string {
-	switch providers.Region() {
+func (p *Provider) BuildURI(q string, locale string) string {
+	switch providers.Region(locale) {
 	case "AU":
 		return fmt.Sprintf("https://www.amazon.com.au/s/?keywords=%s", url.QueryEscape(q))
 	case "BR":
@@ -47,6 +47,6 @@ func (p *Provider) BuildURI(q string) string {
 }
 
 // Tags returns the tags relevant to this provider.
-func (p *Provider) Tags() []string {
+func (p *Provider) Tags(_ string) []string {
 	return []string{"shopping"}
 }

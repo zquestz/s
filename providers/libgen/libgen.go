@@ -15,11 +15,11 @@ func init() {
 type Provider struct{}
 
 // BuildURI generates a search URL for Libgen.
-func (p *Provider) BuildURI(q string) string {
+func (p *Provider) BuildURI(q string, _ string) string {
 	return fmt.Sprintf("https://libgen.ac/s/%s", url.PathEscape(q))
 }
 
 // Tags returns the tags relevant to this provider.
-func (p *Provider) Tags() []string {
+func (p *Provider) Tags(_ string) []string {
 	return []string{"education"}
 }

@@ -17,12 +17,12 @@ type CustomProvider struct {
 }
 
 // BuildURI builds the URI for custom providers.
-func (c *CustomProvider) BuildURI(q string) string {
+func (c *CustomProvider) BuildURI(q string, _ string) string {
 	return fmt.Sprintf(c.URL, url.QueryEscape(q))
 }
 
 // Tags returns the tags relevant to this provider.
-func (c *CustomProvider) Tags() []string {
+func (c *CustomProvider) Tags(_ string) []string {
 	return c.TagList
 }
 

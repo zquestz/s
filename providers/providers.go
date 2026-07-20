@@ -19,7 +19,6 @@ const (
 var (
 	enableBlacklist = false
 	enableWhitelist = false
-	clientLocale    = ""
 	blacklist       = make(map[string]any)
 	whitelist       = make(map[string]any)
 )
@@ -27,8 +26,8 @@ var (
 // Provider interface provides a way to build the URI
 // for each provider.
 type Provider interface {
-	BuildURI(string) string
-	Tags() []string
+	BuildURI(query string, locale string) string
+	Tags(locale string) []string
 }
 
 // Providers tracks loaded providers.
@@ -68,6 +67,8 @@ func SetWhitelist(w []string) {
 
 // Search builds a search URL and opens it in your browser.
 func Search(binary string, p string, t string, q string, userProvider bool, outputOnly bool, verbose bool) error {
+	locale := SystemLocale()
+
 	prov, err := ExpandProvider(p)
 	if err != nil {
 		return err
@@ -80,19 +81,19 @@ func Search(binary string, p string, t string, q string, userProvider bool, outp
 	}
 
 	if t != "" {
-		tag, err := ExpandTag(t)
+		tag, err := ExpandTag(t, locale)
 		if err != nil {
 			return err
 		}
 
-		builders = append(builders, GetProvidersByTag(tag)...)
+		builders = append(builders, GetProvidersByTag(tag, locale)...)
 	}
 
 	var success bool
 
 	for _, builder := range builders {
 		if builder != nil {
-			url := builder.BuildURI(q)
+			url := builder.BuildURI(q, locale)
 
 			if verbose || outputOnly {
 				fmt.Printf("%s\n", url)
@@ -117,12 +118,12 @@ func Search(binary string, p string, t string, q string, userProvider bool, outp
 }
 
 // GetProvidersByTag gets all providers with a specific tag.
-func GetProvidersByTag(tag string) []Provider {
+func GetProvidersByTag(tag string, locale string) []Provider {
 	provs := []Provider{}
 
-	for _, providerName := range ProviderNames(false) {
+	for _, providerName := range ProviderNames(false, locale) {
 		provider := Providers[providerName]
-		for _, providerTag := range provider.Tags() {
+		for _, providerTag := range provider.Tags(locale) {
 			if providerTag == tag {
 				provs = append(provs, provider)
 			}
@@ -133,15 +134,15 @@ func GetProvidersByTag(tag string) []Provider {
 }
 
 // DisplayProviders displays all the loaded providers.
-func DisplayProviders(verbose bool) string {
-	names := ProviderNames(verbose)
+func DisplayProviders(verbose bool, locale string) string {
+	names := ProviderNames(verbose, locale)
 
 	return fmt.Sprintf("%s\n", strings.Join(names, "\n"))
 }
 
 // DisplayTags displays all the available tags.
-func DisplayTags(verbose bool) string {
-	names := TagNames(verbose)
+func DisplayTags(verbose bool, locale string) string {
+	names := TagNames(verbose, locale)
 
 	return fmt.Sprintf("%s\n", strings.Join(names, "\n"))
 }
@@ -159,9 +160,9 @@ type tagInfo struct {
 }
 
 // DisplayProvidersJSON returns all the loaded providers as JSON.
-func DisplayProvidersJSON(verbose bool) (string, error) {
+func DisplayProvidersJSON(verbose bool, locale string) (string, error) {
 	if !verbose {
-		data, err := json.Marshal(ProviderNames(false))
+		data, err := json.Marshal(ProviderNames(false, locale))
 		if err != nil {
 			return "", err
 		}
@@ -171,8 +172,8 @@ func DisplayProvidersJSON(verbose bool) (string, error) {
 
 	infos := []providerInfo{}
 
-	for _, name := range ProviderNames(false) {
-		tags := Providers[name].Tags()
+	for _, name := range ProviderNames(false, locale) {
+		tags := Providers[name].Tags(locale)
 		if tags == nil {
 			tags = []string{}
 		}
@@ -190,9 +191,9 @@ func DisplayProvidersJSON(verbose bool) (string, error) {
 }
 
 // DisplayTagsJSON returns all the available tags as JSON.
-func DisplayTagsJSON(verbose bool) (string, error) {
+func DisplayTagsJSON(verbose bool, locale string) (string, error) {
 	if !verbose {
-		data, err := json.Marshal(TagNames(false))
+		data, err := json.Marshal(TagNames(false, locale))
 		if err != nil {
 			return "", err
 		}
@@ -202,15 +203,15 @@ func DisplayTagsJSON(verbose bool) (string, error) {
 
 	tags := make(map[string][]string)
 
-	for _, name := range ProviderNames(false) {
-		for _, t := range Providers[name].Tags() {
+	for _, name := range ProviderNames(false, locale) {
+		for _, t := range Providers[name].Tags(locale) {
 			tags[t] = append(tags[t], name)
 		}
 	}
 
 	infos := []tagInfo{}
 
-	for _, tag := range TagNames(false) {
+	for _, tag := range TagNames(false, locale) {
 		infos = append(infos, tagInfo{Tag: tag, Providers: tags[tag]})
 	}
 
@@ -224,7 +225,7 @@ func DisplayTagsJSON(verbose bool) (string, error) {
 
 // ExpandProvider expands the passed in provider to the full value.
 func ExpandProvider(provider string) (string, error) {
-	names := ProviderNames(false)
+	names := ProviderNames(false, "")
 
 	validProviders := []string{}
 	for _, n := range names {
@@ -249,8 +250,8 @@ func ExpandProvider(provider string) (string, error) {
 }
 
 // ExpandTag expands the passed in tag to the full value.
-func ExpandTag(tag string) (string, error) {
-	names := TagNames(false)
+func ExpandTag(tag string, locale string) (string, error) {
+	names := TagNames(false, locale)
 
 	validTags := []string{}
 	for _, n := range names {
@@ -296,7 +297,7 @@ func allowedProvider(name string) bool {
 
 // ProviderNames returns a sorted slice of provider names
 // applying both the whitelist and then the blacklist.
-func ProviderNames(verbose bool) []string {
+func ProviderNames(verbose bool, locale string) []string {
 	names := []string{}
 
 	for key, p := range Providers {
@@ -305,7 +306,7 @@ func ProviderNames(verbose bool) []string {
 		}
 
 		if verbose {
-			tags := p.Tags()
+			tags := p.Tags(locale)
 
 			if len(tags) > 0 {
 				sort.Strings(tags)
@@ -322,7 +323,7 @@ func ProviderNames(verbose bool) []string {
 }
 
 // TagNames returns a deduped and sorted slice of tag names.
-func TagNames(verbose bool) []string {
+func TagNames(verbose bool, locale string) []string {
 	tags := make(map[string][]string)
 
 	for name, p := range Providers {
@@ -330,7 +331,7 @@ func TagNames(verbose bool) []string {
 			continue
 		}
 
-		for _, t := range p.Tags() {
+		for _, t := range p.Tags(locale) {
 			tags[t] = append(tags[t], name)
 		}
 	}
@@ -351,12 +352,10 @@ func TagNames(verbose bool) []string {
 	return tagList
 }
 
-// Region returns the users region code.
+// Region returns the region code for a locale.
 // Eg. "US", "GB", etc
-func Region() string {
-	l := locale()
-
-	tag, err := language.Parse(l)
+func Region(locale string) string {
+	tag, err := language.Parse(locale)
 	if err != nil {
 		return defaultRegion
 	}
@@ -366,12 +365,10 @@ func Region() string {
 	return region.String()
 }
 
-// Language returns the users language code.
+// Language returns the language code for a locale.
 // Eg. "en", "es", etc
-func Language() string {
-	l := locale()
-
-	tag, err := language.Parse(l)
+func Language(locale string) string {
+	tag, err := language.Parse(locale)
 	if err != nil {
 		return defaultLanguage
 	}
@@ -381,18 +378,8 @@ func Language() string {
 	return base.String()
 }
 
-// SetClientLocale sets the locale of the client
-// connecting to the web server.
-func SetClientLocale(locale string) {
-	clientLocale = locale
-}
-
-// locale gets the locale from the LANG env var if not set.
-func locale() string {
-	if clientLocale != "" {
-		return clientLocale
-	}
-
+// SystemLocale returns the locale from the LANG env var.
+func SystemLocale() string {
 	lang := os.Getenv("LANG")
 	if lang == "" {
 		return ""

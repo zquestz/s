@@ -15,12 +15,12 @@ func init() {
 type Provider struct{}
 
 // BuildURI generates a search URL for Overstock.
-func (p *Provider) BuildURI(q string) string {
+func (p *Provider) BuildURI(q string, _ string) string {
 	query := strings.ReplaceAll(q, " ", "-")
 	return fmt.Sprintf("https://www.overstock.com/%s,/k,/results.html", query)
 }
 
 // Tags returns the tags relevant to this provider.
-func (p *Provider) Tags() []string {
+func (p *Provider) Tags(_ string) []string {
 	return []string{"shopping"}
 }

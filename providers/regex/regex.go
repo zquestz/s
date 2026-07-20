@@ -20,11 +20,11 @@ func init() {
 type Provider struct{}
 
 // BuildURI generates a search URL for Regex 101
-func (p *Provider) BuildURI(q string) string {
+func (p *Provider) BuildURI(q string, _ string) string {
 	return fmt.Sprintf("%s/library?orderBy=RELEVANCE&search=%s", providerURL, url.QueryEscape(q))
 }
 
 // Tags returns the tags relevant to this provider.
-func (p *Provider) Tags() []string {
+func (p *Provider) Tags(_ string) []string {
 	return []string{"code"}
 }

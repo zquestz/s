@@ -15,13 +15,13 @@ func init() {
 type Provider struct{}
 
 // BuildURI generates a search URL for Baidu.
-func (p *Provider) BuildURI(q string) string {
+func (p *Provider) BuildURI(q string, locale string) string {
 	return fmt.Sprintf("https://www.baidu.com/s?wd=%s", url.QueryEscape(q))
 }
 
 // Tags returns the tags relevant to this provider.
-func (p *Provider) Tags() []string {
-	switch providers.Language() {
+func (p *Provider) Tags(locale string) []string {
+	switch providers.Language(locale) {
 	case "zh":
 		return []string{"search"}
 	default:

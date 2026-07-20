@@ -15,11 +15,11 @@ func init() {
 type Provider struct{}
 
 // BuildURI generates a search URL for AtmosphereJS.
-func (p *Provider) BuildURI(q string) string {
+func (p *Provider) BuildURI(q string, _ string) string {
 	return fmt.Sprintf("https://atmospherejs.com/?q=%s", url.QueryEscape(q))
 }
 
 // Tags returns the tags relevant to this provider.
-func (p *Provider) Tags() []string {
+func (p *Provider) Tags(_ string) []string {
 	return []string{"javascript"}
 }

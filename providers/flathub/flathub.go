@@ -16,7 +16,7 @@ func init() {
 type Provider struct{}
 
 // BuildURI generates a search URL for Flathub.
-func (p *Provider) BuildURI(q string) string {
+func (p *Provider) BuildURI(q string, locale string) string {
 	flathubLanguages := []string{
 		"az",
 		"br",
@@ -75,7 +75,7 @@ func (p *Provider) BuildURI(q string) string {
 		"zh-Hant",
 	}
 
-	userLanguage := providers.Language()
+	userLanguage := providers.Language(locale)
 
 	if slices.Contains(flathubLanguages, userLanguage) {
 		return fmt.Sprintf("https://flathub.org/%s/apps/search?q=%s", userLanguage, url.QueryEscape(q))
@@ -85,6 +85,6 @@ func (p *Provider) BuildURI(q string) string {
 }
 
 // Tags returns the tags relevant to this provider.
-func (p *Provider) Tags() []string {
+func (p *Provider) Tags(_ string) []string {
 	return []string{}
 }

@@ -15,11 +15,11 @@ func init() {
 type Provider struct{}
 
 // BuildURI generates a search URL for the FreeBSD online man pages dictionary.
-func (p *Provider) BuildURI(q string) string {
+func (p *Provider) BuildURI(q string, _ string) string {
 	return fmt.Sprintf("https://www.freebsd.org/cgi/man.cgi?query=%s&apropos=0&sektion=0&arch=default&format=html", url.QueryEscape(q))
 }
 
 // Tags returns the tags relevant to this provider.
-func (p *Provider) Tags() []string {
+func (p *Provider) Tags(_ string) []string {
 	return []string{}
 }

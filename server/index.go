@@ -51,11 +51,13 @@ func index(defaultProvider string, w http.ResponseWriter, r *http.Request) {
 
 	t, _ = t.Parse(indexTemplate)
 
+	locale := getLocale(r)
+
 	providerList := []string{""}
-	providerList = append(providerList, providers.ProviderNames(false)...)
+	providerList = append(providerList, providers.ProviderNames(false, locale)...)
 
 	tagList := []string{""}
-	tagList = append(tagList, providers.TagNames(false)...)
+	tagList = append(tagList, providers.TagNames(false, locale)...)
 
 	tvars := templateVars{
 		CSS:         indexCSS,

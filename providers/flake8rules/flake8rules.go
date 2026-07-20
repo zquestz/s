@@ -16,11 +16,11 @@ func init() {
 type Provider struct{}
 
 // BuildURI generates a search URL for Flake8Rules.
-func (p *Provider) BuildURI(q string) string {
+func (p *Provider) BuildURI(q string, _ string) string {
 	return fmt.Sprintf("https://www.flake8rules.com/rules/%s.html", url.QueryEscape(strings.ToUpper(q)))
 }
 
 // Tags returns the tags relevant to this provider.
-func (p *Provider) Tags() []string {
+func (p *Provider) Tags(_ string) []string {
 	return []string{}
 }

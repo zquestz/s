@@ -15,7 +15,7 @@ func init() {
 type Provider struct{}
 
 // BuildURI generates a search URL for Unsplash.
-func (p *Provider) BuildURI(q string) string {
+func (p *Provider) BuildURI(q string, locale string) string {
 	unsplashExtraLanguages := map[string]string{
 		"de":    "https://unsplash.com/de/s/fotos/%s",
 		"es":    "https://unsplash.com/es/s/fotos/%s",
@@ -27,7 +27,7 @@ func (p *Provider) BuildURI(q string) string {
 		"pt-br": "https://unsplash.com/pt-br/s/fotografias/%s",
 	}
 
-	if languageURLFormatString, exists := unsplashExtraLanguages[providers.Language()]; exists {
+	if languageURLFormatString, exists := unsplashExtraLanguages[providers.Language(locale)]; exists {
 		return fmt.Sprintf(languageURLFormatString, url.QueryEscape(q))
 	}
 
@@ -35,6 +35,6 @@ func (p *Provider) BuildURI(q string) string {
 }
 
 // Tags returns the tags relevant to this provider.
-func (p *Provider) Tags() []string {
+func (p *Provider) Tags(_ string) []string {
 	return []string{"photos"}
 }

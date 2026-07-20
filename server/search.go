@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"net/http"
 	"strings"
-	"sync"
 
 	"github.com/zquestz/s/providers"
 	"golang.org/x/text/language"
@@ -12,10 +11,6 @@ import (
 
 const (
 	maxHeaderLength = 256
-)
-
-var (
-	clientLocaleMutex sync.Mutex
 )
 
 func search(defaultProvider string, verbose bool, w http.ResponseWriter, r *http.Request) {
@@ -27,7 +22,7 @@ func search(defaultProvider string, verbose bool, w http.ResponseWriter, r *http
 		requestedProvider = getProviderFromCookie(r, defaultProvider)
 	}
 
-	builders, err := buildProviderList(requestedProvider, requestedTag)
+	builders, err := buildProviderList(requestedProvider, requestedTag, locale)
 	if err != nil {
 		expandNotValid(err, w, r)
 		return
@@ -44,13 +39,18 @@ func search(defaultProvider string, verbose bool, w http.ResponseWriter, r *http
 func getLocale(r *http.Request) string {
 	acceptLanguageHeader := r.Header.Get("Accept-Language")
 	if strings.TrimSpace(acceptLanguageHeader) == "" {
-		return ""
+		return providers.SystemLocale()
 	}
 
 	if len(acceptLanguageHeader) > maxHeaderLength {
 		acceptLanguageHeader = acceptLanguageHeader[:maxHeaderLength]
 	}
-	return parseAcceptLanguage(acceptLanguageHeader)
+
+	if locale := parseAcceptLanguage(acceptLanguageHeader); locale != "" {
+		return locale
+	}
+
+	return providers.SystemLocale()
 }
 
 func getProviderFromCookie(r *http.Request, defaultProvider string) string {
@@ -62,7 +62,7 @@ func getProviderFromCookie(r *http.Request, defaultProvider string) string {
 	return defaultProvider
 }
 
-func buildProviderList(requestedProvider, requestedTag string) ([]providers.Provider, error) {
+func buildProviderList(requestedProvider, requestedTag, locale string) ([]providers.Provider, error) {
 	var err error
 	builders := []providers.Provider{}
 
@@ -77,11 +77,11 @@ func buildProviderList(requestedProvider, requestedTag string) ([]providers.Prov
 	}
 
 	if requestedTag != "" {
-		requestedTag, err = providers.ExpandTag(requestedTag)
+		requestedTag, err = providers.ExpandTag(requestedTag, locale)
 		if err != nil {
 			return nil, err
 		}
-		builders = append(builders, providers.GetProvidersByTag(requestedTag)...)
+		builders = append(builders, providers.GetProvidersByTag(requestedTag, locale)...)
 	}
 
 	return builders, nil
@@ -107,13 +107,8 @@ func handleSearch(builders []providers.Provider, query, locale string, verbose b
 func executeSearch(providerList []providers.Provider, query, locale string) []string {
 	uris := make([]string, 0, len(providerList))
 
-	clientLocaleMutex.Lock()
-	defer clientLocaleMutex.Unlock()
-
-	providers.SetClientLocale(locale)
-
 	for _, p := range providerList {
-		uris = append(uris, p.BuildURI(query))
+		uris = append(uris, p.BuildURI(query, locale))
 	}
 
 	return uris

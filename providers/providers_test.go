@@ -19,6 +19,47 @@ func setupTestProviders(t *testing.T) {
 	AddProvider("gamma", &CustomProvider{Name: "gamma", URL: validURL})
 }
 
+// TestRegion checks region codes parsed from locales.
+func TestRegion(t *testing.T) {
+	cases := []struct {
+		locale   string
+		expected string
+	}{
+		{"en_US", "US"},
+		{"de_DE", "DE"},
+		{"en-GB", "GB"},
+		{"fr_FR", "FR"},
+		{"", "US"},
+		{"not a locale", "US"},
+	}
+
+	for _, c := range cases {
+		if r := Region(c.locale); r != c.expected {
+			t.Errorf("Region(%q) = %q, want %q", c.locale, r, c.expected)
+		}
+	}
+}
+
+// TestLanguage checks language codes parsed from locales.
+func TestLanguage(t *testing.T) {
+	cases := []struct {
+		locale   string
+		expected string
+	}{
+		{"en_US", "en"},
+		{"de_DE", "de"},
+		{"es", "es"},
+		{"", "en"},
+		{"not a locale", "en"},
+	}
+
+	for _, c := range cases {
+		if l := Language(c.locale); l != c.expected {
+			t.Errorf("Language(%q) = %q, want %q", c.locale, l, c.expected)
+		}
+	}
+}
+
 // TestExpandProvider checks exact and prefix matching of provider names.
 func TestExpandProvider(t *testing.T) {
 	setupTestProviders(t)
@@ -72,7 +113,7 @@ func TestExpandTag(t *testing.T) {
 	}
 
 	for _, c := range cases {
-		name, err := ExpandTag(c.input)
+		name, err := ExpandTag(c.input, "")
 		if c.valid {
 			if err != nil {
 				t.Errorf("ExpandTag(%q) returned error: %s", c.input, err)
@@ -92,7 +133,7 @@ func TestExpandTag(t *testing.T) {
 func TestDisplayProvidersJSON(t *testing.T) {
 	setupTestProviders(t)
 
-	out, err := DisplayProvidersJSON(false)
+	out, err := DisplayProvidersJSON(false, "")
 	if err != nil {
 		t.Fatalf("DisplayProvidersJSON(false) returned error: %s", err)
 	}
@@ -107,7 +148,7 @@ func TestDisplayProvidersJSON(t *testing.T) {
 func TestDisplayProvidersJSONVerbose(t *testing.T) {
 	setupTestProviders(t)
 
-	out, err := DisplayProvidersJSON(true)
+	out, err := DisplayProvidersJSON(true, "")
 	if err != nil {
 		t.Fatalf("DisplayProvidersJSON(true) returned error: %s", err)
 	}
@@ -141,7 +182,7 @@ func TestDisplayProvidersJSONVerbose(t *testing.T) {
 func TestDisplayTagsJSON(t *testing.T) {
 	setupTestProviders(t)
 
-	out, err := DisplayTagsJSON(false)
+	out, err := DisplayTagsJSON(false, "")
 	if err != nil {
 		t.Fatalf("DisplayTagsJSON(false) returned error: %s", err)
 	}
@@ -156,7 +197,7 @@ func TestDisplayTagsJSON(t *testing.T) {
 func TestDisplayTagsJSONVerbose(t *testing.T) {
 	setupTestProviders(t)
 
-	out, err := DisplayTagsJSON(true)
+	out, err := DisplayTagsJSON(true, "")
 	if err != nil {
 		t.Fatalf("DisplayTagsJSON(true) returned error: %s", err)
 	}

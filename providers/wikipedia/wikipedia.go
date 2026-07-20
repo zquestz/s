@@ -15,8 +15,8 @@ func init() {
 type Provider struct{}
 
 // BuildURI generates a search URL for Wikipedia.
-func (p *Provider) BuildURI(q string) string {
-	switch providers.Region() {
+func (p *Provider) BuildURI(q string, locale string) string {
+	switch providers.Region(locale) {
 	case "BR":
 		return fmt.Sprintf("https://br.wikipedia.org/wiki/Special:Search?search=%s", url.QueryEscape(q))
 	case "CA":
@@ -39,6 +39,6 @@ func (p *Provider) BuildURI(q string) string {
 }
 
 // Tags returns the tags relevant to this provider.
-func (p *Provider) Tags() []string {
+func (p *Provider) Tags(_ string) []string {
 	return []string{"education"}
 }

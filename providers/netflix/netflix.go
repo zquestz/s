@@ -16,7 +16,7 @@ func init() {
 type Provider struct{}
 
 // BuildURI generates a search URL for Netflix.
-func (p *Provider) BuildURI(q string) string {
+func (p *Provider) BuildURI(q string, _ string) string {
 	return fmt.Sprintf(
 		"http://www.netflix.com/search/%s",
 		strings.Replace(url.QueryEscape(q), "+", "%20", -1),
@@ -24,6 +24,6 @@ func (p *Provider) BuildURI(q string) string {
 }
 
 // Tags returns the tags relevant to this provider.
-func (p *Provider) Tags() []string {
+func (p *Provider) Tags(_ string) []string {
 	return []string{"movies"}
 }

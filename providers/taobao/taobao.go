@@ -15,13 +15,13 @@ func init() {
 type Provider struct{}
 
 // BuildURI generates a search URL for Taobao.
-func (p *Provider) BuildURI(q string) string {
+func (p *Provider) BuildURI(q string, locale string) string {
 	return fmt.Sprintf("https://world.taobao.com/search/search.htm?_input_charset=utf-8&q=%s", url.QueryEscape(q))
 }
 
 // Tags returns the tags relevant to this provider.
-func (p *Provider) Tags() []string {
-	switch providers.Language() {
+func (p *Provider) Tags(locale string) []string {
+	switch providers.Language(locale) {
 	case "zh":
 		return []string{"shopping"}
 	default:

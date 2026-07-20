@@ -23,7 +23,7 @@ func TestBuildURI(t *testing.T) {
 			fmt.Sprintf("https://www.reddit.com/search?q=%s", "%2Fr%2Fcscareerquestions")},
 	}
 	for _, c := range cases {
-		got := p.BuildURI(c.query)
+		got := p.BuildURI(c.query, "")
 		if got != c.want {
 			t.Errorf("BuildURI(%q) == %q, want %q", c.query, got, c.want)
 		}

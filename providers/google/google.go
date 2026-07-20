@@ -15,8 +15,8 @@ func init() {
 type Provider struct{}
 
 // BuildURI generates a search URL for Google.
-func (p *Provider) BuildURI(q string) string {
-	switch providers.Region() {
+func (p *Provider) BuildURI(q string, locale string) string {
+	switch providers.Region(locale) {
 	case "CA":
 		return fmt.Sprintf("https://www.google.ca/search?q=%s", url.QueryEscape(q))
 	case "DE":
@@ -41,6 +41,6 @@ func (p *Provider) BuildURI(q string) string {
 }
 
 // Tags returns the tags relevant to this provider.
-func (p *Provider) Tags() []string {
+func (p *Provider) Tags(_ string) []string {
 	return []string{"search"}
 }
