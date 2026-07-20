@@ -2,9 +2,9 @@ package providers
 
 import "testing"
 
-// setupJSONProviders installs a fixed set of providers
+// setupTestProviders installs a fixed set of providers
 // and restores the original providers after the test.
-func setupJSONProviders(t *testing.T) {
+func setupTestProviders(t *testing.T) {
 	t.Helper()
 
 	orig := Providers
@@ -19,9 +19,78 @@ func setupJSONProviders(t *testing.T) {
 	AddProvider("gamma", &CustomProvider{Name: "gamma", URL: validURL})
 }
 
+// TestExpandProvider checks exact and prefix matching of provider names.
+func TestExpandProvider(t *testing.T) {
+	setupTestProviders(t)
+
+	cases := []struct {
+		input    string
+		expected string
+		valid    bool
+	}{
+		{"alpha", "alpha", true},
+		{"al", "alpha", true},
+		{"b", "beta", true},
+		{"g", "gamma", true},
+		{"zeta", "", false},
+		{"c++", "", false},
+		{"", "", false},
+	}
+
+	for _, c := range cases {
+		name, err := ExpandProvider(c.input)
+		if c.valid {
+			if err != nil {
+				t.Errorf("ExpandProvider(%q) returned error: %s", c.input, err)
+			}
+			if name != c.expected {
+				t.Errorf("ExpandProvider(%q) = %q, want %q", c.input, name, c.expected)
+			}
+		} else {
+			if err == nil {
+				t.Errorf("ExpandProvider(%q) should return an error.", c.input)
+			}
+		}
+	}
+}
+
+// TestExpandTag checks exact and prefix matching of tag names.
+func TestExpandTag(t *testing.T) {
+	setupTestProviders(t)
+
+	cases := []struct {
+		input    string
+		expected string
+		valid    bool
+	}{
+		{"code", "code", true},
+		{"c", "code", true},
+		{"li", "linux", true},
+		{"video", "", false},
+		{"c++", "", false},
+		{"", "", false},
+	}
+
+	for _, c := range cases {
+		name, err := ExpandTag(c.input)
+		if c.valid {
+			if err != nil {
+				t.Errorf("ExpandTag(%q) returned error: %s", c.input, err)
+			}
+			if name != c.expected {
+				t.Errorf("ExpandTag(%q) = %q, want %q", c.input, name, c.expected)
+			}
+		} else {
+			if err == nil {
+				t.Errorf("ExpandTag(%q) should return an error.", c.input)
+			}
+		}
+	}
+}
+
 // TestDisplayProvidersJSON checks the provider list JSON output.
 func TestDisplayProvidersJSON(t *testing.T) {
-	setupJSONProviders(t)
+	setupTestProviders(t)
 
 	out, err := DisplayProvidersJSON(false)
 	if err != nil {
@@ -36,7 +105,7 @@ func TestDisplayProvidersJSON(t *testing.T) {
 
 // TestDisplayProvidersJSONVerbose checks the verbose provider list JSON output.
 func TestDisplayProvidersJSONVerbose(t *testing.T) {
-	setupJSONProviders(t)
+	setupTestProviders(t)
 
 	out, err := DisplayProvidersJSON(true)
 	if err != nil {
@@ -70,7 +139,7 @@ func TestDisplayProvidersJSONVerbose(t *testing.T) {
 
 // TestDisplayTagsJSON checks the tag list JSON output.
 func TestDisplayTagsJSON(t *testing.T) {
-	setupJSONProviders(t)
+	setupTestProviders(t)
 
 	out, err := DisplayTagsJSON(false)
 	if err != nil {
@@ -85,7 +154,7 @@ func TestDisplayTagsJSON(t *testing.T) {
 
 // TestDisplayTagsJSONVerbose checks the verbose tag list JSON output.
 func TestDisplayTagsJSONVerbose(t *testing.T) {
-	setupJSONProviders(t)
+	setupTestProviders(t)
 
 	out, err := DisplayTagsJSON(true)
 	if err != nil {

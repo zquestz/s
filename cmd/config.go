@@ -5,7 +5,6 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/mitchellh/go-homedir"
 	"github.com/zquestz/go-ucl"
 	"github.com/zquestz/s/providers"
 )
@@ -52,7 +51,7 @@ func (c *Config) Load() error {
 }
 
 func (c *Config) loadConfig() ([]byte, error) {
-	h, err := homedir.Dir()
+	h, err := os.UserHomeDir()
 	if err != nil {
 		return nil, err
 	}

@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
-	"regexp"
 	"sort"
 	"strings"
 
@@ -226,7 +225,6 @@ func DisplayTagsJSON(verbose bool) (string, error) {
 // ExpandProvider expands the passed in provider to the full value.
 func ExpandProvider(provider string) (string, error) {
 	names := ProviderNames(false)
-	r := regexp.MustCompile(`^` + provider)
 
 	validProviders := []string{}
 	for _, n := range names {
@@ -235,7 +233,7 @@ func ExpandProvider(provider string) (string, error) {
 			return n, nil
 		}
 
-		if r.Match([]byte(n)) {
+		if strings.HasPrefix(n, provider) {
 			validProviders = append(validProviders, n)
 		}
 	}
@@ -253,7 +251,6 @@ func ExpandProvider(provider string) (string, error) {
 // ExpandTag expands the passed in tag to the full value.
 func ExpandTag(tag string) (string, error) {
 	names := TagNames(false)
-	r := regexp.MustCompile(`^` + tag)
 
 	validTags := []string{}
 	for _, n := range names {
@@ -262,7 +259,7 @@ func ExpandTag(tag string) (string, error) {
 			return n, nil
 		}
 
-		if r.Match([]byte(n)) {
+		if strings.HasPrefix(n, tag) {
 			validTags = append(validTags, n)
 		}
 	}

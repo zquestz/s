@@ -1,5 +1,4 @@
-# Start from a Debian image with the latest version of Go installed
-# and a workspace (GOPATH) configured at /go.
+# Start from an Alpine image with Go installed.
 FROM golang:1.26.5-alpine
 
 LABEL org.opencontainers.image.authors="Josh Ellithorpe <quest@mac.com>"
