@@ -162,6 +162,13 @@ s -b "chromium --incognito" conspiracy theories
 s -b "firefox --private-window" conspiracy theories
 ```
 
+Use a browser with spaces in its path. Quotes are only needed when passing extra flags.
+
+```zsh
+s -b "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" kittens
+s -b '"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --incognito' kittens
+```
+
 Search in a specific subreddit.
 
 ```zsh
