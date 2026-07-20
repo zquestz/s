@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/NYTimes/gziphandler"
+	"github.com/klauspost/compress/gzhttp"
 )
 
 // Run sets up and starts the http server.
@@ -30,8 +30,8 @@ func Run(port int, cert string, key string, provider string, verbose bool) error
 		search(provider, verbose, w, r)
 	})
 
-	http.Handle("/", gziphandler.GzipHandler(indexHandler))
-	http.Handle("/search", gziphandler.GzipHandler(searchHandler))
+	http.Handle("/", gzhttp.GzipHandler(indexHandler))
+	http.Handle("/search", gzhttp.GzipHandler(searchHandler))
 
 	setupFaviconHandlers()
 
