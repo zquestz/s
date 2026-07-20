@@ -1,6 +1,7 @@
 package providers
 
 import (
+	"encoding/json"
 	"fmt"
 	"os"
 	"regexp"
@@ -20,8 +21,8 @@ var (
 	enableBlacklist = false
 	enableWhitelist = false
 	clientLocale    = ""
-	blacklist       = make(map[string]interface{})
-	whitelist       = make(map[string]interface{})
+	blacklist       = make(map[string]any)
+	whitelist       = make(map[string]any)
 )
 
 // Provider interface provides a way to build the URI
@@ -146,6 +147,82 @@ func DisplayTags(verbose bool) string {
 	return fmt.Sprintf("%s\n", strings.Join(names, "\n"))
 }
 
+// providerInfo is the JSON representation of a provider.
+type providerInfo struct {
+	Provider string   `json:"provider"`
+	Tags     []string `json:"tags"`
+}
+
+// tagInfo is the JSON representation of a tag.
+type tagInfo struct {
+	Tag       string   `json:"tag"`
+	Providers []string `json:"providers"`
+}
+
+// DisplayProvidersJSON returns all the loaded providers as JSON.
+func DisplayProvidersJSON(verbose bool) (string, error) {
+	if !verbose {
+		data, err := json.Marshal(ProviderNames(false))
+		if err != nil {
+			return "", err
+		}
+
+		return fmt.Sprintf("%s\n", data), nil
+	}
+
+	infos := []providerInfo{}
+
+	for _, name := range ProviderNames(false) {
+		tags := Providers[name].Tags()
+		if tags == nil {
+			tags = []string{}
+		}
+		sort.Strings(tags)
+
+		infos = append(infos, providerInfo{Provider: name, Tags: tags})
+	}
+
+	data, err := json.MarshalIndent(infos, "", "  ")
+	if err != nil {
+		return "", err
+	}
+
+	return fmt.Sprintf("%s\n", data), nil
+}
+
+// DisplayTagsJSON returns all the available tags as JSON.
+func DisplayTagsJSON(verbose bool) (string, error) {
+	if !verbose {
+		data, err := json.Marshal(TagNames(false))
+		if err != nil {
+			return "", err
+		}
+
+		return fmt.Sprintf("%s\n", data), nil
+	}
+
+	tags := make(map[string][]string)
+
+	for _, name := range ProviderNames(false) {
+		for _, t := range Providers[name].Tags() {
+			tags[t] = append(tags[t], name)
+		}
+	}
+
+	infos := []tagInfo{}
+
+	for _, tag := range TagNames(false) {
+		infos = append(infos, tagInfo{Tag: tag, Providers: tags[tag]})
+	}
+
+	data, err := json.MarshalIndent(infos, "", "  ")
+	if err != nil {
+		return "", err
+	}
+
+	return fmt.Sprintf("%s\n", data), nil
+}
+
 // ExpandProvider expands the passed in provider to the full value.
 func ExpandProvider(provider string) (string, error) {
 	names := ProviderNames(false)
@@ -200,24 +277,34 @@ func ExpandTag(tag string) (string, error) {
 	}
 }
 
+// allowedProvider checks a provider name against
+// both the whitelist and the blacklist.
+func allowedProvider(name string) bool {
+	if enableWhitelist {
+		_, ok := whitelist[name]
+		if !ok {
+			return false
+		}
+	}
+
+	if enableBlacklist {
+		_, ok := blacklist[name]
+		if ok {
+			return false
+		}
+	}
+
+	return true
+}
+
 // ProviderNames returns a sorted slice of provider names
 // applying both the whitelist and then the blacklist.
 func ProviderNames(verbose bool) []string {
 	names := []string{}
 
 	for key, p := range Providers {
-		if enableWhitelist {
-			_, ok := whitelist[key]
-			if !ok {
-				continue
-			}
-		}
-
-		if enableBlacklist {
-			_, ok := blacklist[key]
-			if ok {
-				continue
-			}
+		if !allowedProvider(key) {
+			continue
 		}
 
 		if verbose {
@@ -242,18 +329,8 @@ func TagNames(verbose bool) []string {
 	tags := make(map[string][]string)
 
 	for name, p := range Providers {
-		if enableWhitelist {
-			_, ok := whitelist[name]
-			if !ok {
-				continue
-			}
-		}
-
-		if enableBlacklist {
-			_, ok := blacklist[name]
-			if ok {
-				continue
-			}
+		if !allowedProvider(name) {
+			continue
 		}
 
 		for _, t := range p.Tags() {
@@ -324,7 +401,7 @@ func locale() string {
 		return ""
 	}
 
-	locale := strings.Split(lang, ".")[0]
+	locale, _, _ := strings.Cut(lang, ".")
 
 	return locale
 }

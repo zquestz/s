@@ -17,6 +17,7 @@ type Config struct {
 	Cert            string                      `json:"cert"`
 	CustomProviders []*providers.CustomProvider `json:"customProviders"`
 	DisplayVersion  bool                        `json:"-"`
+	JSON            bool                        `json:"json,string"`
 	Key             string                      `json:"key"`
 	ListProviders   bool                        `json:"-"`
 	ListTags        bool                        `json:"-"`

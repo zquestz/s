@@ -119,11 +119,11 @@ func executeSearch(providerList []providers.Provider, query, locale string) []st
 	return uris
 }
 
-func queryNotFound(w http.ResponseWriter, r *http.Request) {
+func queryNotFound(w http.ResponseWriter, _ *http.Request) {
 	http.Error(w, "A search query is required.", http.StatusBadRequest)
 }
 
-func expandNotValid(err error, w http.ResponseWriter, r *http.Request) {
+func expandNotValid(err error, w http.ResponseWriter, _ *http.Request) {
 	http.Error(w, err.Error(), http.StatusBadRequest)
 }
 

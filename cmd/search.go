@@ -2,7 +2,7 @@ package cmd
 
 import (
 	"fmt"
-	"io/ioutil"
+	"io"
 	"os"
 	"runtime"
 	"strings"
@@ -121,6 +121,8 @@ func prepareFlags() {
 		&config.ListProviders, "list-providers", "l", false, "list supported providers")
 	SearchCmd.PersistentFlags().BoolVarP(
 		&config.ListTags, "list-tags", "", false, "list available tags")
+	SearchCmd.PersistentFlags().BoolVarP(
+		&config.JSON, "json", "j", config.JSON, "json output for --list-providers and --list-tags")
 	SearchCmd.PersistentFlags().StringVarP(
 		&config.Binary, "binary", "b", config.Binary, "binary to launch search URI")
 	SearchCmd.PersistentFlags().BoolVarP(
@@ -174,11 +176,31 @@ func performCommand(cmd *cobra.Command, args []string) error {
 	}
 
 	if config.ListProviders {
+		if config.JSON {
+			out, err := providers.DisplayProvidersJSON(config.Verbose)
+			if err != nil {
+				return err
+			}
+
+			fmt.Print(out)
+			return nil
+		}
+
 		fmt.Print(providers.DisplayProviders(config.Verbose))
 		return nil
 	}
 
 	if config.ListTags {
+		if config.JSON {
+			out, err := providers.DisplayTagsJSON(config.Verbose)
+			if err != nil {
+				return err
+			}
+
+			fmt.Print(out)
+			return nil
+		}
+
 		fmt.Print(providers.DisplayTags(config.Verbose))
 		return nil
 	}
@@ -202,7 +224,7 @@ func performCommand(cmd *cobra.Command, args []string) error {
 		}
 	} else {
 		if st.Mode()&os.ModeNamedPipe != 0 {
-			bytes, err := ioutil.ReadAll(os.Stdin)
+			bytes, err := io.ReadAll(os.Stdin)
 			if err != nil {
 				return fmt.Errorf("failed to read from Stdin: %s", err)
 			}

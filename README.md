@@ -13,6 +13,7 @@ Flags:
   -c, --cert string         path to cert.pem for TLS
       --completion string   completion script for bash, zsh, fish or powershell
   -h, --help                help for s
+  -j, --json                json output for --list-providers and --list-tags
   -k, --key string          path to key.pem for TLS
   -l, --list-providers      list supported providers
       --list-tags           list available tags
@@ -198,6 +199,7 @@ The following keys are supported:
 - binary (binary to launch search URI)
 - cert (path to cert.pem for TLS)
 - customProviders (array of custom providers)
+- json (json output for --list-providers and --list-tags)
 - key (path to key.pem for TLS)
 - output (output only mode)
 - port (server port)
