@@ -111,7 +111,7 @@ func Search(binary string, p string, t string, q string, userProvider bool, outp
 	}
 
 	if !success {
-		return fmt.Errorf("No providers found for tag %q.", t)
+		return fmt.Errorf("no providers found for tag %q", t)
 	}
 
 	return nil
@@ -242,11 +242,11 @@ func ExpandProvider(provider string) (string, error) {
 
 	switch len(validProviders) {
 	case 0:
-		return "", fmt.Errorf("No provider found for %q", provider)
+		return "", fmt.Errorf("no provider found for %q", provider)
 	case 1:
 		return validProviders[0], nil
 	default:
-		return "", fmt.Errorf("Multiple providers matched %q: %v", provider, validProviders)
+		return "", fmt.Errorf("multiple providers matched %q: %v", provider, validProviders)
 	}
 }
 
@@ -269,11 +269,11 @@ func ExpandTag(tag string) (string, error) {
 
 	switch len(validTags) {
 	case 0:
-		return "", fmt.Errorf("No tag found for %q", tag)
+		return "", fmt.Errorf("no tag found for %q", tag)
 	case 1:
 		return validTags[0], nil
 	default:
-		return "", fmt.Errorf("Multiple tags matched %q: %v", tag, validTags)
+		return "", fmt.Errorf("multiple tags matched %q: %v", tag, validTags)
 	}
 }
 

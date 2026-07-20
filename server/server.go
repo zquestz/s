@@ -51,7 +51,7 @@ func Run(port int, cert string, key string, provider string, verbose bool) error
 
 func validatePort(port int) error {
 	if port < 1 || port > 65535 {
-		return fmt.Errorf("Invalid port requested. Valid values are 1-65535.")
+		return fmt.Errorf("invalid port requested, valid values are 1-65535")
 	}
 
 	return nil
