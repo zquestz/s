@@ -16,7 +16,7 @@ type Provider struct{}
 
 // BuildURI generates a search URL for cplusplus.
 func (p *Provider) BuildURI(q string, _ string) string {
-	return fmt.Sprintf("http://www.cplusplus.com/search.do?q=%s", url.QueryEscape(q))
+	return fmt.Sprintf("https://cplusplus.com/search.do?q=%s", url.QueryEscape(q))
 }
 
 // Tags returns the tags relevant to this provider.

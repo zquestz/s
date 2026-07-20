@@ -16,7 +16,7 @@ type Provider struct{}
 
 // BuildURI generates a search URL for RottenTomatoes.
 func (p *Provider) BuildURI(q string, _ string) string {
-	return fmt.Sprintf("http://www.rottentomatoes.com/search/?search=%s", url.QueryEscape(q))
+	return fmt.Sprintf("https://www.rottentomatoes.com/search/?search=%s", url.QueryEscape(q))
 }
 
 // Tags returns the tags relevant to this provider.

@@ -16,7 +16,7 @@ type Provider struct{}
 
 // BuildURI generates a search URL for CodePen.
 func (p *Provider) BuildURI(q string, _ string) string {
-	return fmt.Sprintf("http://codepen.io/search/pens?q=%s", url.QueryEscape(q))
+	return fmt.Sprintf("https://codepen.io/search/pens?q=%s", url.QueryEscape(q))
 }
 
 // Tags returns the tags relevant to this provider.

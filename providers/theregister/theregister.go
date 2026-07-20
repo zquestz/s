@@ -16,7 +16,7 @@ type Provider struct{}
 
 // BuildURI generates a search URL for theregister.
 func (p *Provider) BuildURI(q string, _ string) string {
-	return fmt.Sprintf("http://search.theregister.co.uk/?q=%s", url.QueryEscape(q))
+	return fmt.Sprintf("https://search.theregister.com/?q=%s", url.QueryEscape(q))
 }
 
 // Tags returns the tags relevant to this provider.

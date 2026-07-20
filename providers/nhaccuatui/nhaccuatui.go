@@ -16,7 +16,7 @@ type Provider struct{}
 
 // BuildURI generates a search URL for Nhaccuatui.
 func (p *Provider) BuildURI(q string, _ string) string {
-	return fmt.Sprintf("http://www.nhaccuatui.com/tim-kiem?q=%s", url.QueryEscape(q))
+	return fmt.Sprintf("https://www.nhaccuatui.com/tim-kiem?q=%s", url.QueryEscape(q))
 }
 
 // Tags returns the tags relevant to this provider.
