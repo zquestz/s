@@ -89,7 +89,6 @@ import (
 	_ "github.com/zquestz/s/providers/php"
 	_ "github.com/zquestz/s/providers/pinterest"
 	_ "github.com/zquestz/s/providers/postgresql"
-	_ "github.com/zquestz/s/providers/presearch"
 	_ "github.com/zquestz/s/providers/protondb"
 	_ "github.com/zquestz/s/providers/pydoc"
 	_ "github.com/zquestz/s/providers/pypi"

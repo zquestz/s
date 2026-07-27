@@ -19,7 +19,7 @@ Flags:
       --list-tags           list available tags
   -o, --output              output only mode
       --port int            server port (default 8080)
-  -p, --provider string     search provider (default "presearch")
+  -p, --provider string     search provider (default "brave")
   -s, --server              launch web server
   -t, --tag string          search tag
   -v, --verbose             verbose mode
@@ -48,7 +48,7 @@ yay -S s
 
 ## Examples
 
-Search for puppies on presearch.
+Search for puppies on brave search.
 
 ```zsh
 s puppies
@@ -360,7 +360,6 @@ Custom providers require a few things:
 - overstock
 - packagist
 - perplexity
-- presearch
 - protondb
 - phandroid
 - php
@@ -420,8 +419,8 @@ s is released under the MIT license.
 [License-Image]: https://img.shields.io/npm/l/express.svg
 [Build-Status-URL]: https://github.com/zquestz/s/actions/workflows/ci.yml
 [Build-Status-Image]: https://github.com/zquestz/s/actions/workflows/ci.yml/badge.svg
-[Release-URL]: https://github.com/zquestz/s/releases/tag/v0.8.0
-[Release-Image]: https://img.shields.io/badge/release-v0.8.0-1eb0fc.svg
+[Release-URL]: https://github.com/zquestz/s/releases/tag/v0.8.1
+[Release-Image]: https://img.shields.io/badge/release-v0.8.1-1eb0fc.svg
 [Snap-Build-URL]: https://github.com/zquestz/s/actions/workflows/test-snap-builds.yml
 [Snap-Build-Image]: https://github.com/zquestz/s/actions/workflows/test-snap-builds.yml/badge.svg
 [Snap-Image]: https://snapcraft.io/s-search/badge.svg
