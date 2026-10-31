@@ -1,5 +1,5 @@
 # Start from an Alpine image with Go installed.
-FROM golang:1.26.5-alpine
+FROM golang:1.27.3-alpine
 
 LABEL org.opencontainers.image.authors="Josh Ellithorpe <quest@mac.com>"
 
